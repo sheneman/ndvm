@@ -1,0 +1,10 @@
+# ThreadSanitizer contention-stress log (committed reference)
+# host: n128.fortytwo.ibest.uidaho.edu (sheneman partition)  compiler: g++ (GCC) 12.1.0
+# command: python3 ndvm/tests/test_parallel_stress.py   (slurm job 5178609, 2026-07-03T15:29:25Z)
+# source tree: public sheneman/ndvm v1.0 @ c1d36bb + test_parallel_stress.py (shipped in this release)
+ThreadSanitizer contention stress: 128 threads (2x64 cores), 10 repeats/program, halt_on_error=1
+  scalar_branch: PASS  (10x N=8192 threads=128: races=0 dump-mismatches=0; B=8:ok)
+  newton_loop: PASS  (10x N=8192 threads=128: races=0 dump-mismatches=0; B=8:ok)
+  recursive: PASS  (10x N=8192 threads=128: races=0 dump-mismatches=0; B=8:ok)
+  matrix_ops: PASS  (10x N=4096 threads=128: races=0 dump-mismatches=0; B=8:ok)
+TSAN STRESS PASS

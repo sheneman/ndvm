@@ -84,12 +84,17 @@ measured numbers and are noted as schematic. All script paths exist in this repo
 | `fig:multicore` (multicore scaling) | `ndvm/profiling/multicore.sbatch` (builds `ndvm/tools/ndvm_par.cpp`; result `results/multicore_scaling_n128.txt`, median of 5 sweeps) |
 | `fig:cosearch` (end-to-end co-search) | offline: `ndvm/profiling/cosearch_propose.py` (LLM propose + compile-validate, cached to `results/cosearch_candidates_valid.jsonl`); timed: `ndvm/profiling/cosearch_e2e.py --run` (result `results/cosearch_e2e_n128.json`). One-command smoke test: `bash ndvm/smoke_test.sh` |
 | Second co-search task (recurrence-heavy, Sec. Generality) | offline: `ndvm/profiling/cosearch_rec_propose.py` (deep-iterated-map candidates, cached to `results/cosearch_rec_candidates_valid.jsonl`); timed: `ndvm/profiling/cosearch_rec_e2e.py --run` (result `results/cosearch_rec_e2e_n128.json`); both chained by `ndvm/profiling/cosearch_rec.sbatch` |
+| Per-lane batch amortization, ~60x native / ~21x deployed (Secs. 1, 6) | `ndvm/profiling/perlane_sweep.py` (deployed autograd-boundary path; committed result `results/perlane_n128.json`); the native ~60x is the runtime's raw batch measurement recorded in `ndvm/PHASE3.md` |
+| Timing-variance summary (Sec. 9 methodology paragraph) | `ndvm/profiling/variance.py` (result `results/variance_n128.txt`) |
+| GPU numeric ceiling (Appendix A) | `ndvm/gpu/kalman_poc.cu`: `module load cuda/12.8 && nvcc -O3 -arch=sm_89 -Xcompiler -fopenmp ndvm/gpu/kalman_poc.cu -o /tmp/kalman_poc`, then `NDVM_D=32 NDVM_G=8192 NDVM_T=80 NDVM_CPU_THREADS=64 /tmp/kalman_poc` (needs an RTX 4090-class GPU; run record in `ndvm/PHASE6.md`) |
+| Multicore race-freedom (ThreadSanitizer contention stress, Sec. 6) | `ndvm/tests/test_parallel_stress.py` (builds a TSan `ndvm_par`, oversubscribed 2x-cores burst, 10 repeats; committed log `ndvm/tests/results/tsan_stress_n128.txt`) |
 
 Each measured table above has a committed reference result artifact under `ndvm/profiling/results/`
 (or `ndvm/tests/results/` for the fuzzer): `alloc_counters_n128.txt`,
 `jax_baseline_n128.json`, `staged_baseline_n128.json`, `bytecode_vm_e2e_n128.txt`,
 `cosearch_budget_n128.txt`, `variance_n128.txt`, `multicore_scaling_n128.txt`, `boxed_baseline_n128.txt`, `compiled_kalman_n128.txt`,
 `cosearch_rec_e2e_n128.json` (+ `cosearch_rec_candidates_valid.jsonl`), `cached_staging_n128.json`,
+`perlane_n128.json`, `tsan_stress_n128.txt` (under `ndvm/tests/results/`),
 `fuzz_report.json` + `fuzz_corpus.jsonl` (seed 1234) and `seed7_n500/` (seed 7). These are reference
 n128 runs; allocation counts and gate booleans are bit-reproducible, wall-clock values reproduce within
 run-to-run variance.
@@ -115,16 +120,20 @@ same Python scripts directly. On the original cluster: the login node lacks PyTo
 `.venv` resolves correctly only on a compute node. Run every measurement through `srun` on the
 `sheneman` partition. The pattern for one script:
 
+To create the environment on any machine: `python3.11 -m venv .venv && .venv/bin/pip install torch numpy pytest`
+(optionally `jax jaxlib sympy` for the staged baselines; see `requirements.txt`). Unit and differential
+tests run with `.venv/bin/python -m pytest ndvm/tests` (point pytest at `ndvm/tests` explicitly).
+
 ```
 module load gcc/12.1.0
 srun --partition=sheneman --time=20:00 --cpus-per-task=4 --mem=12G \
-     .venv/bin/python ndvm/profiling/profile_dmci_baseline.py --iters 50 --batches 1 8 64 256 --decompose
+     .venv/bin/python ndvm/profiling/profile_dmci_baseline.py --iters 30 --batches 1 8 64 256 1024 --decompose
 ```
 
 The other scripts follow the same `srun ... .venv/bin/python <script> [args]` form:
 
 - `ndvm/profiling/alloc_counters.py`
-- `ndvm/profiling/residual_e2e.py` (program names as positional args, e.g. `kalman2d_T80`, `slow`; rep count via `NDVM_REPS`, default 15)
+- `ndvm/profiling/residual_e2e.py` (program names as positional args, e.g. `kalman2d_T80`, `logistic_map_loop`; rep count via `NDVM_REPS`, default 15)
 - `ndvm/profiling/jax_baseline.py --iters 50 --batch 256`
 - `ndvm/profiling/staged_baseline.py --iters 30 --curve-max 2000`
 - `ndvm/tests/run_fuzz.py --n 200 --seed 1234` (and `--n 500 --seed 7`)

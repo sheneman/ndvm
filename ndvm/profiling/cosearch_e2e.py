@@ -178,7 +178,9 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--validate", action="store_true")
     ap.add_argument("--run", action="store_true")
-    ap.add_argument("--infile", default=str(RES / "cosearch_candidates_raw.jsonl"))
+    ap.add_argument("--infile", default=str(RES / "cosearch_candidates_valid.jsonl"),
+                    help="candidate stream; --run replays the committed validated cache (default). "
+                         "--validate expects the raw propose output: pass --infile results/cosearch_candidates_raw.jsonl")
     ap.add_argument("--out", default=str(RES / "cosearch_candidates_valid.jsonl"))
     ap.add_argument("--budget", type=float, default=600.0, help="wall-clock seconds per backend")
     ap.add_argument("--iters", type=int, default=50, help="Adam steps per calibration")

@@ -1,0 +1,15 @@
+# NDVM build + artifacts
+build/
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+compile_commands.json
+.cache/
+# Python
+__pycache__/
+*.pyc
+# profiling outputs
+profiling/results/
+*.prof

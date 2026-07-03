@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "neural_compiler"
+version = "0.1.0"
+description = "A compiler from a self-hosting Scheme subset to differentiable PyTorch computation graphs (Differentiable Meta-Circular Interpretation)"
+requires-python = ">=3.11"  # tested on 3.11.10 (HPC module)
+dependencies = [
+    "torch>=2.0",
+    "numpy>=1.24",
+    "scipy>=1.10",
+    "pytest>=7.0",
+]
+
+[project.scripts]
+nncompile = "neural_compiler.cli:main"
+
+# The repo is a flat layout with several top-level dirs (experiments/, paper/, bootstrap/, ...)
+# that are NOT part of the distributed package; only neural_compiler is installed. Experiments
+# run from the repo root via the working directory, not from the installed package.
+[tool.setuptools.packages.find]
+include = ["neural_compiler*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

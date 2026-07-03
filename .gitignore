@@ -1,0 +1,27 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.pytest_cache/
+.venv/
+venv/
+.env
+*.so
+.mypy_cache/
+.coverage
+htmlcov/
+.claude/
+
+# NDVM native build tree (rebuild with cmake; see README)
+ndvm/build/
+
+# Editor swap files and backups
+*.swp
+*~
+*.bak
+*.bak_*
+.DS_Store

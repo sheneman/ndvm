@@ -1,0 +1,28 @@
+/mnt/ceph/sheneman/src/nncompile-ndvm/ndvm/tests/run_fuzz.py:74: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  val = float(y)
+==============================================================================
+NDVM differential fuzz  host=n128.fortytwo.ibest.uidaho.edu torch=2.12.0+cu130 seed=7 N=500
+==============================================================================
+feature family            #prog    G1 fwd   G2 grad     G3 fd
+--------------------------------------------------------------
+literal                     424   100.0%   100.0%   100.0%
+param                       500   100.0%   100.0%   100.0%
+binop                       500   100.0%   100.0%   100.0%
+unary_transcendental        321   100.0%   100.0%   100.0%
+unary_other                 123   100.0%   100.0%   100.0%
+div_guarded                 205   100.0%   100.0%   100.0%
+let                         185   100.0%   100.0%   100.0%
+let_star                    166   100.0%   100.0%   100.0%
+if_compare                  228   100.0%   100.0%   100.0%
+loop_recur                  157   100.0%   100.0%   100.0%
+--------------------------------------------------------------
+TOTAL (evaluated)           500   100.0%   100.0%   100.0%
+
+gate pass counts: G1=500/500  G2=500/500  G3=500/500
+class counts: {'pass': 500}
+
+failing programs (not full-pass): 0  | real-bug candidates: 0
+
+wrote /mnt/ceph/sheneman/src/nncompile-ndvm/ndvm/tests/results/seed7_n500/fuzz_report.json
+wrote /mnt/ceph/sheneman/src/nncompile-ndvm/ndvm/tests/results/seed7_n500/fuzz_corpus.jsonl

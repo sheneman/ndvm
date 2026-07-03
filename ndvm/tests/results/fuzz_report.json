@@ -1,0 +1,7237 @@
+{
+  "host": "n128.fortytwo.ibest.uidaho.edu",
+  "torch": "2.12.0+cu130",
+  "seed": 1234,
+  "n": 200,
+  "tolerances": {
+    "g1": [
+      0.0001,
+      0.0001
+    ],
+    "g2": [
+      0.002,
+      0.002
+    ],
+    "g3": [
+      0.01,
+      0.05
+    ],
+    "fd_eps": 0.001
+  },
+  "summary": {
+    "n_eval": 200,
+    "g1_pass": 200,
+    "g2_pass": 200,
+    "g3_pass": 200
+  },
+  "class_counts": {
+    "pass": 200
+  },
+  "feature_coverage": {
+    "literal": {
+      "n": 173,
+      "g1": 173,
+      "g2": 173,
+      "g3": 173
+    },
+    "param": {
+      "n": 200,
+      "g1": 200,
+      "g2": 200,
+      "g3": 200
+    },
+    "binop": {
+      "n": 200,
+      "g1": 200,
+      "g2": 200,
+      "g3": 200
+    },
+    "unary_transcendental": {
+      "n": 137,
+      "g1": 137,
+      "g2": 137,
+      "g3": 137
+    },
+    "unary_other": {
+      "n": 60,
+      "g1": 60,
+      "g2": 60,
+      "g3": 60
+    },
+    "div_guarded": {
+      "n": 98,
+      "g1": 98,
+      "g2": 98,
+      "g3": 98
+    },
+    "let": {
+      "n": 81,
+      "g1": 81,
+      "g2": 81,
+      "g3": 81
+    },
+    "let_star": {
+      "n": 75,
+      "g1": 75,
+      "g2": 75,
+      "g3": 75
+    },
+    "if_compare": {
+      "n": 98,
+      "g1": 98,
+      "g2": 98,
+      "g3": 98
+    },
+    "loop_recur": {
+      "n": 57,
+      "g1": 57,
+      "g2": 57,
+      "g3": 57
+    }
+  },
+  "records": [
+    {
+      "id": 0,
+      "src": "(+ (loop ((x -1.205) (k 0)) (if (= k 11) x (recur (* 0.5 (+ x 2.0)) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.8026
+      },
+      "features": [
+        "binop",
+        "literal",
+        "loop_recur",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.801034927368164,
+      "fwd_ndvm": 2.801034927368164,
+      "grad_oracle": {
+        "p0": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504
+      },
+      "class": "pass"
+    },
+    {
+      "id": 1,
+      "src": "(+ (let ((u1 p1)) 2.0) p0)",
+      "params": {
+        "p0": 0.282,
+        "p1": 0.5932
+      },
+      "features": [
+        "binop",
+        "let",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.2820000648498535,
+      "fwd_ndvm": 2.2820000648498535,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 2,
+      "src": "(+ (loop ((x (+ (if (= p0 0.472) 0.925 p1) (let ((u1 -0.138)) u1))) (k 0)) (if (= k 5) x (recur (* 0.5 (+ x (let* ((u2 (let ((u3 (/ p1 (+ 1.0 (* 2.0 2.0)))) (u4 (let ((u5 p1) (u6 x)) 1.0))) (exp (* 0.1 p0)))) (u7 (exp (* 0.1 (if (> 0.5 p0) p2 2.0))))) (+ (cos u2) (* 0.5 p1))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.2784,
+        "p1": 0.6582,
+        "p2": 0.399
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.113670825958252,
+      "fwd_ndvm": 1.113670825958252,
+      "grad_oracle": {
+        "p0": 0.9146953821182251,
+        "p1": 0.515625,
+        "p2": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 0.9146953821182251,
+        "p1": 0.515625,
+        "p2": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9146928787231445,
+        "p1": 0.5156397819519043,
+        "p2": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 3,
+      "src": "(+ 1.276 p0)",
+      "params": {
+        "p0": 1.1279
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.403900146484375,
+      "fwd_ndvm": 2.403900146484375,
+      "grad_oracle": {
+        "p0": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504
+      },
+      "class": "pass"
+    },
+    {
+      "id": 4,
+      "src": "(+ p0 p0)",
+      "params": {
+        "p0": 1.3902
+      },
+      "features": [
+        "binop",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.780400037765503,
+      "fwd_ndvm": 2.780400037765503,
+      "grad_oracle": {
+        "p0": 2.0
+      },
+      "grad_ndvm": {
+        "p0": 2.0
+      },
+      "grad_fd": {
+        "p0": 1.999974250793457
+      },
+      "class": "pass"
+    },
+    {
+      "id": 5,
+      "src": "(+ (/ (if (> (exp (* 0.1 (- (let* ((u1 p1) (u2 0.5)) u2) 1.21))) (+ p1 (let ((u3 (/ p1 (+ 1.0 (* 2.0 2.0))))) (/ 0.904 (+ 1.0 (* p1 p1)))))) p1 (if (> (* (exp (* 0.1 0.027)) (log (+ 1.0 (* p1 p1)))) (if (<= (+ -0.729 p0) (if (< 2.0 1.0) 2.0 p0)) (exp (* 0.1 0.821)) (if (>= 1.434 0.5) 2.0 0.331))) (* (let ((u4 0.496)) p1) (sin p0)) (let* ((u5 0.452) (u6 (let ((u7 -0.255) (u8 u5)) u7))) (sin 1.0)))) (+ 1.0 (* (/ (let* ((u9 (if (>= (if (= p0 2.0) p1 p1) (abs p0)) (if (>= 0.777 p1) p1 1.0) (abs 1.284)))) u9) (+ 1.0 (* (let* ((u10 (* (exp (* 0.1 p0)) (abs 0.5)))) (if (= (sqrt (+ 1.0 (* u10 u10))) p1) -0.552 (let* ((u11 p1) (u12 0.5)) p1))) (let* ((u10 (* (exp (* 0.1 p0)) (abs 0.5)))) (if (= (sqrt (+ 1.0 (* u10 u10))) p1) -0.552 (let* ((u11 p1) (u12 0.5)) p1)))))) (/ (let* ((u9 (if (>= (if (= p0 2.0) p1 p1) (abs p0)) (if (>= 0.777 p1) p1 1.0) (abs 1.284)))) u9) (+ 1.0 (* (let* ((u10 (* (exp (* 0.1 p0)) (abs 0.5)))) (if (= (sqrt (+ 1.0 (* u10 u10))) p1) -0.552 (let* ((u11 p1) (u12 0.5)) p1))) (let* ((u10 (* (exp (* 0.1 p0)) (abs 0.5)))) (if (= (sqrt (+ 1.0 (* u10 u10))) p1) -0.552 (let* ((u11 p1) (u12 0.5)) p1))))))))) p0)",
+      "params": {
+        "p0": 1.3828,
+        "p1": 1.115
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.0166139602661133,
+      "fwd_ndvm": 2.0166139602661133,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.3109790086746216
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.3109789788722992
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.3108978271484375
+      },
+      "class": "pass"
+    },
+    {
+      "id": 6,
+      "src": "(+ (loop ((x (log (+ 1.0 (* p2 p2)))) (k 0)) (if (= k 5) x (recur (* 0.5 (+ x (sqrt (+ 1.0 (* (/ p1 (+ 1.0 (* 0.405 0.405))) (/ p1 (+ 1.0 (* 0.405 0.405)))))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.9492,
+        "p1": 0.9087,
+        "p2": 1.4768
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.214346170425415,
+      "fwd_ndvm": 2.214346170425415,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.5121214985847473,
+        "p2": 0.02901659533381462
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.5121214985847473,
+        "p2": 0.02901659533381462
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.512242317199707,
+        "p2": 0.029087066650390625
+      },
+      "class": "pass"
+    },
+    {
+      "id": 7,
+      "src": "(+ (/ (let ((u1 p3)) (sqrt (+ 1.0 (* p1 p1)))) (+ 1.0 (* (log (+ 1.0 (* (/ 0.547 (+ 1.0 (* 0.5 0.5))) (/ 0.547 (+ 1.0 (* 0.5 0.5)))))) (log (+ 1.0 (* (/ 0.547 (+ 1.0 (* 0.5 0.5))) (/ 0.547 (+ 1.0 (* 0.5 0.5))))))))) p0)",
+      "params": {
+        "p0": 0.7567,
+        "p1": 0.8858,
+        "p3": 1.4034
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "let",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.052816867828369,
+      "fwd_ndvm": 2.052816867828369,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.6433225870132446,
+        "p3": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.6433225870132446,
+        "p3": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p1": 0.6433725357055664,
+        "p3": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 8,
+      "src": "(+ (- (/ (let* ((u1 -0.809) (u2 (- (let ((u3 u1) (u4 p0)) p1) (log (+ 1.0 (* 2.0 2.0)))))) 0.95) (+ 1.0 (* (/ (- (let ((u5 p0) (u6 p0)) 1.313) (- p1 p1)) (+ 1.0 (* p0 p0))) (/ (- (let ((u5 p0) (u6 p0)) 1.313) (- p1 p1)) (+ 1.0 (* p0 p0)))))) (if (> (let ((u7 (let ((u8 1.0)) (sin 1.0)))) (if (< (let* ((u9 1.0)) p1) (sin 2.0)) (- 2.0 u7) (* 1.108 1.0))) (if (>= 0.5 2.0) (+ (* -1.124 2.0) (+ p1 2.0)) (sin (let* ((u10 2.0)) -0.569)))) (abs (* (sin p0) (if (> p0 p1) 0.5 0.792))) -0.442)) p0)",
+      "params": {
+        "p0": 0.2406,
+        "p1": 0.3737
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.42582637071609497,
+      "fwd_ndvm": 0.42582637071609497,
+      "grad_oracle": {
+        "p0": 0.4370972514152527,
+        "p1": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 0.4370972514152527,
+        "p1": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.43711066246032715,
+        "p1": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 9,
+      "src": "(+ (loop ((x (sin 0.181)) (k 0)) (if (= k 6) x (recur (* 0.5 (+ x (/ (sin x) (+ 1.0 (* (log (+ 1.0 (* p2 p2))) (log (+ 1.0 (* p2 p2)))))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.7623,
+        "p2": 0.8494
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.8487055897712708,
+      "fwd_ndvm": 0.8487056493759155,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": -0.18572504818439484
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": -0.1857251077890396
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p2": -0.1857280731201172
+      },
+      "class": "pass"
+    },
+    {
+      "id": 10,
+      "src": "(+ (/ (* (* 1.0 (cos (- 0.243 p1))) (let ((u1 (- (cos p1) (abs 2.0)))) (if (<= (/ 2.0 (+ 1.0 (* u1 u1))) 0.5) (exp (* 0.1 2.0)) (- p0 u1)))) (+ 1.0 (* (* (/ (if (= (cos 0.5) (* p0 p1)) (if (= p1 2.0) 1.0 p1) (/ 2.0 (+ 1.0 (* 0.325 0.325)))) (+ 1.0 (* (if (= p0 p0) (if (= p0 p1) p1 0.5) (* p1 2.0)) (if (= p0 p0) (if (= p0 p1) p1 0.5) (* p1 2.0))))) (* (- (+ p1 -0.514) (* 1.0 p1)) (+ (/ 2.0 (+ 1.0 (* 0.852 0.852))) (* -0.032 0.897)))) (* (/ (if (= (cos 0.5) (* p0 p1)) (if (= p1 2.0) 1.0 p1) (/ 2.0 (+ 1.0 (* 0.325 0.325)))) (+ 1.0 (* (if (= p0 p0) (if (= p0 p1) p1 0.5) (* p1 2.0)) (if (= p0 p0) (if (= p0 p1) p1 0.5) (* p1 2.0))))) (* (- (+ p1 -0.514) (* 1.0 p1)) (+ (/ 2.0 (+ 1.0 (* 0.852 0.852))) (* -0.032 0.897))))))) p0)",
+      "params": {
+        "p0": 1.324,
+        "p1": 1.248
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.26849365234375,
+      "fwd_ndvm": 2.26849365234375,
+      "grad_oracle": {
+        "p0": 1.3141212463378906,
+        "p1": -1.1893680095672607
+      },
+      "grad_ndvm": {
+        "p0": 1.3141212463378906,
+        "p1": -1.1893680095672607
+      },
+      "grad_fd": {
+        "p0": 1.3141632080078125,
+        "p1": -1.1893510818481445
+      },
+      "class": "pass"
+    },
+    {
+      "id": 11,
+      "src": "(+ (loop ((x (let* ((u1 (abs 1.0)) (u2 (+ (* 1.0 p0) (* u1 -0.278)))) (- (if (= u1 p1) -1.422 p0) 0.5))) (k 0)) (if (= k 10) x (recur (* 0.5 (+ x (let ((u3 (abs (exp (* 0.1 0.777))))) (/ (* (let ((u4 1.495) (u5 0.5)) u3) (if (= p1 p1) p0 x)) (+ 1.0 (* (if (= (- u3 1.0) (cos 0.906)) (let ((u6 p1) (u7 p0)) u6) p0) (if (= (- u3 1.0) (cos 0.906)) (let ((u6 p1) (u7 p0)) u6) p0))))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.5784,
+        "p1": 1.2003
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.046443223953247,
+      "fwd_ndvm": 1.046443223953247,
+      "grad_oracle": {
+        "p0": 1.4044088125228882,
+        "p1": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.4044088125228882,
+        "p1": 0.0
+      },
+      "grad_fd": {
+        "p0": 1.4043450355529785,
+        "p1": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 12,
+      "src": "(+ (+ (+ p3 p2) (/ 1.0 (+ 1.0 (* 0.5 0.5)))) p0)",
+      "params": {
+        "p0": 1.0962,
+        "p2": 0.8901,
+        "p3": 0.6221
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 3.408400058746338,
+      "fwd_ndvm": 3.408400058746338,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 1.0,
+        "p3": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 1.0,
+        "p3": 1.0
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p2": 1.000046730041504,
+        "p3": 1.000046730041504
+      },
+      "class": "pass"
+    },
+    {
+      "id": 13,
+      "src": "(+ (sin (+ 2.0 (exp (* 0.1 p0)))) p0)",
+      "params": {
+        "p0": 1.252
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.260217308998108,
+      "fwd_ndvm": 1.260217308998108,
+      "grad_oracle": {
+        "p0": 0.8866662979125977
+      },
+      "grad_ndvm": {
+        "p0": 0.8866662979125977
+      },
+      "grad_fd": {
+        "p0": 0.8866786956787109
+      },
+      "class": "pass"
+    },
+    {
+      "id": 14,
+      "src": "(+ (loop ((x (sin -0.671)) (k 0)) (if (= k 3) x (recur (* 0.5 (+ x (exp (* 0.1 (/ 0.5 (+ 1.0 (* p0 p0))))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.38
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.216355800628662,
+      "fwd_ndvm": 1.216355800628662,
+      "grad_oracle": {
+        "p0": 0.9734777212142944
+      },
+      "grad_ndvm": {
+        "p0": 0.9734777212142944
+      },
+      "grad_fd": {
+        "p0": 0.9735226631164551
+      },
+      "class": "pass"
+    },
+    {
+      "id": 15,
+      "src": "(+ (+ (* (sqrt (+ 1.0 (* (exp (* 0.1 p2)) (exp (* 0.1 p2))))) (sin (/ p0 (+ 1.0 (* 0.532 0.532))))) (sqrt (+ 1.0 (* (if (>= (/ p1 (+ 1.0 (* p1 p1))) (+ 0.5 2.0)) 1.0 (/ p0 (+ 1.0 (* 0.344 0.344)))) (if (>= (/ p1 (+ 1.0 (* p1 p1))) (+ 0.5 2.0)) 1.0 (/ p0 (+ 1.0 (* 0.344 0.344)))))))) p0)",
+      "params": {
+        "p0": 0.7807,
+        "p1": 0.8726,
+        "p2": 0.3804
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.824481725692749,
+      "fwd_ndvm": 2.824481725692749,
+      "grad_oracle": {
+        "p0": 2.433955192565918,
+        "p1": 0.0,
+        "p2": 0.04277791082859039
+      },
+      "grad_ndvm": {
+        "p0": 2.433955192565918,
+        "p1": 0.0,
+        "p2": 0.04277791082859039
+      },
+      "grad_fd": {
+        "p0": 2.433896064758301,
+        "p1": 0.0,
+        "p2": 0.04279613494873047
+      },
+      "class": "pass"
+    },
+    {
+      "id": 16,
+      "src": "(+ (- (sin p2) 1.462) p0)",
+      "params": {
+        "p0": 1.2205,
+        "p2": 0.3053
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.05907928943634033,
+      "fwd_ndvm": 0.05907928943634033,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 0.9537568092346191
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 0.9537568092346191
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p2": 0.9537339210510254
+      },
+      "class": "pass"
+    },
+    {
+      "id": 17,
+      "src": "(+ (* (- p0 (sin (sin (/ p1 (+ 1.0 (* 2.0 2.0)))))) 2.0) p0)",
+      "params": {
+        "p0": 0.4317,
+        "p1": 0.9275
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.928311824798584,
+      "fwd_ndvm": 0.928311824798584,
+      "grad_oracle": {
+        "p0": 3.0,
+        "p1": -0.38646987080574036
+      },
+      "grad_ndvm": {
+        "p0": 3.0,
+        "p1": -0.38646987080574036
+      },
+      "grad_fd": {
+        "p0": 2.9999911785125732,
+        "p1": -0.3864765167236328
+      },
+      "class": "pass"
+    },
+    {
+      "id": 18,
+      "src": "(+ (loop ((x (sqrt (+ 1.0 (* (- (let ((u1 p1)) 0.484) (/ p0 (+ 1.0 (* p1 p1)))) (- (let ((u1 p1)) 0.484) (/ p0 (+ 1.0 (* p1 p1)))))))) (k 0)) (if (= k 6) x (recur (* 0.5 (+ x (* (let* ((u2 (log (+ 1.0 (* (log (+ 1.0 (* x x))) (log (+ 1.0 (* x x)))))))) (if (>= 1.032 (* 1.067 2.0)) (- p0 p2) (exp (* 0.1 u2)))) (- (if (= (* p1 p1) (exp (* 0.1 p1))) (if (>= p0 1.0) p0 p1) (exp (* 0.1 -0.226))) p2)))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.7383,
+        "p1": 1.1102,
+        "p2": 1.4274
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.31038516759872437,
+      "fwd_ndvm": 0.31038516759872437,
+      "grad_oracle": {
+        "p0": 0.9989696741104126,
+        "p1": 0.000756522233132273,
+        "p2": -0.993066132068634
+      },
+      "grad_ndvm": {
+        "p0": 0.9989696741104126,
+        "p1": 0.000756522233132273,
+        "p2": -0.993066132068634
+      },
+      "grad_fd": {
+        "p0": 0.9990036487579346,
+        "p1": 0.0007599592208862305,
+        "p2": -0.9931027889251709
+      },
+      "class": "pass"
+    },
+    {
+      "id": 19,
+      "src": "(+ (if (<= (* (+ (let ((u1 p2) (u2 1.0)) 0.42) (let ((u3 p0) (u4 p2)) u4)) (/ (log (+ 1.0 (* p3 p3))) (+ 1.0 (* (sqrt (+ 1.0 (* 2.0 2.0))) (sqrt (+ 1.0 (* 2.0 2.0))))))) p0) (cos p3) (if (< (+ (if (< 1.0 2.0) 1.0 p2) 1.143) (- p3 (* p3 p3))) (* (* p3 2.0) (if (> 2.0 p3) p2 1.312)) (abs 0.5))) p0)",
+      "params": {
+        "p0": 0.9644,
+        "p2": 1.1051,
+        "p3": 0.5424
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.8208723068237305,
+      "fwd_ndvm": 1.8208723068237305,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 0.0,
+        "p3": -0.5161930322647095
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 0.0,
+        "p3": -0.5161930322647095
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p2": 0.0,
+        "p3": -0.5161762237548828
+      },
+      "class": "pass"
+    },
+    {
+      "id": 20,
+      "src": "(+ (log (+ 1.0 (* (let ((u1 (+ 1.245 2.0))) (sqrt (+ 1.0 (* (- 1.0 u1) (- 1.0 u1))))) (let ((u1 (+ 1.245 2.0))) (sqrt (+ 1.0 (* (- 1.0 u1) (- 1.0 u1)))))))) p0)",
+      "params": {
+        "p0": 0.9162
+      },
+      "features": [
+        "binop",
+        "let",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.867811679840088,
+      "fwd_ndvm": 2.867811679840088,
+      "grad_oracle": {
+        "p0": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531
+      },
+      "class": "pass"
+    },
+    {
+      "id": 21,
+      "src": "(+ (cos (if (<= (- (* (- p0 -0.624) (abs 1.076)) (- (sin p0) (/ p0 (+ 1.0 (* p0 p0))))) (let ((u1 (* (/ p0 (+ 1.0 (* 0.5 0.5))) (* 1.0 1.384))) (u2 (sin p1))) (/ (let ((u3 -0.709) (u4 -1.345)) 1.0) (+ 1.0 (* (+ u2 p0) (+ u2 p0)))))) (let ((u5 2.0)) (if (< 2.0 (let ((u6 -0.088) (u7 p1)) -0.678)) (abs 1.0) (if (> u5 u5) u5 u5))) (sin p0))) p0)",
+      "params": {
+        "p0": 0.3624,
+        "p1": 0.5761
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.3002134561538696,
+      "fwd_ndvm": 1.3002134561538696,
+      "grad_oracle": {
+        "p0": 0.6754075288772583,
+        "p1": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 0.6754075288772583,
+        "p1": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.6754398345947266,
+        "p1": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 22,
+      "src": "(+ (loop ((x (if (= 0.5 (if (<= p0 1.0) 1.0 p1)) (/ p1 (+ 1.0 (* 2.0 2.0))) (if (< 2.0 p1) p0 p1))) (k 0)) (if (= k 9) x (recur (* 0.5 (+ x (- (+ (let ((u1 1.429) (u2 p1)) u1) (let ((u3 1.0)) p1)) (- (- x 0.5) (if (>= 0.33 2.0) 1.0 1.0))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.4673,
+        "p1": 0.3355
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "literal",
+        "loop_recur",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 3.099550247192383,
+      "fwd_ndvm": 3.099550247192383,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.5
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.5
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.49996376037597656
+      },
+      "class": "pass"
+    },
+    {
+      "id": 23,
+      "src": "(+ p0 p0)",
+      "params": {
+        "p0": 0.2153
+      },
+      "features": [
+        "binop",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.43059998750686646,
+      "fwd_ndvm": 0.43059998750686646,
+      "grad_oracle": {
+        "p0": 2.0
+      },
+      "grad_ndvm": {
+        "p0": 2.0
+      },
+      "grad_fd": {
+        "p0": 1.9999891519546509
+      },
+      "class": "pass"
+    },
+    {
+      "id": 24,
+      "src": "(+ (loop ((x 1.0) (k 0)) (if (= k 3) x (recur (* 0.5 (+ x (let* ((u1 (log (+ 1.0 (* (abs (let ((u2 x)) x)) (abs (let ((u2 x)) x))))))) (sqrt (+ 1.0 (* (cos 2.0) (cos 2.0))))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.1633
+      },
+      "features": [
+        "binop",
+        "let",
+        "let_star",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.236041784286499,
+      "fwd_ndvm": 2.236041784286499,
+      "grad_oracle": {
+        "p0": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504
+      },
+      "class": "pass"
+    },
+    {
+      "id": 25,
+      "src": "(+ (- (let* ((u1 1.0)) (sin (/ 0.5 (+ 1.0 (* p2 p2))))) (* (exp (* 0.1 -0.887)) p2)) p0)",
+      "params": {
+        "p0": 0.974,
+        "p2": 1.4888
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "let_star",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": -0.23360884189605713,
+      "fwd_ndvm": -0.23360884189605713,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": -1.0572855472564697
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": -1.0572855472564697
+      },
+      "grad_fd": {
+        "p0": 1.0000169277191162,
+        "p2": -1.057267189025879
+      },
+      "class": "pass"
+    },
+    {
+      "id": 26,
+      "src": "(+ (- (- p0 (abs (if (>= p1 (- 1.0 0.768)) (- 2.0 p3) p3))) (abs (if (>= (abs p0) (let* ((u1 (* p2 p1)) (u2 (if (>= p2 p2) p0 1.0))) (exp (* 0.1 0.268)))) 1.0 (if (<= (+ 0.236 0.465) p0) (/ p3 (+ 1.0 (* 2.0 2.0))) p2)))) p0)",
+      "params": {
+        "p0": 0.5747,
+        "p1": 0.3231,
+        "p2": 0.2382,
+        "p3": 0.2544
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": -0.834399938583374,
+      "fwd_ndvm": -0.834399938583374,
+      "grad_oracle": {
+        "p0": 2.0,
+        "p1": 0.0,
+        "p2": -1.0,
+        "p3": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 2.0,
+        "p1": 0.0,
+        "p2": -1.0,
+        "p3": 1.0
+      },
+      "grad_fd": {
+        "p0": 2.0000338554382324,
+        "p1": 0.0,
+        "p2": -0.9999871253967285,
+        "p3": 0.9999871253967285
+      },
+      "class": "pass"
+    },
+    {
+      "id": 27,
+      "src": "(+ (+ (* (let* ((u1 -1.214)) p0) (if (> 0.5 1.0) 0.5 -0.503)) (if (>= p3 p2) (/ p0 (+ 1.0 (* 1.0 1.0))) (sqrt (+ 1.0 (* p1 p1))))) p0)",
+      "params": {
+        "p0": 1.3769,
+        "p1": 0.7301,
+        "p2": 0.6682,
+        "p3": 0.8697
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let_star",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.3727692365646362,
+      "fwd_ndvm": 1.3727692365646362,
+      "grad_oracle": {
+        "p0": 0.996999979019165,
+        "p1": 0.0,
+        "p2": 0.0,
+        "p3": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 0.996999979019165,
+        "p1": 0.0,
+        "p2": 0.0,
+        "p3": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.997006893157959,
+        "p1": 0.0,
+        "p2": 0.0,
+        "p3": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 28,
+      "src": "(+ (* p2 (- 0.5 0.5)) p0)",
+      "params": {
+        "p0": 1.1189,
+        "p2": 0.7805
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.118899941444397,
+      "fwd_ndvm": 1.118899941444397,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p2": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 29,
+      "src": "(+ 0.5 p0)",
+      "params": {
+        "p0": 1.3622
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.8622000217437744,
+      "fwd_ndvm": 1.8622000217437744,
+      "grad_oracle": {
+        "p0": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285
+      },
+      "class": "pass"
+    },
+    {
+      "id": 30,
+      "src": "(+ (loop ((x (/ p2 (+ 1.0 (* p2 p2)))) (k 0)) (if (= k 12) x (recur (* 0.5 (+ x (let* ((u1 (/ x (+ 1.0 (* p3 p3)))) (u2 (exp (* 0.1 p1)))) (/ 2.0 (+ 1.0 (* p3 p3)))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.3205,
+        "p1": 1.1562,
+        "p2": 0.7875,
+        "p3": 0.2793
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "let_star",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 3.175438404083252,
+      "fwd_ndvm": 3.175438404083252,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 3.532897972036153e-05,
+        "p3": -0.961126446723938
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 3.532897972036153e-05,
+        "p3": -0.961126446723938
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p1": 0.0,
+        "p2": 0.0002384185791015625,
+        "p3": -0.9613037109375
+      },
+      "class": "pass"
+    },
+    {
+      "id": 31,
+      "src": "(+ (+ (if (< p2 (if (< (/ (if (>= p1 0.177) p2 1.234) (+ 1.0 (* (- 1.0 p0) (- 1.0 p0)))) (if (<= (cos p0) (- 0.5 p0)) (if (< 1.0 p1) 1.279 2.0) (log (+ 1.0 (* 2.0 2.0))))) (log (+ 1.0 (* (* 2.0 p0) (* 2.0 p0)))) (let* ((u1 (* p0 -0.269))) (+ p2 p2)))) (+ (if (>= (- 0.5 p1) p1) (abs 1.0) (/ -1.255 (+ 1.0 (* p1 p1)))) (log (+ 1.0 (* (sqrt (+ 1.0 (* 1.0 1.0))) (sqrt (+ 1.0 (* 1.0 1.0))))))) (/ (/ p2 (+ 1.0 (* (if (= p1 p2) 1.0 0.41) (if (= p1 p2) 1.0 0.41)))) (+ 1.0 (* (let ((u2 (+ p2 0.994))) (log (+ 1.0 (* 0.5 0.5)))) (let ((u2 (+ p2 0.994))) (log (+ 1.0 (* 0.5 0.5)))))))) (log (+ 1.0 (* (+ (+ (cos p0) (abs 1.0)) (if (> (* 0.5 p2) (abs p1)) (if (> 0.5 0.871) p1 p0) (sin p2))) (+ (+ (cos p0) (abs 1.0)) (if (> (* 0.5 p2) (abs p1)) (if (> 0.5 0.871) p1 p0) (sin p2))))))) p0)",
+      "params": {
+        "p0": 0.8146,
+        "p1": 1.1824,
+        "p2": 1.3416
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 3.9975085258483887,
+      "fwd_ndvm": 3.9975085258483887,
+      "grad_oracle": {
+        "p0": 0.5207748413085938,
+        "p1": 0.0,
+        "p2": 0.9651556015014648
+      },
+      "grad_ndvm": {
+        "p0": 0.5207748413085938,
+        "p1": 0.0,
+        "p2": 0.9651556015014648
+      },
+      "grad_fd": {
+        "p0": 0.5207061767578125,
+        "p1": 0.0,
+        "p2": 0.965118408203125
+      },
+      "class": "pass"
+    },
+    {
+      "id": 32,
+      "src": "(+ (let ((u1 (+ 0.95 (sqrt (+ 1.0 (* (sqrt (+ 1.0 (* p2 p2))) (sqrt (+ 1.0 (* p2 p2)))))))) (u2 (+ (cos (+ p3 p2)) (/ (abs 2.0) (+ 1.0 (* (let* ((u3 1.338)) 0.5) (let* ((u3 1.338)) 0.5))))))) (log (+ 1.0 (* (* u1 p1) (* u1 p1))))) p0)",
+      "params": {
+        "p0": 1.1204,
+        "p1": 0.317,
+        "p2": 0.262,
+        "p3": 0.8456
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.573496699333191,
+      "fwd_ndvm": 1.573496699333191,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 2.298696517944336,
+        "p2": 0.055579476058483124,
+        "p3": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 2.298696756362915,
+        "p2": 0.055579472333192825,
+        "p3": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 2.298593521118164,
+        "p2": 0.05555152893066406,
+        "p3": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 33,
+      "src": "(+ (log (+ 1.0 (* p0 p0))) p0)",
+      "params": {
+        "p0": 1.4931
+      },
+      "features": [
+        "binop",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.6653802394866943,
+      "fwd_ndvm": 2.6653802394866943,
+      "grad_oracle": {
+        "p0": 1.9247069358825684
+      },
+      "grad_ndvm": {
+        "p0": 1.9247069358825684
+      },
+      "grad_fd": {
+        "p0": 1.9246339797973633
+      },
+      "class": "pass"
+    },
+    {
+      "id": 34,
+      "src": "(+ (- (cos (let ((u1 (let ((u2 1.0)) u2))) (+ p2 p0))) (cos (+ (* 1.0 0.5) (+ 0.5 -0.935)))) p0)",
+      "params": {
+        "p0": 0.6643,
+        "p2": 1.3987
+      },
+      "features": [
+        "binop",
+        "let",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": -0.8061572909355164,
+      "fwd_ndvm": -0.8061572909355164,
+      "grad_oracle": {
+        "p0": 0.1187063455581665,
+        "p2": -0.8812936544418335
+      },
+      "grad_ndvm": {
+        "p0": 0.1187063455581665,
+        "p2": -0.8812936544418335
+      },
+      "grad_fd": {
+        "p0": 0.11870265007019043,
+        "p2": -0.8813142776489258
+      },
+      "class": "pass"
+    },
+    {
+      "id": 35,
+      "src": "(+ (loop ((x (abs (if (= 0.5 0.5) 1.271 p0))) (k 0)) (if (= k 11) x (recur (* 0.5 (+ x (log (+ 1.0 (* (let* ((u1 (* p0 2.0))) (let ((u2 0.885) (u3 1.0)) p0)) (let* ((u1 (* p0 2.0))) (let ((u2 0.885) (u3 1.0)) p0))))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.8275
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.3494868278503418,
+      "fwd_ndvm": 1.3494868278503418,
+      "grad_oracle": {
+        "p0": 1.981858253479004
+      },
+      "grad_ndvm": {
+        "p0": 1.981858253479004
+      },
+      "grad_fd": {
+        "p0": 1.9818544387817383
+      },
+      "class": "pass"
+    },
+    {
+      "id": 36,
+      "src": "(+ (sin (exp (* 0.1 (/ 0.5 (+ 1.0 (* 1.0 1.0)))))) p0)",
+      "params": {
+        "p0": 0.521
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.375877857208252,
+      "fwd_ndvm": 1.375877857208252,
+      "grad_oracle": {
+        "p0": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504
+      },
+      "class": "pass"
+    },
+    {
+      "id": 37,
+      "src": "(+ (let* ((u1 (let ((u2 (log (+ 1.0 (* p0 p0))))) (+ (- u2 p3) u2))) (u3 1.477)) (sqrt (+ 1.0 (* (let ((u4 (* 2.0 0.5)) (u5 (sqrt (+ 1.0 (* p1 p1))))) -0.347) (let ((u4 (* 2.0 0.5)) (u5 (sqrt (+ 1.0 (* p1 p1))))) -0.347))))) p0)",
+      "params": {
+        "p0": 0.4854,
+        "p1": 0.3505,
+        "p3": 0.4826
+      },
+      "features": [
+        "binop",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.5438936948776245,
+      "fwd_ndvm": 1.5438936948776245,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p3": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p3": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 0.0,
+        "p3": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 38,
+      "src": "(+ (sqrt (+ 1.0 (* (let ((u1 0.962) (u2 2.0)) 0.5) (let ((u1 0.962) (u2 2.0)) 0.5)))) p0)",
+      "params": {
+        "p0": 0.4862
+      },
+      "features": [
+        "binop",
+        "let",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.604233980178833,
+      "fwd_ndvm": 1.604233980178833,
+      "grad_oracle": {
+        "p0": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285
+      },
+      "class": "pass"
+    },
+    {
+      "id": 39,
+      "src": "(+ (- 0.5 (log (+ 1.0 (* (- (log (+ 1.0 (* (/ p2 (+ 1.0 (* 1.0 1.0))) (/ p2 (+ 1.0 (* 1.0 1.0)))))) 2.0) (- (log (+ 1.0 (* (/ p2 (+ 1.0 (* 1.0 1.0))) (/ p2 (+ 1.0 (* 1.0 1.0)))))) 2.0))))) p0)",
+      "params": {
+        "p0": 0.7015,
+        "p2": 0.8953
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": -0.25775963068008423,
+      "fwd_ndvm": -0.25775963068008423,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 0.3150191605091095
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 0.3150191605091095
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p2": 0.31507015228271484
+      },
+      "class": "pass"
+    },
+    {
+      "id": 40,
+      "src": "(+ (if (<= (let ((u1 (/ (sin (if (> p0 p0) p0 0.5)) (+ 1.0 (* (cos (/ p0 (+ 1.0 (* p1 p1)))) (cos (/ p0 (+ 1.0 (* p1 p1))))))))) (if (> p0 (sin (log (+ 1.0 (* p0 p0))))) p0 (let ((u2 u1) (u3 (if (>= 0.5 p1) 0.527 u1))) (if (< p0 1.047) p0 0.5)))) 1.0) (+ (* (sin (+ p1 2.0)) (+ (let* ((u4 p1) (u5 1.0)) 1.0) (- p0 p0))) (let* ((u6 (abs p1))) (if (>= (if (> 2.0 p0) 0.666 p0) (abs 0.351)) (if (>= 0.5 p1) 1.0 p1) p1))) (if (> (- (let* ((u7 (if (< 1.438 0.268) 1.126 1.0)) (u8 (if (<= 2.0 p0) p0 -0.543))) p0) (* (/ p0 (+ 1.0 (* 0.5 0.5))) (cos -1.085))) (log (+ 1.0 (* (log (+ 1.0 (* (let* ((u9 p1)) 0.789) (let* ((u9 p1)) 0.789)))) (log (+ 1.0 (* (let* ((u9 p1)) 0.789) (let* ((u9 p1)) 0.789)))))))) (+ p0 (let ((u10 (if (<= 0.5 1.0) p1 0.5))) (sqrt (+ 1.0 (* 2.0 2.0))))) (+ (+ p1 (* p1 0.5)) (sin (if (= p0 p0) p0 p0))))) p0)",
+      "params": {
+        "p0": 1.1261,
+        "p1": 1.038
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 4.48826789855957,
+      "fwd_ndvm": 4.48826789855957,
+      "grad_oracle": {
+        "p0": 2.0,
+        "p1": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 2.0,
+        "p1": 0.0
+      },
+      "grad_fd": {
+        "p0": 1.9998550415039062,
+        "p1": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 41,
+      "src": "(+ (cos (sin (+ (+ (if (> -0.711 p0) 1.0 p0) (let* ((u1 p0) (u2 0.5)) 1.471)) p1))) p0)",
+      "params": {
+        "p0": 0.3554,
+        "p1": 1.3522
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "let_star",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.3547155857086182,
+      "fwd_ndvm": 1.3547155857086182,
+      "grad_oracle": {
+        "p0": 0.9630350470542908,
+        "p1": -0.036964964121580124
+      },
+      "grad_ndvm": {
+        "p0": 0.9630350470542908,
+        "p1": -0.036964964121580124
+      },
+      "grad_fd": {
+        "p0": 0.9629726409912109,
+        "p1": -0.03695487976074219
+      },
+      "class": "pass"
+    },
+    {
+      "id": 42,
+      "src": "(+ (loop ((x (- 2.0 0.331)) (k 0)) (if (= k 6) x (recur (* 0.5 (+ x (/ p0 (+ 1.0 (* (* p0 p0) (* p0 p0)))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.4307
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "literal",
+        "loop_recur",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.8666444420814514,
+      "fwd_ndvm": 0.8666444420814514,
+      "grad_oracle": {
+        "p0": 1.824999451637268
+      },
+      "grad_ndvm": {
+        "p0": 1.824999451637268
+      },
+      "grad_fd": {
+        "p0": 1.8250346183776855
+      },
+      "class": "pass"
+    },
+    {
+      "id": 43,
+      "src": "(+ (loop ((x (+ (if (= p1 2.0) -1.323 p1) p1)) (k 0)) (if (= k 8) x (recur (* 0.5 (+ x (sqrt (+ 1.0 (* (- (- 1.0 p0) (let* ((u1 2.0) (u2 p1)) 1.205)) (- (- 1.0 p0) (let* ((u1 2.0) (u2 p1)) 1.205))))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.0928,
+        "p1": 1.4466
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "let_star",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.7360801696777344,
+      "fwd_ndvm": 2.7360806465148926,
+      "grad_oracle": {
+        "p0": 1.7890303134918213,
+        "p1": 0.0078125
+      },
+      "grad_ndvm": {
+        "p0": 1.7890303134918213,
+        "p1": 0.0078125
+      },
+      "grad_fd": {
+        "p0": 1.7892122268676758,
+        "p1": 0.007867813110351562
+      },
+      "class": "pass"
+    },
+    {
+      "id": 44,
+      "src": "(+ (- (sin (if (>= (cos (/ p0 (+ 1.0 (* p0 p0)))) p1) (if (> (/ p0 (+ 1.0 (* -0.559 -0.559))) p1) (sqrt (+ 1.0 (* 0.5 0.5))) (if (= p0 p0) p0 p0)) p1)) (sin (if (< 0.181 (- (if (> p1 1.0) 2.0 p0) (log (+ 1.0 (* p0 p0))))) (cos (cos p1)) (let ((u1 0.5) (u2 (let* ((u3 1.294)) 0.301))) (+ 0.5 u1))))) p0)",
+      "params": {
+        "p0": 0.5464,
+        "p1": 0.5643
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.4499328136444092,
+      "fwd_ndvm": 0.4499328136444092,
+      "grad_oracle": {
+        "p0": 1.854400634765625,
+        "p1": -0.3150887191295624
+      },
+      "grad_ndvm": {
+        "p0": 1.854400634765625,
+        "p1": -0.3150887191295624
+      },
+      "grad_fd": {
+        "p0": 1.8543601036071777,
+        "p1": -0.31509995460510254
+      },
+      "class": "pass"
+    },
+    {
+      "id": 45,
+      "src": "(+ (loop ((x (log (+ 1.0 (* (* (/ 2.0 (+ 1.0 (* p1 p1))) (/ 1.0 (+ 1.0 (* p1 p1)))) (* (/ 2.0 (+ 1.0 (* p1 p1))) (/ 1.0 (+ 1.0 (* p1 p1)))))))) (k 0)) (if (= k 4) x (recur (* 0.5 (+ x (+ (let* ((u1 (if (= (let ((u2 x) (u3 x)) 1.0) (/ x (+ 1.0 (* 1.0 1.0)))) 1.479 (let ((u4 0.5) (u5 p1)) p0))) (u6 p0)) (let ((u7 (sin p1)) (u8 1.0)) (* 2.0 2.0))) (* (let ((u9 (- 1.223 x))) 0.829) (+ (* p0 p1) (log (+ 1.0 (* 2.0 2.0)))))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.3662,
+        "p1": 0.8727
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 5.637122631072998,
+      "fwd_ndvm": 5.637122631072998,
+      "grad_oracle": {
+        "p0": 1.6782515048980713,
+        "p1": 0.21191439032554626
+      },
+      "grad_ndvm": {
+        "p0": 1.6782515048980713,
+        "p1": 0.21191439032554626
+      },
+      "grad_fd": {
+        "p0": 1.678466796875,
+        "p1": 0.21195411682128906
+      },
+      "class": "pass"
+    },
+    {
+      "id": 46,
+      "src": "(+ p3 p0)",
+      "params": {
+        "p0": 0.8847,
+        "p3": 1.151
+      },
+      "features": [
+        "binop",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.0357000827789307,
+      "fwd_ndvm": 2.0357000827789307,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p3": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p3": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p3": 1.000046730041504
+      },
+      "class": "pass"
+    },
+    {
+      "id": 47,
+      "src": "(+ (exp (* 0.1 (sin (let* ((u1 (abs p0)) (u2 p1)) (+ 1.165 u1))))) p0)",
+      "params": {
+        "p0": 1.024,
+        "p1": 0.5042
+      },
+      "features": [
+        "binop",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.1089048385620117,
+      "fwd_ndvm": 2.1089048385620117,
+      "grad_oracle": {
+        "p0": 0.9371219277381897,
+        "p1": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 0.9371219277381897,
+        "p1": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9372234344482422,
+        "p1": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 48,
+      "src": "(+ (loop ((x 0.5) (k 0)) (if (= k 6) x (recur (* 0.5 (+ x (cos -1.32))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.1657
+      },
+      "features": [
+        "binop",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.417810082435608,
+      "fwd_ndvm": 1.417810082435608,
+      "grad_oracle": {
+        "p0": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285
+      },
+      "class": "pass"
+    },
+    {
+      "id": 49,
+      "src": "(+ (+ (if (> (if (< (exp (* 0.1 (if (< 1.0 p1) p1 0.5))) (exp (* 0.1 (/ 0.01 (+ 1.0 (* 1.0 1.0)))))) p0 (/ (if (> 2.0 0.5) p0 p1) (+ 1.0 (* (log (+ 1.0 (* p1 p1))) (log (+ 1.0 (* p1 p1))))))) (- -1.181 (log (+ 1.0 (* (sqrt (+ 1.0 (* 1.305 1.305))) (sqrt (+ 1.0 (* 1.305 1.305)))))))) (+ (/ (let ((u1 p0) (u2 -1.227)) p1) (+ 1.0 (* (sin p0) (sin p0)))) (/ (if (> 0.761 2.0) 1.0 p0) (+ 1.0 (* p0 p0)))) (let ((u3 p1)) (abs 1.0))) 2.0) p0)",
+      "params": {
+        "p0": 1.1769,
+        "p1": 0.5424
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 3.9631009101867676,
+      "fwd_ndvm": 3.9631009101867676,
+      "grad_oracle": {
+        "p0": 0.8203023076057434,
+        "p1": 0.5397511124610901
+      },
+      "grad_ndvm": {
+        "p0": 0.8203023076057434,
+        "p1": 0.5397511124610901
+      },
+      "grad_fd": {
+        "p0": 0.8202791213989258,
+        "p1": 0.5397796630859375
+      },
+      "class": "pass"
+    },
+    {
+      "id": 50,
+      "src": "(+ (* (+ (* 2.0 p1) (- p2 p2)) (log (+ 1.0 (* 1.0 1.0)))) p0)",
+      "params": {
+        "p0": 0.6,
+        "p1": 0.8534,
+        "p2": 0.4568
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.7830636501312256,
+      "fwd_ndvm": 1.7830636501312256,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 1.3862943649291992,
+        "p2": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 1.3862943649291992,
+        "p2": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 1.3862848281860352,
+        "p2": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 51,
+      "src": "(+ (if (< (if (< (sin p2) (/ p2 (+ 1.0 (* p1 p1)))) (* p0 p0) (let ((u1 1.408)) u1)) p0) (- p0 (sqrt (+ 1.0 (* p2 p2)))) (if (<= (if (>= p0 p2) p1 p0) (+ p1 0.688)) (- p0 p0) p2)) p0)",
+      "params": {
+        "p0": 0.2175,
+        "p1": 1.2228,
+        "p2": 0.2053
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.2175000011920929,
+      "fwd_ndvm": 0.2175000011920929,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "grad_fd": {
+        "p0": 1.0000020265579224,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 52,
+      "src": "(+ (loop ((x (* (exp (* 0.1 0.156)) (+ (if (> p2 p2) 2.0 p2) (if (>= 2.0 p2) 1.16 p1)))) (k 0)) (if (= k 8) x (recur (* 0.5 (+ x (exp (* 0.1 (if (< (sin (let* ((u1 2.0)) p0)) (* (/ 1.0 (+ 1.0 (* p2 p2))) (sin 0.736))) (exp (* 0.1 (if (<= 0.5 0.5) p1 p2))) p0))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.2111,
+        "p1": 0.8808,
+        "p2": 0.5442
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let_star",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.3422017097473145,
+      "fwd_ndvm": 2.3422017097473145,
+      "grad_oracle": {
+        "p0": 1.1124340295791626,
+        "p1": 0.0,
+        "p2": 0.003967665135860443
+      },
+      "grad_ndvm": {
+        "p0": 1.1124340295791626,
+        "p1": 0.0,
+        "p2": 0.003967665135860443
+      },
+      "grad_fd": {
+        "p0": 1.1123418807983398,
+        "p1": 0.0,
+        "p2": 0.0040531158447265625
+      },
+      "class": "pass"
+    },
+    {
+      "id": 53,
+      "src": "(+ (loop ((x 0.888) (k 0)) (if (= k 9) x (recur (* 0.5 (+ x p2)) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.9169,
+        "p2": 0.5606
+      },
+      "features": [
+        "binop",
+        "literal",
+        "loop_recur",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.4781394004821777,
+      "fwd_ndvm": 1.4781394004821777,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 0.998046875
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 0.998046875
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p2": 0.9980201721191406
+      },
+      "class": "pass"
+    },
+    {
+      "id": 54,
+      "src": "(+ (let ((u1 (sqrt (+ 1.0 (* 0.38 0.38)))) (u2 (- p1 1.0))) (sqrt (+ 1.0 (* p1 p1)))) p0)",
+      "params": {
+        "p0": 1.1853,
+        "p1": 0.3762
+      },
+      "features": [
+        "binop",
+        "let",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.2537224292755127,
+      "fwd_ndvm": 2.2537224292755127,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.3521079123020172
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.3521079123020172
+      },
+      "grad_fd": {
+        "p0": 1.0001659393310547,
+        "p1": 0.3521442413330078
+      },
+      "class": "pass"
+    },
+    {
+      "id": 55,
+      "src": "(+ (exp (* 0.1 (if (< (let ((u1 (sin (abs 1.0)))) (let ((u2 u1) (u3 (- p0 p0))) (/ 1.0 (+ 1.0 (* u1 u1))))) (* (- (let ((u4 2.0)) 0.802) (abs p0)) (let ((u5 (if (= p0 p0) p1 p1)) (u6 (cos 2.0))) (if (> u6 p0) u5 p0)))) (sqrt (+ 1.0 (* (log (+ 1.0 (* (/ p1 (+ 1.0 (* p0 p0))) (/ p1 (+ 1.0 (* p0 p0)))))) (log (+ 1.0 (* (/ p1 (+ 1.0 (* p0 p0))) (/ p1 (+ 1.0 (* p0 p0))))))))) p1))) p0)",
+      "params": {
+        "p0": 1.1179,
+        "p1": 0.5167
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.1709282398223877,
+      "fwd_ndvm": 2.1709282398223877,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.1053028255701065
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.1053028255701065
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.10526180267333984
+      },
+      "class": "pass"
+    },
+    {
+      "id": 56,
+      "src": "(+ 0.5 p0)",
+      "params": {
+        "p0": 0.9987
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.4987000226974487,
+      "fwd_ndvm": 1.4987000226974487,
+      "grad_oracle": {
+        "p0": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504
+      },
+      "class": "pass"
+    },
+    {
+      "id": 57,
+      "src": "(+ (loop ((x (+ p0 p1)) (k 0)) (if (= k 9) x (recur (* 0.5 (+ x (sqrt (+ 1.0 (* 1.0 1.0))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.3719,
+        "p1": 0.8326
+      },
+      "features": [
+        "binop",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.7857040166854858,
+      "fwd_ndvm": 1.7857040166854858,
+      "grad_oracle": {
+        "p0": 1.001953125,
+        "p1": 0.001953125
+      },
+      "grad_ndvm": {
+        "p0": 1.001953125,
+        "p1": 0.001953125
+      },
+      "grad_fd": {
+        "p0": 1.0020136833190918,
+        "p1": 0.0020265579223632812
+      },
+      "class": "pass"
+    },
+    {
+      "id": 58,
+      "src": "(+ (loop ((x (cos -1.279)) (k 0)) (if (= k 7) x (recur (* 0.5 (+ x (if (>= (abs 2.0) (let ((u1 p1) (u2 0.5)) u1)) (+ p2 x) 1.45))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.591,
+        "p1": 0.2573,
+        "p2": 1.0645
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "let",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 4.6044230461120605,
+      "fwd_ndvm": 4.6044230461120605,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 3.5
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 3.5
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p1": 0.0,
+        "p2": 3.4999847412109375
+      },
+      "class": "pass"
+    },
+    {
+      "id": 59,
+      "src": "(+ (loop ((x (+ 1.0 p1)) (k 0)) (if (= k 6) x (recur (* 0.5 (+ x (exp (* 0.1 0.5)))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.9419,
+        "p1": 1.2143
+      },
+      "features": [
+        "binop",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.011343479156494,
+      "fwd_ndvm": 2.011343479156494,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.015625
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.015625
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p1": 0.015616416931152344
+      },
+      "class": "pass"
+    },
+    {
+      "id": 60,
+      "src": "(+ (loop ((x (- (/ p0 (+ 1.0 (* p1 p1))) (if (= p0 0.82) p2 0.5))) (k 0)) (if (= k 2) x (recur (* 0.5 (+ x (let* ((u1 (/ (if (>= 2.0 p3) x 1.0) (+ 1.0 (* (sqrt (+ 1.0 (* 1.0 1.0))) (sqrt (+ 1.0 (* 1.0 1.0))))))) (u2 0.5)) (if (>= (if (< 0.206 p1) 0.5 p3) (- 0.56 2.0)) (- p1 u2) 1.0)))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.9457,
+        "p1": 0.4459,
+        "p2": 0.6312,
+        "p3": 1.3954
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let_star",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.9773386120796204,
+      "fwd_ndvm": 0.9773386120796204,
+      "grad_oracle": {
+        "p0": 1.208537220954895,
+        "p1": 0.6032940149307251,
+        "p2": 0.0,
+        "p3": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.208537220954895,
+        "p1": 0.6032940149307251,
+        "p2": 0.0,
+        "p3": 0.0
+      },
+      "grad_fd": {
+        "p0": 1.2085139751434326,
+        "p1": 0.6032884120941162,
+        "p2": 0.0,
+        "p3": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 61,
+      "src": "(+ (if (= (if (>= p0 -1.408) p0 p0) p1) (/ p0 (+ 1.0 (* p1 p1))) (sqrt (+ 1.0 (* p0 p0)))) p0)",
+      "params": {
+        "p0": 0.5421,
+        "p1": 0.9236
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.6795852184295654,
+      "fwd_ndvm": 1.6795852184295654,
+      "grad_oracle": {
+        "p0": 1.4765777587890625,
+        "p1": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.4765777587890625,
+        "p1": 0.0
+      },
+      "grad_fd": {
+        "p0": 1.476585865020752,
+        "p1": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 62,
+      "src": "(+ (/ (let ((u1 1.047) (u2 p1)) u2) (+ 1.0 (* (log (+ 1.0 (* 0.457 0.457))) (log (+ 1.0 (* 0.457 0.457)))))) p0)",
+      "params": {
+        "p0": 0.9609,
+        "p1": 1.2085
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "let",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.1274349689483643,
+      "fwd_ndvm": 2.1274349689483643,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.9652750492095947
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.9652750492095947
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.9652376174926758
+      },
+      "class": "pass"
+    },
+    {
+      "id": 63,
+      "src": "(+ (- (let* ((u1 (abs (- (+ 0.5 p2) (if (>= p1 1.0) p3 -0.015)))) (u2 (/ (sin (sin p2)) (+ 1.0 (* (let ((u3 (let ((u4 p2) (u5 2.0)) 1.0))) (sqrt (+ 1.0 (* p2 p2)))) (let ((u3 (let ((u4 p2) (u5 2.0)) 1.0))) (sqrt (+ 1.0 (* p2 p2))))))))) (let ((u6 (* (- 0.238 1.0) 0.429))) (exp (* 0.1 p1)))) (- (cos (if (<= (sqrt (+ 1.0 (* p3 p3))) (if (> p2 p2) 2.0 1.087)) (if (= 2.0 p3) 0.5 p3) (let ((u7 p3) (u8 0.618)) p2))) p2)) p0)",
+      "params": {
+        "p0": 1.0771,
+        "p1": 1.2367,
+        "p2": 1.1001,
+        "p3": 1.228
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.8553354740142822,
+      "fwd_ndvm": 2.8553354740142822,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.11316423863172531,
+        "p2": 1.8912527561187744,
+        "p3": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.11316423863172531,
+        "p2": 1.8912527561187744,
+        "p3": 0.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.11324882507324219,
+        "p2": 1.8912553787231445,
+        "p3": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 64,
+      "src": "(+ (+ (/ p1 (+ 1.0 (* p2 p2))) (if (= 0.5 0.5) p1 0.5)) p0)",
+      "params": {
+        "p0": 0.5875,
+        "p1": 0.9601,
+        "p2": 0.9304
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.062221050262451,
+      "fwd_ndvm": 2.062221050262451,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 1.5360078811645508,
+        "p2": -0.5132849216461182
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 1.5360078811645508,
+        "p2": -0.5132849216461182
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 1.5358924865722656,
+        "p2": -0.5133152008056641
+      },
+      "class": "pass"
+    },
+    {
+      "id": 65,
+      "src": "(+ (loop ((x (sin p2)) (k 0)) (if (= k 12) x (recur (* 0.5 (+ x (sin (exp (* 0.1 1.215))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.9376,
+        "p2": 0.5547
+      },
+      "features": [
+        "binop",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.84157395362854,
+      "fwd_ndvm": 1.84157395362854,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 0.00020753381249960512
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 0.00020753381249960512
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p2": 0.00017881393432617188
+      },
+      "class": "pass"
+    },
+    {
+      "id": 66,
+      "src": "(+ (loop ((x p0) (k 0)) (if (= k 3) x (recur (* 0.5 (+ x (/ (cos 2.0) (+ 1.0 (* (/ x (+ 1.0 (* x x))) (/ x (+ 1.0 (* x x)))))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.3862
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.08338221907615662,
+      "fwd_ndvm": 0.08338221907615662,
+      "grad_oracle": {
+        "p0": 1.1246495246887207
+      },
+      "grad_ndvm": {
+        "p0": 1.1246495246887207
+      },
+      "grad_fd": {
+        "p0": 1.1246651411056519
+      },
+      "class": "pass"
+    },
+    {
+      "id": 67,
+      "src": "(+ p0 p0)",
+      "params": {
+        "p0": 0.372
+      },
+      "features": [
+        "binop",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.7440000176429749,
+      "fwd_ndvm": 0.7440000176429749,
+      "grad_oracle": {
+        "p0": 2.0
+      },
+      "grad_ndvm": {
+        "p0": 2.0
+      },
+      "grad_fd": {
+        "p0": 2.0000040531158447
+      },
+      "class": "pass"
+    },
+    {
+      "id": 68,
+      "src": "(+ p1 p0)",
+      "params": {
+        "p0": 1.4211,
+        "p1": 0.8017
+      },
+      "features": [
+        "binop",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.2228000164031982,
+      "fwd_ndvm": 2.2228000164031982,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.9999275207519531
+      },
+      "class": "pass"
+    },
+    {
+      "id": 69,
+      "src": "(+ (loop ((x (exp (* 0.1 (if (= (* p1 0.605) (/ p0 (+ 1.0 (* p1 p1)))) (let ((u1 0.5) (u2 p0)) p0) (* 0.152 p1))))) (k 0)) (if (= k 11) x (recur (* 0.5 (+ x (* (if (<= (* (if (>= 2.0 1.0) 1.0 p1) p1) (let* ((u3 (- p0 p0))) (+ 0.5 x))) (+ x 1.0) (let* ((u4 (sin 0.5))) (if (= 1.0 2.0) p2 1.139))) (/ (* (+ p0 x) (* x p2)) (+ 1.0 (* (* (sin p0) x) (* (sin p0) x))))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.8968,
+        "p1": 1.2191,
+        "p2": 0.2926
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.9182939529418945,
+      "fwd_ndvm": 0.9182939529418945,
+      "grad_oracle": {
+        "p0": 1.042157769203186,
+        "p1": 0.0004920760402455926,
+        "p2": 0.2646608054637909
+      },
+      "grad_ndvm": {
+        "p0": 1.042157769203186,
+        "p1": 0.0004920760402455926,
+        "p2": 0.2646608054637909
+      },
+      "grad_fd": {
+        "p0": 1.0421574115753174,
+        "p1": 0.0005066394805908203,
+        "p2": 0.26467442512512207
+      },
+      "class": "pass"
+    },
+    {
+      "id": 70,
+      "src": "(+ -1.419 p0)",
+      "params": {
+        "p0": 0.6928
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": -0.7262000441551208,
+      "fwd_ndvm": -0.7262000441551208,
+      "grad_oracle": {
+        "p0": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285
+      },
+      "class": "pass"
+    },
+    {
+      "id": 71,
+      "src": "(+ (/ (let* ((u1 p1)) u1) (+ 1.0 (* (cos p0) (cos p0)))) p0)",
+      "params": {
+        "p0": 0.7539,
+        "p1": 0.5492
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "let_star",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.112507939338684,
+      "fwd_ndvm": 1.112507939338684,
+      "grad_oracle": {
+        "p0": 1.2336935997009277,
+        "p1": 0.6529642343521118
+      },
+      "grad_ndvm": {
+        "p0": 1.2336935997009277,
+        "p1": 0.6529642343521118
+      },
+      "grad_fd": {
+        "p0": 1.2336969375610352,
+        "p1": 0.6529092788696289
+      },
+      "class": "pass"
+    },
+    {
+      "id": 72,
+      "src": "(+ (+ (/ (if (> (let* ((u1 p3) (u2 0.5)) 2.0) (- p1 p0)) 2.0 (+ p2 p3)) (+ 1.0 (* (if (<= (let* ((u3 p3) (u4 0.462)) p3) (if (>= 0.5 p2) p2 p0)) 0.581 (if (<= 1.35 p0) p1 2.0)) (if (<= (let* ((u3 p3) (u4 0.462)) p3) (if (>= 0.5 p2) p2 p0)) 0.581 (if (<= 1.35 p0) p1 2.0))))) p2) p0)",
+      "params": {
+        "p0": 1.4574,
+        "p1": 1.0114,
+        "p2": 0.4235,
+        "p3": 0.6312
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let_star",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.869565010070801,
+      "fwd_ndvm": 2.869565010070801,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": -0.9886015057563782,
+        "p2": 1.0,
+        "p3": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": -0.9886015057563782,
+        "p2": 1.0,
+        "p3": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p1": -0.9884834289550781,
+        "p2": 0.9999275207519531,
+        "p3": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 73,
+      "src": "(+ (* (* (abs p0) 1.0) (if (= (- p1 p1) (exp (* 0.1 0.653))) (exp (* 0.1 1.215)) (let* ((u1 p1) (u2 1.268)) p1))) p0)",
+      "params": {
+        "p0": 0.3073,
+        "p1": 1.4607
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.7561731338500977,
+      "fwd_ndvm": 0.7561731338500977,
+      "grad_oracle": {
+        "p0": 2.460700035095215,
+        "p1": 0.30730000138282776
+      },
+      "grad_ndvm": {
+        "p0": 2.460700035095215,
+        "p1": 0.30730000138282776
+      },
+      "grad_fd": {
+        "p0": 2.460688352584839,
+        "p1": 0.30729174613952637
+      },
+      "class": "pass"
+    },
+    {
+      "id": 74,
+      "src": "(+ (loop ((x (- p2 0.5)) (k 0)) (if (= k 4) x (recur (* 0.5 (+ x (/ x (+ 1.0 (* x x))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.2545,
+        "p2": 1.4585
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "literal",
+        "loop_recur",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.720818281173706,
+      "fwd_ndvm": 1.720818281173706,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 0.14911587536334991
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 0.14911587536334991
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p2": 0.14913082122802734
+      },
+      "class": "pass"
+    },
+    {
+      "id": 75,
+      "src": "(+ (+ (/ 1.0 (+ 1.0 (* (/ -1.046 (+ 1.0 (* 1.0 1.0))) (/ -1.046 (+ 1.0 (* 1.0 1.0)))))) (/ (if (<= p0 p1) p0 2.0) (+ 1.0 (* (/ p3 (+ 1.0 (* p0 p0))) (/ p3 (+ 1.0 (* p0 p0))))))) p0)",
+      "params": {
+        "p0": 0.7341,
+        "p1": 0.4943,
+        "p3": 0.4499
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 3.3618407249450684,
+      "fwd_ndvm": 3.3618407249450684,
+      "grad_oracle": {
+        "p0": 1.2768268585205078,
+        "p1": 0.0,
+        "p3": -0.6449388861656189
+      },
+      "grad_ndvm": {
+        "p0": 1.2768268585205078,
+        "p1": 0.0,
+        "p3": -0.6449388861656189
+      },
+      "grad_fd": {
+        "p0": 1.276850700378418,
+        "p1": 0.0,
+        "p3": -0.6449222564697266
+      },
+      "class": "pass"
+    },
+    {
+      "id": 76,
+      "src": "(+ (/ (/ (if (< (+ p2 (abs p0)) (cos (log (+ 1.0 (* p1 p1))))) (/ (cos 0.5) (+ 1.0 (* (if (<= p2 p1) p2 2.0) (if (<= p2 p1) p2 2.0)))) (/ (+ p0 p1) (+ 1.0 (* 1.0 1.0)))) (+ 1.0 (* 1.0 1.0))) (+ 1.0 (* (if (< (- (if (<= (* -1.151 p1) (- p2 2.0)) (let ((u1 p0) (u2 p2)) 0.895) p0) (/ (if (>= 0.811 1.0) 2.0 1.36) (+ 1.0 (* (let ((u3 0.5) (u4 p0)) p2) (let ((u3 0.5) (u4 p0)) p2))))) (/ -0.672 (+ 1.0 (* (exp (* 0.1 (log (+ 1.0 (* p1 p1))))) (exp (* 0.1 (log (+ 1.0 (* p1 p1))))))))) (* (+ (let* ((u5 p2)) 1.228) (abs p0)) (let* ((u6 (- 0.51 2.0))) (cos 0.392))) p2) (if (< (- (if (<= (* -1.151 p1) (- p2 2.0)) (let ((u1 p0) (u2 p2)) 0.895) p0) (/ (if (>= 0.811 1.0) 2.0 1.36) (+ 1.0 (* (let ((u3 0.5) (u4 p0)) p2) (let ((u3 0.5) (u4 p0)) p2))))) (/ -0.672 (+ 1.0 (* (exp (* 0.1 (log (+ 1.0 (* p1 p1))))) (exp (* 0.1 (log (+ 1.0 (* p1 p1))))))))) (* (+ (let* ((u5 p2)) 1.228) (abs p0)) (let* ((u6 (- 0.51 2.0))) (cos 0.392))) p2)))) p0)",
+      "params": {
+        "p0": 0.5258,
+        "p1": 0.5324,
+        "p2": 0.4947
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.5987412333488464,
+      "fwd_ndvm": 0.5987412333488464,
+      "grad_oracle": {
+        "p0": 1.008683204650879,
+        "p1": 0.06892955303192139,
+        "p2": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.008683204650879,
+        "p1": 0.06892955303192139,
+        "p2": 0.0
+      },
+      "grad_fd": {
+        "p0": 1.0086894035339355,
+        "p1": 0.06893277168273926,
+        "p2": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 77,
+      "src": "(+ (loop ((x (+ (sin (* 0.5 p0)) (if (<= (+ 0.42 p1) (/ p0 (+ 1.0 (* 2.0 2.0)))) 2.0 p1))) (k 0)) (if (= k 6) x (recur (* 0.5 (+ x -1.357)) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.4327,
+        "p1": 1.3496
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.1282505989074707,
+      "fwd_ndvm": 0.1282505989074707,
+      "grad_oracle": {
+        "p0": 1.005892276763916,
+        "p1": 0.015625
+      },
+      "grad_ndvm": {
+        "p0": 1.005892276763916,
+        "p1": 0.015625
+      },
+      "grad_fd": {
+        "p0": 1.0058283805847168,
+        "p1": 0.015616416931152344
+      },
+      "class": "pass"
+    },
+    {
+      "id": 78,
+      "src": "(+ 2.0 p0)",
+      "params": {
+        "p0": 0.3546
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.354599952697754,
+      "fwd_ndvm": 2.354599952697754,
+      "grad_oracle": {
+        "p0": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531
+      },
+      "class": "pass"
+    },
+    {
+      "id": 79,
+      "src": "(+ (loop ((x (sin (if (= p2 1.0) p1 p1))) (k 0)) (if (= k 7) x (recur (* 0.5 (+ x (* (* 2.0 (if (<= x p1) x x)) 0.5))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.2903,
+        "p1": 0.3103,
+        "p2": 0.5538
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.5956443548202515,
+      "fwd_ndvm": 0.5956443548202515,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.9522420167922974,
+        "p2": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.9522420167922974,
+        "p2": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 0.9522438049316406,
+        "p2": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 80,
+      "src": "(+ (log (+ 1.0 (* (/ (let ((u1 (let* ((u2 p1) (u3 u2)) p1))) (let* ((u4 u1)) 1.417)) (+ 1.0 (* (+ (sin p0) (+ p1 p0)) (+ (sin p0) (+ p1 p0))))) (/ (let ((u1 (let* ((u2 p1) (u3 u2)) p1))) (let* ((u4 u1)) 1.417)) (+ 1.0 (* (+ (sin p0) (+ p1 p0)) (+ (sin p0) (+ p1 p0)))))))) p0)",
+      "params": {
+        "p0": 0.202,
+        "p1": 0.7842
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.49922454357147217,
+      "fwd_ndvm": 0.49922454357147217,
+      "grad_oracle": {
+        "p0": -0.0032819435000419617,
+        "p1": -0.506793200969696
+      },
+      "grad_ndvm": {
+        "p0": -0.0032819435000419617,
+        "p1": -0.506793200969696
+      },
+      "grad_fd": {
+        "p0": -0.0032782554626464844,
+        "p1": -0.5067288875579834
+      },
+      "class": "pass"
+    },
+    {
+      "id": 81,
+      "src": "(+ (* (/ (if (< p1 p0) (if (>= p0 p1) p1 p0) (let ((u1 0.13)) p1)) (+ 1.0 (* (if (<= (cos 0.5) (/ p1 (+ 1.0 (* 0.5 0.5)))) 0.5 (/ 2.0 (+ 1.0 (* p0 p0)))) (if (<= (cos 0.5) (/ p1 (+ 1.0 (* 0.5 0.5)))) 0.5 (/ 2.0 (+ 1.0 (* p0 p0))))))) (if (< (sqrt (+ 1.0 (* (cos 0.437) (cos 0.437)))) 0.5) (/ (/ 2.0 (+ 1.0 (* p0 p0))) (+ 1.0 (* (sin -0.965) (sin -0.965)))) (if (= (exp (* 0.1 p0)) (log (+ 1.0 (* 1.0 1.0)))) (* 2.0 0.5) (let ((u2 p1) (u3 2.0)) 1.178)))) p0)",
+      "params": {
+        "p0": 1.4855,
+        "p1": 1.3954
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.800524950027466,
+      "fwd_ndvm": 2.800524950027466,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.9423999786376953
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.9423999786376953
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.9424686431884766
+      },
+      "class": "pass"
+    },
+    {
+      "id": 82,
+      "src": "(+ (if (>= (let* ((u1 (+ (let ((u2 (sqrt (+ 1.0 (* p1 p1))))) (* 0.654 0.415)) (* (/ p2 (+ 1.0 (* p2 p2))) (if (< 1.0 p1) 1.0 p1)))) (u3 (+ (if (<= (let ((u4 1.0)) 0.671) (if (> 2.0 1.027) u1 0.5)) (- p1 p0) (if (>= 1.0 p1) 1.0 2.0)) p2))) (if (> (if (>= (sin 1.004) (cos p2)) (/ p0 (+ 1.0 (* u3 u3))) (if (= 0.27 -1.461) u1 2.0)) (log (+ 1.0 (* (let ((u5 p2)) p0) (let ((u5 p2)) p0))))) (- (let ((u6 u1)) u6) (let ((u7 u3) (u8 u1)) p2)) 0.5)) (if (= (sqrt (+ 1.0 (* (let* ((u9 (+ p0 2.0)) (u10 (let ((u11 u9) (u12 2.0)) 1.25))) (/ 0.762 (+ 1.0 (* u10 u10)))) (let* ((u9 (+ p0 2.0)) (u10 (let ((u11 u9) (u12 2.0)) 1.25))) (/ 0.762 (+ 1.0 (* u10 u10))))))) (* (+ (/ 2.0 (+ 1.0 (* 1.032 1.032))) (if (>= p1 p0) p0 p0)) (sin (sqrt (+ 1.0 (* 2.0 2.0)))))) (/ 2.0 (+ 1.0 (* (* (+ p1 p2) (+ p0 0.571)) (* (+ p1 p2) (+ p0 0.571))))) (abs (abs 1.0)))) (let ((u13 (if (< (let ((u14 p0) (u15 (exp (* 0.1 p1)))) (cos p0)) (let ((u16 (sqrt (+ 1.0 (* 0.351 0.351)))) (u17 (if (> p2 p2) p1 p0))) (/ 0.5 (+ 1.0 (* u17 u17))))) (- (let* ((u18 p1)) 2.0) (let* ((u19 2.0) (u20 0.319)) p2)) (/ 1.183 (+ 1.0 (* (if (>= 0.572 0.5) 0.027 0.5) (if (>= 0.572 0.5) 0.027 0.5)))))) (u21 (if (= (if (>= (let ((u22 p0) (u23 p0)) p1) (- p1 p0)) (* p2 p1) 1.0) (if (<= (/ 0.5 (+ 1.0 (* -0.079 -0.079))) (* 0.5 p2)) (* p0 p2) (let ((u24 p0)) p1))) (- (+ p1 p1) (let* ((u25 1.0) (u26 p2)) p2)) (let ((u27 (- p1 2.0)) (u28 (- p0 p2))) (let ((u29 p2)) 1.0))))) (/ (log (+ 1.0 (* u13 u13))) (+ 1.0 (* (let ((u30 (abs p2)) (u31 (/ u21 (+ 1.0 (* u21 u21))))) u30) (let ((u30 (abs p2)) (u31 (/ u21 (+ 1.0 (* u21 u21))))) u30))))) (- (let* ((u32 (if (< (sqrt (+ 1.0 (* 2.0 2.0))) (log (+ 1.0 (* 1.0 1.0)))) 0.5 p2))) (+ 2.0 (if (<= 0.707 u32) u32 u32))) (let* ((u33 p1)) (let* ((u34 (/ 0.5 (+ 1.0 (* p1 p1)))) (u35 (let ((u36 0.5)) p0))) (if (< 1.0 u35) 1.0 0.5))))) p0)",
+      "params": {
+        "p0": 0.8582,
+        "p1": 0.3813,
+        "p2": 1.2448
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 3.6030001640319824,
+      "fwd_ndvm": 3.6030001640319824,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 1.0
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p1": 0.0,
+        "p2": 0.9999275207519531
+      },
+      "class": "pass"
+    },
+    {
+      "id": 83,
+      "src": "(+ (* (abs p3) (log (+ 1.0 (* p0 p0)))) p0)",
+      "params": {
+        "p0": 1.1012,
+        "p3": 0.2289
+      },
+      "features": [
+        "binop",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.2829893827438354,
+      "fwd_ndvm": 1.2829893827438354,
+      "grad_oracle": {
+        "p0": 1.2278404235839844,
+        "p3": 0.7941869497299194
+      },
+      "grad_ndvm": {
+        "p0": 1.2278404235839844,
+        "p3": 0.7941869497299194
+      },
+      "grad_fd": {
+        "p0": 1.2277960777282715,
+        "p3": 0.7941722869873047
+      },
+      "class": "pass"
+    },
+    {
+      "id": 84,
+      "src": "(+ p2 p0)",
+      "params": {
+        "p0": 0.7381,
+        "p2": 1.02
+      },
+      "features": [
+        "binop",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.7581000328063965,
+      "fwd_ndvm": 1.7581000328063965,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 1.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p2": 0.9999275207519531
+      },
+      "class": "pass"
+    },
+    {
+      "id": 85,
+      "src": "(+ (+ (if (> (- (if (>= (/ p1 (+ 1.0 (* 0.5 0.5))) (* p1 p2)) (* p0 p2) (let* ((u1 0.5)) 0.5)) (/ p0 (+ 1.0 (* (let* ((u2 p2)) 0.303) (let* ((u2 p2)) 0.303))))) (if (<= (if (<= (* p1 p1) (log (+ 1.0 (* p0 p0)))) (+ p0 0.5) (- p2 1.0)) (let ((u3 (+ 2.0 2.0))) (if (= 0.5 p0) 0.5 2.0))) (+ p0 (let* ((u4 p0) (u5 0.5)) 0.457)) 1.0)) (sin (let* ((u6 (if (>= 2.0 1.0) 0.853 p1))) (* 0.5 u6))) (if (<= (* (abs p1) (sqrt (+ 1.0 (* 2.0 2.0)))) 1.0) (let ((u7 (- 0.5 1.0)) (u8 (let* ((u9 p2)) u9))) (let* ((u10 2.0) (u11 1.0)) p2)) (if (>= (* 1.0 1.0) p2) (+ p2 p1) (* p1 p2)))) (abs (+ (* (let ((u12 p1) (u13 p2)) u13) (* p1 p2)) p2))) p0)",
+      "params": {
+        "p0": 0.4008,
+        "p1": 0.6674,
+        "p2": 1.1306
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 3.139070749282837,
+      "fwd_ndvm": 3.139070749282837,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 2.4088563919067383,
+        "p2": 3.1765246391296387
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 2.4088563919067383,
+        "p2": 3.1765246391296387
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p1": 2.4088621139526367,
+        "p2": 3.176450729370117
+      },
+      "class": "pass"
+    },
+    {
+      "id": 86,
+      "src": "(+ (if (>= (if (<= (/ p1 (+ 1.0 (* 1.057 1.057))) (let* ((u1 p0)) p1)) (- p1 2.0) (if (<= 0.652 p1) p1 p1)) (sqrt (+ 1.0 (* (if (<= 0.291 1.081) p1 p1) (if (<= 0.291 1.081) p1 p1))))) (cos 0.69) (abs 1.163)) p0)",
+      "params": {
+        "p0": 0.6763,
+        "p1": 0.2856
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.8392999172210693,
+      "fwd_ndvm": 1.8392999172210693,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 87,
+      "src": "(+ (loop ((x (log (+ 1.0 (* p0 p0)))) (k 0)) (if (= k 12) x (recur (* 0.5 (+ x (let ((u1 1.0)) p0))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.7452
+      },
+      "features": [
+        "binop",
+        "let",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.490325927734375,
+      "fwd_ndvm": 1.490325927734375,
+      "grad_oracle": {
+        "p0": 1.9999897480010986
+      },
+      "grad_ndvm": {
+        "p0": 1.9999897480010986
+      },
+      "grad_fd": {
+        "p0": 2.000093460083008
+      },
+      "class": "pass"
+    },
+    {
+      "id": 88,
+      "src": "(+ (sqrt (+ 1.0 (* (if (< p2 p1) 1.0 p2) (if (< p2 p1) 1.0 p2)))) p0)",
+      "params": {
+        "p0": 1.249,
+        "p1": 0.2249,
+        "p2": 1.2146
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.822293758392334,
+      "fwd_ndvm": 2.822293758392334,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.7720109224319458
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.7720109224319458
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p1": 0.0,
+        "p2": 0.7719993591308594
+      },
+      "class": "pass"
+    },
+    {
+      "id": 89,
+      "src": "(+ (* (sin (/ p0 (+ 1.0 (* p1 p1)))) (abs (let* ((u1 -0.638)) p1))) p0)",
+      "params": {
+        "p0": 0.4828,
+        "p1": 1.454
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.7073203325271606,
+      "fwd_ndvm": 0.7073203325271606,
+      "grad_oracle": {
+        "p0": 1.461306095123291,
+        "p1": -0.053561732172966
+      },
+      "grad_ndvm": {
+        "p0": 1.461306095123291,
+        "p1": -0.0535617470741272
+      },
+      "grad_fd": {
+        "p0": 1.4612972736358643,
+        "p1": -0.05355477333068848
+      },
+      "class": "pass"
+    },
+    {
+      "id": 90,
+      "src": "(+ (cos (/ p0 (+ 1.0 (* (exp (* 0.1 (if (> 1.0 -0.607) p0 0.817))) (exp (* 0.1 (if (> 1.0 -0.607) p0 0.817))))))) p0)",
+      "params": {
+        "p0": 1.1118
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.9920780658721924,
+      "fwd_ndvm": 1.9920780658721924,
+      "grad_oracle": {
+        "p0": 0.8150897026062012
+      },
+      "grad_ndvm": {
+        "p0": 0.8150897026062012
+      },
+      "grad_fd": {
+        "p0": 0.8150935173034668
+      },
+      "class": "pass"
+    },
+    {
+      "id": 91,
+      "src": "(+ (abs (/ (* (* p0 2.0) (sin 1.361)) (+ 1.0 (* (let* ((u1 (if (= 0.846 1.0) 1.0 0.698)) (u2 (let ((u3 0.891)) p1))) (+ 0.5 p0)) (let* ((u1 (if (= 0.846 1.0) 1.0 0.698)) (u2 (let ((u3 0.891)) p1))) (+ 0.5 p0)))))) p0)",
+      "params": {
+        "p0": 0.7497,
+        "p1": 0.4522
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.3221691846847534,
+      "fwd_ndvm": 1.3221691846847534,
+      "grad_oracle": {
+        "p0": 1.205061912536621,
+        "p1": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.205061912536621,
+        "p1": 0.0
+      },
+      "grad_fd": {
+        "p0": 1.2049674987792969,
+        "p1": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 92,
+      "src": "(+ (loop ((x (let ((u1 2.0) (u2 p3)) 1.0)) (k 0)) (if (= k 11) x (recur (* 0.5 (+ x (let ((u3 0.5) (u4 x)) p3))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.3734,
+        "p3": 1.208
+      },
+      "features": [
+        "binop",
+        "let",
+        "literal",
+        "loop_recur",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.581298351287842,
+      "fwd_ndvm": 2.581298351287842,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p3": 0.99951171875
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p3": 0.99951171875
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p3": 0.99945068359375
+      },
+      "class": "pass"
+    },
+    {
+      "id": 93,
+      "src": "(+ (let ((u1 (sqrt (+ 1.0 (* 0.5 0.5))))) (let* ((u2 p1)) 0.916)) p0)",
+      "params": {
+        "p0": 0.6798,
+        "p1": 0.3198
+      },
+      "features": [
+        "binop",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.5957999229431152,
+      "fwd_ndvm": 1.5957999229431152,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 94,
+      "src": "(+ (let ((u1 2.0)) (/ (abs (- (* u1 u1) (if (> 0.599 p3) 1.0 0.5))) (+ 1.0 (* p1 p1)))) p0)",
+      "params": {
+        "p0": 0.6541,
+        "p1": 1.1724,
+        "p3": 0.4449
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "literal",
+        "param",
+        "unary_other"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.9175124168395996,
+      "fwd_ndvm": 1.9175124168395996,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": -1.2475982904434204,
+        "p3": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": -1.2475982904434204,
+        "p3": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": -1.2477636337280273,
+        "p3": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 95,
+      "src": "(+ (abs (let* ((u1 -0.555) (u2 p2)) 0.5)) p0)",
+      "params": {
+        "p0": 0.7035,
+        "p2": 0.2601
+      },
+      "features": [
+        "binop",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.2035000324249268,
+      "fwd_ndvm": 1.2035000324249268,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p2": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 96,
+      "src": "(+ (+ (sqrt (+ 1.0 (* (abs p0) (abs p0)))) (- (- p0 p0) (/ -0.94 (+ 1.0 (* -1.214 -1.214))))) p0)",
+      "params": {
+        "p0": 1.225
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 3.186319351196289,
+      "fwd_ndvm": 3.186319351196289,
+      "grad_oracle": {
+        "p0": 1.7746613025665283
+      },
+      "grad_ndvm": {
+        "p0": 1.7746613025665283
+      },
+      "grad_fd": {
+        "p0": 1.7746686935424805
+      },
+      "class": "pass"
+    },
+    {
+      "id": 97,
+      "src": "(+ (abs (exp (* 0.1 (log (+ 1.0 (* (if (= (sin p0) (sqrt (+ 1.0 (* p0 p0)))) (- p1 p0) (* 2.0 2.0)) (if (= (sin p0) (sqrt (+ 1.0 (* p0 p0)))) (- p1 p0) (* 2.0 2.0)))))))) p0)",
+      "params": {
+        "p0": 0.9121,
+        "p1": 1.1607
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.2396316528320312,
+      "fwd_ndvm": 2.2396316528320312,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p1": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 98,
+      "src": "(+ 0.469 p0)",
+      "params": {
+        "p0": 0.6043
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.0733000040054321,
+      "fwd_ndvm": 1.0733000040054321,
+      "grad_oracle": {
+        "p0": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504
+      },
+      "class": "pass"
+    },
+    {
+      "id": 99,
+      "src": "(+ (cos (* p1 p2)) p0)",
+      "params": {
+        "p0": 1.4005,
+        "p1": 0.2411,
+        "p2": 1.4656
+      },
+      "features": [
+        "binop",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.338716745376587,
+      "fwd_ndvm": 2.338716745376587,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": -0.5071687698364258,
+        "p2": -0.08343230932950974
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": -0.507168710231781,
+        "p2": -0.08343230187892914
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": -0.5072355270385742,
+        "p2": -0.08344650268554688
+      },
+      "class": "pass"
+    },
+    {
+      "id": 100,
+      "src": "(+ (let* ((u1 (if (>= (let ((u2 p1)) u2) (if (> p1 0.5) 1.222 p1)) (if (< p0 p1) p0 p0) (- 0.5 p1))) (u3 (sin (let ((u4 0.766) (u5 -0.026)) -0.28)))) (- u1 p0)) p0)",
+      "params": {
+        "p0": 1.0509,
+        "p1": 0.2329
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.0508999824523926,
+      "fwd_ndvm": 1.0508999824523926,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 101,
+      "src": "(+ (+ (- 1.0 p1) -1.018) p0)",
+      "params": {
+        "p0": 0.5322,
+        "p1": 1.0985
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": -0.5843000411987305,
+      "fwd_ndvm": -0.5843000411987305,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": -1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": -1.0
+      },
+      "grad_fd": {
+        "p0": 1.0000169277191162,
+        "p1": -0.9999871253967285
+      },
+      "class": "pass"
+    },
+    {
+      "id": 102,
+      "src": "(+ (let* ((u1 (+ (+ p1 p3) 1.0)) (u2 (exp (* 0.1 (let ((u3 u1) (u4 -1.154)) p0))))) (sqrt (+ 1.0 (* (if (= 1.375 p3) u1 2.0) (if (= 1.375 p3) u1 2.0))))) p0)",
+      "params": {
+        "p0": 1.3869,
+        "p1": 0.9478,
+        "p3": 1.2024
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 3.6229679584503174,
+      "fwd_ndvm": 3.6229679584503174,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p3": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p3": 0.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.0,
+        "p3": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 103,
+      "src": "(+ (loop ((x p2) (k 0)) (if (= k 7) x (recur (* 0.5 (+ x (* (- (if (>= (* 1.0 1.286) (abs 0.972)) (- p2 0.5) 0.839) (sqrt (+ 1.0 (* x x)))) (sin p2)))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.7134,
+        "p2": 0.8168
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.13686299324035645,
+      "fwd_ndvm": 0.13686299324035645,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 0.2684870958328247
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 0.2684870958328247
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p2": 0.2684593200683594
+      },
+      "class": "pass"
+    },
+    {
+      "id": 104,
+      "src": "(+ (loop ((x (+ 0.453 p0)) (k 0)) (if (= k 2) x (recur (* 0.5 (+ x (if (> (* p0 (/ (let ((u1 1.121)) 1.0) (+ 1.0 (* (if (>= p0 x) x p0) (if (>= p0 x) x p0))))) (+ (exp (* 0.1 (* x 1.0))) x)) (+ (cos (cos x)) (- (if (>= 2.0 x) 1.479 1.0) (if (>= x 0.5) 1.0 0.383))) x))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.7281
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.9091999530792236,
+      "fwd_ndvm": 1.9091999530792236,
+      "grad_oracle": {
+        "p0": 2.0
+      },
+      "grad_ndvm": {
+        "p0": 2.0
+      },
+      "grad_fd": {
+        "p0": 2.0000338554382324
+      },
+      "class": "pass"
+    },
+    {
+      "id": 105,
+      "src": "(+ p2 p0)",
+      "params": {
+        "p0": 0.2542,
+        "p2": 1.4377
+      },
+      "features": [
+        "binop",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.6919000148773193,
+      "fwd_ndvm": 1.6919000148773193,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 1.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p2": 0.9999871253967285
+      },
+      "class": "pass"
+    },
+    {
+      "id": 106,
+      "src": "(+ p1 p0)",
+      "params": {
+        "p0": 0.833,
+        "p1": 1.1371
+      },
+      "features": [
+        "binop",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.970099925994873,
+      "fwd_ndvm": 1.970099925994873,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 1.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 1.000046730041504
+      },
+      "class": "pass"
+    },
+    {
+      "id": 107,
+      "src": "(+ (loop ((x (+ (let ((u1 (if (> 2.0 p0) p0 -1.205))) (sin u1)) (if (= (/ p0 (+ 1.0 (* 0.697 0.697))) (+ p1 1.0)) (let ((u2 p1) (u3 1.469)) 0.5) (sqrt (+ 1.0 (* 0.739 0.739)))))) (k 0)) (if (= k 7) x (recur (* 0.5 (+ x (+ 1.378 (sqrt (+ 1.0 (* (if (= (+ p1 x) (if (= 0.5 p0) p1 0.924)) (sqrt (+ 1.0 (* 1.0 1.0))) (- p1 1.166)) (if (= (+ p1 x) (if (= 0.5 p0) p1 0.924)) (sqrt (+ 1.0 (* 1.0 1.0))) (- p1 1.166)))))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.4697,
+        "p1": 0.3222
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 4.152632713317871,
+      "fwd_ndvm": 4.152632713317871,
+      "grad_oracle": {
+        "p0": 1.0007884502410889,
+        "p1": -0.6398550271987915
+      },
+      "grad_ndvm": {
+        "p0": 1.0007884502410889,
+        "p1": -0.6398550868034363
+      },
+      "grad_fd": {
+        "p0": 1.0006427764892578,
+        "p1": -0.6396770477294922
+      },
+      "class": "pass"
+    },
+    {
+      "id": 108,
+      "src": "(+ p3 p0)",
+      "params": {
+        "p0": 0.7989,
+        "p3": 1.4924
+      },
+      "features": [
+        "binop",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.291300058364868,
+      "fwd_ndvm": 2.291300058364868,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p3": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p3": 1.0
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p3": 1.000046730041504
+      },
+      "class": "pass"
+    },
+    {
+      "id": 109,
+      "src": "(+ (log (+ 1.0 (* (* p0 2.0) (* p0 2.0)))) p0)",
+      "params": {
+        "p0": 0.3811
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.8391251564025879,
+      "fwd_ndvm": 0.8391251564025879,
+      "grad_oracle": {
+        "p0": 2.928462028503418
+      },
+      "grad_ndvm": {
+        "p0": 2.928462028503418
+      },
+      "grad_fd": {
+        "p0": 2.9283761978149414
+      },
+      "class": "pass"
+    },
+    {
+      "id": 110,
+      "src": "(+ (+ (sqrt (+ 1.0 (* (if (= (* -0.483 p2) 1.152) (- -0.511 0.91) (if (<= 1.0 1.43) 2.0 p1)) (if (= (* -0.483 p2) 1.152) (- -0.511 0.91) (if (<= 1.0 1.43) 2.0 p1))))) (log (+ 1.0 (* (exp (* 0.1 (/ 1.193 (+ 1.0 (* 1.0 1.0))))) (exp (* 0.1 (/ 1.193 (+ 1.0 (* 1.0 1.0))))))))) p0)",
+      "params": {
+        "p0": 1.1281,
+        "p1": 0.5234,
+        "p2": 0.523
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 4.118743419647217,
+      "fwd_ndvm": 4.118743419647217,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 111,
+      "src": "(+ (loop ((x (- p2 -0.905)) (k 0)) (if (= k 11) x (recur (* 0.5 (+ x (if (> (abs p0) (* p2 2.0)) (abs 2.0) (let* ((u1 0.729)) p1)))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.2763,
+        "p1": 1.233,
+        "p2": 0.4234
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "let_star",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_other"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.5093467235565186,
+      "fwd_ndvm": 1.5093467235565186,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.99951171875,
+        "p2": 0.00048828125
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.99951171875,
+        "p2": 0.00048828125
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 0.99945068359375,
+        "p2": 0.0005960464477539062
+      },
+      "class": "pass"
+    },
+    {
+      "id": 112,
+      "src": "(+ (loop ((x p1) (k 0)) (if (= k 5) x (recur (* 0.5 (+ x (/ (if (<= (abs -1.1) (log (+ 1.0 (* p1 p1)))) (sin p1) (let ((u1 0.53) (u2 p3)) p2)) (+ 1.0 (* (exp (* 0.1 (cos p2))) (exp (* 0.1 (cos p2)))))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.6377,
+        "p1": 0.349,
+        "p2": 0.6095,
+        "p3": 0.4935
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.9196802973747253,
+      "fwd_ndvm": 0.9196802973747253,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.03125,
+        "p2": 0.46153557300567627,
+        "p3": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.03125,
+        "p2": 0.46153557300567627,
+        "p3": 0.0
+      },
+      "grad_fd": {
+        "p0": 1.0000169277191162,
+        "p1": 0.03126263618469238,
+        "p2": 0.4615187644958496,
+        "p3": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 113,
+      "src": "(+ (loop ((x (sin p2)) (k 0)) (if (= k 3) x (recur (* 0.5 (+ x (if (< (let ((u1 1.215) (u2 p1)) p0) x) (/ -0.109 (+ 1.0 (* p2 p2))) (let* ((u3 1.198)) x)))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.3179,
+        "p1": 1.0987,
+        "p2": 1.3731
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.298421621322632,
+      "fwd_ndvm": 2.298421621322632,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.19641101360321045
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.19641101360321045
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.0,
+        "p2": 0.19633769989013672
+      },
+      "class": "pass"
+    },
+    {
+      "id": 114,
+      "src": "(+ (let ((u1 (if (>= (+ (- (/ 2.0 (+ 1.0 (* p0 p0))) (* 1.318 p1)) 2.0) p3) (+ (let* ((u2 (/ p2 (+ 1.0 (* 1.403 1.403)))) (u3 (/ u2 (+ 1.0 (* p2 p2))))) p1) (sin (+ 1.381 2.0))) 0.5)) (u4 (+ 0.5 (sqrt (+ 1.0 (* (/ 1.309 (+ 1.0 (* (/ 0.5 (+ 1.0 (* p0 p0))) (/ 0.5 (+ 1.0 (* p0 p0)))))) (/ 1.309 (+ 1.0 (* (/ 0.5 (+ 1.0 (* p0 p0))) (/ 0.5 (+ 1.0 (* p0 p0)))))))))))) (let ((u5 (+ 1.489 (if (> (+ 0.297 2.0) 1.481) (* u1 1.0) (if (> p3 p0) 1.0 u4)))) (u6 (/ (let* ((u7 (log (+ 1.0 (* 1.0 1.0)))) (u8 u7)) 1.223) (+ 1.0 (* 0.5 0.5))))) (+ (abs (/ p2 (+ 1.0 (* p2 p2)))) (let* ((u9 (+ p3 p1)) (u10 (let ((u11 p1) (u12 p3)) p3))) p1)))) p0)",
+      "params": {
+        "p0": 0.2712,
+        "p1": 0.4569,
+        "p2": 1.3339,
+        "p3": 0.2412
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.208042860031128,
+      "fwd_ndvm": 1.208042860031128,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 1.0,
+        "p2": -0.10088604688644409,
+        "p3": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 1.0,
+        "p2": -0.10088604688644409,
+        "p3": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 0.9999275207519531,
+        "p2": -0.10091066360473633,
+        "p3": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 115,
+      "src": "(+ (* (let* ((u1 p0)) (exp (* 0.1 u1))) p0) p0)",
+      "params": {
+        "p0": 0.2167
+      },
+      "features": [
+        "binop",
+        "let_star",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.4381471276283264,
+      "fwd_ndvm": 0.4381471276283264,
+      "grad_oracle": {
+        "p0": 2.044051170349121
+      },
+      "grad_ndvm": {
+        "p0": 2.044051170349121
+      },
+      "grad_fd": {
+        "p0": 2.0440518856048584
+      },
+      "class": "pass"
+    },
+    {
+      "id": 116,
+      "src": "(+ 0.402 p0)",
+      "params": {
+        "p0": 1.2494
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.651400089263916,
+      "fwd_ndvm": 1.651400089263916,
+      "grad_oracle": {
+        "p0": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504
+      },
+      "class": "pass"
+    },
+    {
+      "id": 117,
+      "src": "(+ (loop ((x (- (if (<= 2.0 2.0) 0.5 -0.587) (/ p1 (+ 1.0 (* 1.0 1.0))))) (k 0)) (if (= k 11) x (recur (* 0.5 (+ x (- p1 (let ((u1 (* p0 p1))) (exp (* 0.1 p0)))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.4258,
+        "p1": 1.3901
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.66244375705719,
+      "fwd_ndvm": 1.66244375705719,
+      "grad_oracle": {
+        "p0": 0.8847317695617676,
+        "p1": 0.999267578125
+      },
+      "grad_ndvm": {
+        "p0": 0.8847317695617676,
+        "p1": 0.999267578125
+      },
+      "grad_fd": {
+        "p0": 0.8846521377563477,
+        "p1": 0.9993314743041992
+      },
+      "class": "pass"
+    },
+    {
+      "id": 118,
+      "src": "(+ (loop ((x (if (<= p2 1.0) 0.806 p2)) (k 0)) (if (= k 3) x (recur (* 0.5 (+ x (+ (if (> x p1) 0.887 0.5) 0.877))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.5282,
+        "p1": 1.4766,
+        "p2": 1.1315
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "literal",
+        "loop_recur",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.8745124340057373,
+      "fwd_ndvm": 1.8745124340057373,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.125
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.125
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.0,
+        "p2": 0.12493133544921875
+      },
+      "class": "pass"
+    },
+    {
+      "id": 119,
+      "src": "(+ (+ (+ p2 1.11) (+ -1.262 0.5)) p0)",
+      "params": {
+        "p0": 1.2755,
+        "p2": 1.2114
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.834900379180908,
+      "fwd_ndvm": 2.834900379180908,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p2": 1.0001659393310547
+      },
+      "class": "pass"
+    },
+    {
+      "id": 120,
+      "src": "(+ -0.44 p0)",
+      "params": {
+        "p0": 1.0616
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.6215999722480774,
+      "fwd_ndvm": 0.6215999722480774,
+      "grad_oracle": {
+        "p0": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285
+      },
+      "class": "pass"
+    },
+    {
+      "id": 121,
+      "src": "(+ (* 0.5 (+ (let* ((u1 p2) (u2 0.5)) 2.0) (let ((u3 p2)) 0.565))) p0)",
+      "params": {
+        "p0": 1.1577,
+        "p2": 0.5712
+      },
+      "features": [
+        "binop",
+        "let",
+        "let_star",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.440199851989746,
+      "fwd_ndvm": 2.440199851989746,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 0.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p2": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 122,
+      "src": "(+ (loop ((x (+ (abs (let* ((u1 p1) (u2 p0)) 0.5)) (sin (log (+ 1.0 (* 2.0 2.0)))))) (k 0)) (if (= k 2) x (recur (* 0.5 (+ x 1.0)) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.4167,
+        "p1": 0.2757
+      },
+      "features": [
+        "binop",
+        "let_star",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.541513442993164,
+      "fwd_ndvm": 2.541513442993164,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 123,
+      "src": "(+ (loop ((x (if (< p2 p1) p1 (+ (- p2 p1) (let* ((u1 1.231)) 0.5)))) (k 0)) (if (= k 10) x (recur (* 0.5 (+ x x)) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.4174,
+        "p1": 1.4141,
+        "p2": 1.0572
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "let_star",
+        "literal",
+        "loop_recur",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.8315000534057617,
+      "fwd_ndvm": 1.8315000534057617,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 1.0,
+        "p2": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 1.0,
+        "p2": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 0.9999871253967285,
+        "p2": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 124,
+      "src": "(+ (if (<= (sqrt (+ 1.0 (* (if (= 0.5 p0) p1 1.0) (if (= 0.5 p0) p1 1.0)))) (abs (- p0 2.0))) p1 (- (let* ((u1 p0)) p1) (/ 0.5 (+ 1.0 (* p0 p0))))) p0)",
+      "params": {
+        "p0": 1.4144,
+        "p1": 1.2335
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.481262683868408,
+      "fwd_ndvm": 2.481262683868408,
+      "grad_oracle": {
+        "p0": 1.1571002006530762,
+        "p1": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.1571002006530762,
+        "p1": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.1571645736694336,
+        "p1": 1.000046730041504
+      },
+      "class": "pass"
+    },
+    {
+      "id": 125,
+      "src": "(+ (let ((u1 (if (< p0 p1) 0.5 p1))) (abs u1)) p0)",
+      "params": {
+        "p0": 0.4773,
+        "p1": 0.4694
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "let",
+        "literal",
+        "param",
+        "unary_other"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.9466999769210815,
+      "fwd_ndvm": 0.9466999769210815,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.0000169277191162,
+        "p1": 1.0000169277191162
+      },
+      "class": "pass"
+    },
+    {
+      "id": 126,
+      "src": "(+ (sin (/ p0 (+ 1.0 (* 1.261 1.261)))) p0)",
+      "params": {
+        "p0": 1.3143
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.800230860710144,
+      "fwd_ndvm": 1.800230860710144,
+      "grad_oracle": {
+        "p0": 1.3374348878860474
+      },
+      "grad_ndvm": {
+        "p0": 1.3374348878860474
+      },
+      "grad_fd": {
+        "p0": 1.3374090194702148
+      },
+      "class": "pass"
+    },
+    {
+      "id": 127,
+      "src": "(+ (* (let* ((u1 (- (if (= p0 p1) 1.125 (let ((u2 p2)) 0.528)) (- (+ p0 p1) 0.5))) (u3 (- (let ((u4 (- p0 u1)) (u5 1.399)) (/ p2 (+ 1.0 (* 1.071 1.071)))) (let ((u6 (* 1.0 1.0))) (let ((u7 0.373) (u8 p0)) u8))))) (abs 0.5)) (- (cos (cos 1.461)) (if (< (cos (let ((u9 p0)) u9)) (let ((u10 (* -1.27 1.0))) (if (> u10 u10) p0 1.0))) p1 (if (< p0 (if (< p1 p2) p2 2.0)) (- p0 0.5) (- p1 1.0))))) p0)",
+      "params": {
+        "p0": 1.3594,
+        "p1": 0.9073,
+        "p2": 0.3703
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.4027513265609741,
+      "fwd_ndvm": 1.4027513265609741,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": -0.5,
+        "p2": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": -0.5,
+        "p2": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": -0.49996376037597656,
+        "p2": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 128,
+      "src": "(+ (loop ((x (let ((u1 1.0) (u2 0.5)) u1)) (k 0)) (if (= k 2) x (recur (* 0.5 (+ x (+ (sin p0) (cos p1)))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.4426,
+        "p1": 0.427
+      },
+      "features": [
+        "binop",
+        "let",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 3.1191048622131348,
+      "fwd_ndvm": 3.1191048622131348,
+      "grad_oracle": {
+        "p0": 1.095884084701538,
+        "p1": -0.3106065094470978
+      },
+      "grad_ndvm": {
+        "p0": 1.095884084701538,
+        "p1": -0.3106065094470978
+      },
+      "grad_fd": {
+        "p0": 1.0957717895507812,
+        "p1": -0.31054019927978516
+      },
+      "class": "pass"
+    },
+    {
+      "id": 129,
+      "src": "(+ (loop ((x (exp (* 0.1 p1))) (k 0)) (if (= k 10) x (recur (* 0.5 (+ x 0.5)) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.3251,
+        "p1": 0.2744
+      },
+      "features": [
+        "binop",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.8256154656410217,
+      "fwd_ndvm": 0.8256154656410217,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.00010037305037258193
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.00010037305037258193
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 0.00011920928955078125
+      },
+      "class": "pass"
+    },
+    {
+      "id": 130,
+      "src": "(+ p1 p0)",
+      "params": {
+        "p0": 0.5023,
+        "p1": 1.4994
+      },
+      "features": [
+        "binop",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.001699924468994,
+      "fwd_ndvm": 2.001699924468994,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.9999275207519531
+      },
+      "class": "pass"
+    },
+    {
+      "id": 131,
+      "src": "(+ (if (< (if (> (abs p0) (cos 2.0)) (let ((u1 2.0)) p2) (let* ((u2 p0) (u3 2.0)) p1)) (exp (* 0.1 (abs 0.985)))) (- (if (< p0 p0) p1 2.0) (/ -1.078 (+ 1.0 (* p0 p0)))) (- 2.0 (- p0 p2))) p0)",
+      "params": {
+        "p0": 0.7437,
+        "p1": 0.5897,
+        "p2": 0.8298
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 3.437800407409668,
+      "fwd_ndvm": 3.437800407409668,
+      "grad_oracle": {
+        "p0": 0.33525750041007996,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 0.33525750041007996,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.3352165222167969,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 132,
+      "src": "(+ (loop ((x (- (if (>= -0.941 2.0) 1.0 p2) (cos 2.0))) (k 0)) (if (= k 4) x (recur (* 0.5 (+ x x)) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.247,
+        "p2": 0.4775
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.1406468152999878,
+      "fwd_ndvm": 1.1406468152999878,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 1.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p2": 0.9999871253967285
+      },
+      "class": "pass"
+    },
+    {
+      "id": 133,
+      "src": "(+ (- (let ((u1 (let ((u2 p2) (u3 (let ((u4 p3)) -1.06))) p1))) (+ (log (+ 1.0 (* p1 p1))) (if (>= u1 p1) u1 2.0))) (sqrt (+ 1.0 (* (- (exp (* 0.1 p2)) (sin 0.5)) (- (exp (* 0.1 p2)) (sin 0.5)))))) p0)",
+      "params": {
+        "p0": 0.2014,
+        "p1": 1.2065,
+        "p2": 0.2806,
+        "p3": 0.9613
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "let",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.1654834747314453,
+      "fwd_ndvm": 1.1654834747314453,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 1.9826350212097168,
+        "p2": -0.04949626326560974,
+        "p3": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 1.9826350212097168,
+        "p2": -0.04949626326560974,
+        "p3": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 1.982569694519043,
+        "p2": -0.04947185516357422,
+        "p3": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 134,
+      "src": "(+ (* (* (* (/ 2.0 (+ 1.0 (* p0 p0))) (- p3 p2)) (* (if (>= 1.0 p2) p3 p2) (* 0.973 p1))) 1.0) p0)",
+      "params": {
+        "p0": 1.318,
+        "p1": 1.0145,
+        "p2": 0.7046,
+        "p3": 0.5328
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.2519781589508057,
+      "fwd_ndvm": 1.2519781589508057,
+      "grad_oracle": {
+        "p0": 1.0635826587677002,
+        "p1": -0.06507821381092072,
+        "p2": -0.38429492712020874,
+        "p3": 0.2603800296783447
+      },
+      "grad_ndvm": {
+        "p0": 1.0635826587677002,
+        "p1": -0.06507821381092072,
+        "p2": -0.38429492712020874,
+        "p3": 0.2603800296783447
+      },
+      "grad_fd": {
+        "p0": 1.0635852813720703,
+        "p1": -0.06508827209472656,
+        "p2": -0.38427114486694336,
+        "p3": 0.26041269302368164
+      },
+      "class": "pass"
+    },
+    {
+      "id": 135,
+      "src": "(+ (loop ((x 0.846) (k 0)) (if (= k 9) x (recur (* 0.5 (+ x (+ (+ p2 1.0) x))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.3072,
+        "p2": 1.2689
+      },
+      "features": [
+        "binop",
+        "literal",
+        "loop_recur",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 11.363249778747559,
+      "fwd_ndvm": 11.363249778747559,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 4.5
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 4.5
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p2": 4.4994354248046875
+      },
+      "class": "pass"
+    },
+    {
+      "id": 136,
+      "src": "(+ (loop ((x (* (/ (let* ((u1 1.0)) u1) (+ 1.0 (* p1 p1))) (let ((u2 1.0) (u3 (let ((u4 p0)) 0.5))) (sqrt (+ 1.0 (* p1 p1)))))) (k 0)) (if (= k 10) x (recur (* 0.5 (+ x (let ((u5 (+ (sqrt (+ 1.0 (* (/ p0 (+ 1.0 (* p1 p1))) (/ p0 (+ 1.0 (* p1 p1)))))) (- (log (+ 1.0 (* p1 p1))) (/ 0.5 (+ 1.0 (* x x)))))) (u6 (exp (* 0.1 (abs (* p0 p1)))))) (let* ((u7 1.0) (u8 2.0)) (exp (* 0.1 (/ p0 (+ 1.0 (* u8 u8))))))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.3034,
+        "p1": 0.3776
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "let",
+        "let_star",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.3297219276428223,
+      "fwd_ndvm": 2.3297219276428223,
+      "grad_oracle": {
+        "p0": 1.0205081701278687,
+        "p1": -0.0003019263967871666
+      },
+      "grad_ndvm": {
+        "p0": 1.0205081701278687,
+        "p1": -0.0003019263967871666
+      },
+      "grad_fd": {
+        "p0": 1.0204315185546875,
+        "p1": -0.00035762786865234375
+      },
+      "class": "pass"
+    },
+    {
+      "id": 137,
+      "src": "(+ (abs (- (- p2 -0.376) (let* ((u1 1.0) (u2 0.929)) 0.5))) p0)",
+      "params": {
+        "p0": 0.9561,
+        "p2": 1.2202
+      },
+      "features": [
+        "binop",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.052299976348877,
+      "fwd_ndvm": 2.052299976348877,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 1.0
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p2": 0.9999275207519531
+      },
+      "class": "pass"
+    },
+    {
+      "id": 138,
+      "src": "(+ (sin (/ (* (let* ((u1 (if (>= p1 0.456) 1.019 p0))) (if (<= 1.0 0.5) 0.593 2.0)) (if (<= (- 0.5 1.335) (+ 0.5 p1)) (sin p1) (exp (* 0.1 p0)))) (+ 1.0 (* (+ (cos (abs 2.0)) (let ((u2 (if (= p1 0.5) p1 p0))) (- p0 1.0))) (+ (cos (abs 2.0)) (let ((u2 (if (= p1 0.5) p1 p0))) (- p0 1.0))))))) p0)",
+      "params": {
+        "p0": 0.3582,
+        "p1": 0.9552
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.0546857118606567,
+      "fwd_ndvm": 1.0546857118606567,
+      "grad_oracle": {
+        "p0": 1.5520038604736328,
+        "p1": 0.39104175567626953
+      },
+      "grad_ndvm": {
+        "p0": 1.5520038604736328,
+        "p1": 0.39104175567626953
+      },
+      "grad_fd": {
+        "p0": 1.551985740661621,
+        "p1": 0.3910064697265625
+      },
+      "class": "pass"
+    },
+    {
+      "id": 139,
+      "src": "(+ (let* ((u1 (if (<= (let ((u2 (log (+ 1.0 (* p0 p0))))) (* u2 u2)) 2.0) (* (exp (* 0.1 0.5)) (abs p1)) (log (+ 1.0 (* p0 p0)))))) (if (= p0 (abs (cos p1))) (- (* u1 0.5) (- 0.5 p1)) (let* ((u3 (/ 0.949 (+ 1.0 (* u1 u1))))) u3))) p0)",
+      "params": {
+        "p0": 0.8306,
+        "p1": 1.457
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.1142128705978394,
+      "fwd_ndvm": 1.1142128705978394,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": -0.2729634642601013
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": -0.2729634642601013
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": -0.27298927307128906
+      },
+      "class": "pass"
+    },
+    {
+      "id": 140,
+      "src": "(+ (loop ((x p0) (k 0)) (if (= k 4) x (recur (* 0.5 (+ x (abs p0))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.6361
+      },
+      "features": [
+        "binop",
+        "loop_recur",
+        "param",
+        "unary_other"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.2721999883651733,
+      "fwd_ndvm": 1.2721999883651733,
+      "grad_oracle": {
+        "p0": 2.0
+      },
+      "grad_ndvm": {
+        "p0": 2.0
+      },
+      "grad_fd": {
+        "p0": 1.999974250793457
+      },
+      "class": "pass"
+    },
+    {
+      "id": 141,
+      "src": "(+ p1 p0)",
+      "params": {
+        "p0": 0.3775,
+        "p1": 1.4108
+      },
+      "features": [
+        "binop",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.7883000373840332,
+      "fwd_ndvm": 1.7883000373840332,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 1.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 0.9999275207519531
+      },
+      "class": "pass"
+    },
+    {
+      "id": 142,
+      "src": "(+ (* (let* ((u1 (let ((u2 1.0) (u3 p1)) p2))) 2.0) (let ((u4 p1) (u5 p1)) (/ u4 (+ 1.0 (* 0.5 0.5))))) p0)",
+      "params": {
+        "p0": 0.3817,
+        "p1": 1.4709,
+        "p2": 0.7562
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "let",
+        "let_star",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.735140085220337,
+      "fwd_ndvm": 2.735140085220337,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 1.600000023841858,
+        "p2": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 1.600000023841858,
+        "p2": 0.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 1.600027084350586,
+        "p2": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 143,
+      "src": "(+ (loop ((x (- (+ (if (< 1.0 p1) p0 p2) (+ 2.0 1.068)) (if (>= (exp (* 0.1 p0)) (if (>= p1 p1) p1 p0)) p0 (exp (* 0.1 p0))))) (k 0)) (if (= k 8) x (recur (* 0.5 (+ x (let ((u1 (/ (- (log (+ 1.0 (* x x))) p2) (+ 1.0 (* 1.0 1.0)))) (u2 (sin (+ (exp (* 0.1 2.0)) (cos x))))) (/ (- (+ p2 1.0) (cos p2)) (+ 1.0 (* (let ((u3 x) (u4 (exp (* 0.1 x)))) (if (< 0.5 0.5) 1.0 -1.198)) (let ((u3 x) (u4 (exp (* 0.1 x)))) (if (< 0.5 0.5) 1.0 -1.198)))))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.4129,
+        "p1": 0.6309,
+        "p2": 0.8659
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.9248411655426025,
+      "fwd_ndvm": 0.9248411655426025,
+      "grad_oracle": {
+        "p0": 0.99609375,
+        "p1": 0.0,
+        "p2": 0.7245017886161804
+      },
+      "grad_ndvm": {
+        "p0": 0.99609375,
+        "p1": 0.0,
+        "p2": 0.7245017886161804
+      },
+      "grad_fd": {
+        "p0": 0.9961128234863281,
+        "p1": 0.0,
+        "p2": 0.724494457244873
+      },
+      "class": "pass"
+    },
+    {
+      "id": 144,
+      "src": "(+ (/ (let ((u1 0.869) (u2 p0)) u2) (+ 1.0 (* (* p1 p0) (* p1 p0)))) p0)",
+      "params": {
+        "p0": 1.2029,
+        "p1": 0.6934
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "let",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.9122793674468994,
+      "fwd_ndvm": 1.9122793674468994,
+      "grad_oracle": {
+        "p0": 1.1058251857757568,
+        "p1": -0.8394608497619629
+      },
+      "grad_ndvm": {
+        "p0": 1.1058251857757568,
+        "p1": -0.8394608497619629
+      },
+      "grad_fd": {
+        "p0": 1.1058449745178223,
+        "p1": -0.8394718170166016
+      },
+      "class": "pass"
+    },
+    {
+      "id": 145,
+      "src": "(+ (* (if (> (- (- 2.0 p2) (exp (* 0.1 (exp (* 0.1 0.653))))) (sqrt (+ 1.0 (* (let* ((u1 (let ((u2 p2) (u3 p2)) 0.5))) (/ 1.0 (+ 1.0 (* p0 p0)))) (let* ((u1 (let ((u2 p2) (u3 p2)) 0.5))) (/ 1.0 (+ 1.0 (* p0 p0)))))))) (let ((u4 1.392)) (cos (cos 0.5))) 1.0) (let ((u5 (let ((u6 (- p0 (abs 1.0)))) (abs u6))) (u7 (sqrt (+ 1.0 (* (* (log (+ 1.0 (* 2.0 2.0))) (let* ((u8 p1) (u9 p0)) -0.183)) (* (log (+ 1.0 (* 2.0 2.0))) (let* ((u8 p1) (u9 p0)) -0.183))))))) (+ p0 (/ 1.371 (+ 1.0 (* (let* ((u10 0.263) (u11 1.0)) -1.439) (let* ((u10 0.263) (u11 1.0)) -1.439))))))) p0)",
+      "params": {
+        "p0": 0.2503,
+        "p1": 0.9661,
+        "p2": 1.4162
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.9470749497413635,
+      "fwd_ndvm": 0.9470749497413635,
+      "grad_oracle": {
+        "p0": 2.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 2.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "grad_fd": {
+        "p0": 2.0000040531158447,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 146,
+      "src": "(+ (if (<= 0.5 p1) (abs (if (< (let ((u1 (* -1.464 0.424))) (- 2.0 1.315)) (/ (sqrt (+ 1.0 (* 0.5 0.5))) (+ 1.0 (* (+ 2.0 p1) (+ 2.0 p1))))) (let* ((u2 (/ p0 (+ 1.0 (* p1 p1))))) (/ u2 (+ 1.0 (* 0.665 0.665)))) (exp (* 0.1 p2)))) (- (* (if (<= (cos 0.5) (log (+ 1.0 (* 2.0 2.0)))) (if (< 0.5 p2) p0 2.0) (if (< p2 p0) p1 p0)) (+ (if (> p0 p0) p2 2.0) (sqrt (+ 1.0 (* p2 p2))))) (- (let* ((u3 (exp (* 0.1 2.0))) (u4 (let ((u5 u3)) 2.0))) (if (> 1.449 p0) p1 p0)) (- (* p2 -0.216) (* 1.0 0.5))))) p0)",
+      "params": {
+        "p0": 1.0177,
+        "p1": 0.5489,
+        "p2": 0.701
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.090315341949463,
+      "fwd_ndvm": 2.090315341949463,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.1072615385055542
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.1072615385055542
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p1": 0.0,
+        "p2": 0.10728836059570312
+      },
+      "class": "pass"
+    },
+    {
+      "id": 147,
+      "src": "(+ (let ((u1 (+ (* p0 (/ (+ p0 0.581) (+ 1.0 (* 0.5 0.5)))) (exp (* 0.1 (/ (- p2 2.0) (+ 1.0 (* (let* ((u2 1.119)) p0) (let* ((u2 1.119)) p0)))))))) (u3 p0)) (/ (let* ((u4 (let ((u5 (- 0.51 p0)) (u6 (- u3 2.0))) (+ p1 u5)))) (abs u4)) (+ 1.0 (* (/ (if (>= (let ((u7 p1)) u1) (if (< p0 p1) 0.5 p1)) (log (+ 1.0 (* 2.0 2.0))) (/ 2.0 (+ 1.0 (* 2.0 2.0)))) (+ 1.0 (* (let* ((u8 (+ p0 1.0))) (if (> -0.743 1.0) p1 u1)) (let* ((u8 (+ p0 1.0))) (if (> -0.743 1.0) p1 u1))))) (/ (if (>= (let ((u7 p1)) u1) (if (< p0 p1) 0.5 p1)) (log (+ 1.0 (* 2.0 2.0))) (/ 2.0 (+ 1.0 (* 2.0 2.0)))) (+ 1.0 (* (let* ((u8 (+ p0 1.0))) (if (> -0.743 1.0) p1 u1)) (let* ((u8 (+ p0 1.0))) (if (> -0.743 1.0) p1 u1))))))))) p0)",
+      "params": {
+        "p0": 1.4421,
+        "p1": 0.7191,
+        "p2": 0.2675
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.6511800289154053,
+      "fwd_ndvm": 1.6511800289154053,
+      "grad_oracle": {
+        "p0": 1.9937138557434082,
+        "p1": -0.9815955758094788,
+        "p2": 0.00013181386748328805
+      },
+      "grad_ndvm": {
+        "p0": 1.9937138557434082,
+        "p1": -0.9815955758094788,
+        "p2": 0.00013181386748328805
+      },
+      "grad_fd": {
+        "p0": 1.9936561584472656,
+        "p1": -0.9816288948059082,
+        "p2": 0.00017881393432617188
+      },
+      "class": "pass"
+    },
+    {
+      "id": 148,
+      "src": "(+ (loop ((x (exp (* 0.1 (let ((u1 (+ p2 p3)) (u2 (if (= 2.0 p0) p0 p0))) (if (= p2 p3) -1.206 2.0))))) (k 0)) (if (= k 11) x (recur (* 0.5 (+ x (if (> (sin (let ((u3 (abs 1.0))) (let ((u4 p1) (u5 1.158)) p0))) (* (- (log (+ 1.0 (* p1 p1))) (+ 1.0 0.5)) p2)) (+ (log (+ 1.0 (* (sin p1) (sin p1)))) (abs (exp (* 0.1 -0.488)))) (abs (let ((u6 (log (+ 1.0 (* 1.284 1.284))))) (- 1.0 1.332)))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.0844,
+        "p1": 1.4762,
+        "p2": 1.3498,
+        "p3": 1.2339
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "let",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.725243091583252,
+      "fwd_ndvm": 2.725243091583252,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.09440825879573822,
+        "p2": 0.0,
+        "p3": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.09440825879573822,
+        "p2": 0.0,
+        "p3": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p1": 0.09441375732421875,
+        "p2": 0.0,
+        "p3": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 149,
+      "src": "(+ 0.89 p0)",
+      "params": {
+        "p0": 0.3359
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.2258999347686768,
+      "fwd_ndvm": 1.2258999347686768,
+      "grad_oracle": {
+        "p0": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285
+      },
+      "class": "pass"
+    },
+    {
+      "id": 150,
+      "src": "(+ (loop ((x (log (+ 1.0 (* p2 p2)))) (k 0)) (if (= k 5) x (recur (* 0.5 (+ x (exp (* 0.1 x)))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.0166,
+        "p2": 0.4075
+      },
+      "features": [
+        "binop",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.0842208862304688,
+      "fwd_ndvm": 2.0842208862304688,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 0.03637370839715004
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 0.03637370839715004
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p2": 0.03635883331298828
+      },
+      "class": "pass"
+    },
+    {
+      "id": 151,
+      "src": "(+ (loop ((x (* (- 1.0 (cos p2)) (- (+ p1 1.283) (abs 2.0)))) (k 0)) (if (= k 4) x (recur (* 0.5 (+ x (let ((u1 (log (+ 1.0 (* (if (<= (abs 1.16) (* p1 1.0)) (let ((u2 p0)) x) (let ((u3 2.0)) -1.063)) (if (<= (abs 1.16) (* p1 1.0)) (let ((u2 p0)) x) (let ((u3 2.0)) -1.063)))))) (u4 (- (abs (let* ((u5 1.0)) u5)) (+ (if (= 2.0 p2) 0.334 0.22) (if (= 2.0 1.0) 1.242 2.0))))) (let ((u6 (if (< 2.0 (/ 2.0 (+ 1.0 (* 1.0 1.0)))) (/ p0 (+ 1.0 (* p0 p0))) p1))) (sqrt (+ 1.0 (* (let ((u7 p0)) -1.228) (let ((u7 p0)) -1.228)))))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.4031,
+        "p1": 0.2111,
+        "p2": 1.1842
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.8680856227874756,
+      "fwd_ndvm": 1.8680856227874756,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.03893511742353439,
+        "p2": -0.029285216704010963
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.03893511742353439,
+        "p2": -0.029285216704010963
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 0.03898143768310547,
+        "p2": -0.029265880584716797
+      },
+      "class": "pass"
+    },
+    {
+      "id": 152,
+      "src": "(+ (loop ((x (if (<= (exp (* 0.1 -0.568)) (+ 0.351 0.5)) p0 (- 0.004 p0))) (k 0)) (if (= k 12) x (recur (* 0.5 (+ x 0.5)) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.4783
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.9778180122375488,
+      "fwd_ndvm": 1.9778180122375488,
+      "grad_oracle": {
+        "p0": 0.999755859375
+      },
+      "grad_ndvm": {
+        "p0": 0.999755859375
+      },
+      "grad_fd": {
+        "p0": 0.9996891021728516
+      },
+      "class": "pass"
+    },
+    {
+      "id": 153,
+      "src": "(+ (loop ((x p0) (k 0)) (if (= k 6) x (recur (* 0.5 (+ x (sqrt (+ 1.0 (* (let* ((u1 x) (u2 (abs p2))) (/ -0.893 (+ 1.0 (* p3 p3)))) (let* ((u1 x) (u2 (abs p2))) (/ -0.893 (+ 1.0 (* p3 p3))))))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.6809,
+        "p2": 1.3424,
+        "p3": 0.9937
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "let_star",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.7707167863845825,
+      "fwd_ndvm": 1.7707167863845825,
+      "grad_oracle": {
+        "p0": 1.015625,
+        "p2": 0.0,
+        "p3": -0.18127350509166718
+      },
+      "grad_ndvm": {
+        "p0": 1.015625,
+        "p2": 0.0,
+        "p3": -0.18127351999282837
+      },
+      "grad_fd": {
+        "p0": 1.0157227516174316,
+        "p2": 0.0,
+        "p3": -0.18131732940673828
+      },
+      "class": "pass"
+    },
+    {
+      "id": 154,
+      "src": "(+ (cos p3) p0)",
+      "params": {
+        "p0": 0.6476,
+        "p3": 1.1378
+      },
+      "features": [
+        "binop",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.067192554473877,
+      "fwd_ndvm": 1.067192554473877,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p3": -0.9077125787734985
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p3": -0.9077125787734985
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p3": -0.9077191352844238
+      },
+      "class": "pass"
+    },
+    {
+      "id": 155,
+      "src": "(+ (loop ((x (/ p1 (+ 1.0 (* (* p2 p0) (* p2 p0))))) (k 0)) (if (= k 5) x (recur (* 0.5 (+ x (if (< (- (/ x (+ 1.0 (* x x))) (sqrt (+ 1.0 (* 1.234 1.234)))) (log (+ 1.0 (* 0.5 0.5)))) (let* ((u1 (if (> x p2) 1.021 x)) (u2 (let ((u3 u1)) -0.894))) (let ((u4 x) (u5 p1)) u5)) p2))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.1331,
+        "p1": 1.4199,
+        "p2": 1.1998
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.5242068767547607,
+      "fwd_ndvm": 2.5242068767547607,
+      "grad_oracle": {
+        "p0": 0.9821566343307495,
+        "p1": 0.97972172498703,
+        "p2": -0.01685137115418911
+      },
+      "grad_ndvm": {
+        "p0": 0.9821566343307495,
+        "p1": 0.97972172498703,
+        "p2": -0.01685137115418911
+      },
+      "grad_fd": {
+        "p0": 0.9820461273193359,
+        "p1": 0.9796619415283203,
+        "p2": -0.016927719116210938
+      },
+      "class": "pass"
+    },
+    {
+      "id": 156,
+      "src": "(+ (let ((u1 (log (+ 1.0 (* (if (< (* (- 0.825 0.376) 0.5) (- (let ((u2 p0) (u3 1.121)) p1) (let* ((u4 p1) (u5 u4)) p1))) (log (+ 1.0 (* (if (> -0.754 p0) 2.0 p1) (if (> -0.754 p0) 2.0 p1)))) 0.494) (if (< (* (- 0.825 0.376) 0.5) (- (let ((u2 p0) (u3 1.121)) p1) (let* ((u4 p1) (u5 u4)) p1))) (log (+ 1.0 (* (if (> -0.754 p0) 2.0 p1) (if (> -0.754 p0) 2.0 p1)))) 0.494))))) (u6 (/ 1.353 (+ 1.0 (* (- (if (<= 0.447 (+ p0 2.0)) (let ((u7 0.5) (u8 0.558)) p0) (/ p0 (+ 1.0 (* 1.0 1.0)))) (cos p1)) (- (if (<= 0.447 (+ p0 2.0)) (let ((u7 0.5) (u8 0.558)) p0) (/ p0 (+ 1.0 (* 1.0 1.0)))) (cos p1))))))) (if (< (let ((u9 (- (let ((u10 p0)) p1) (sin 0.5))) (u11 (if (>= (if (<= u6 p1) u1 p0) (cos 1.434)) (sin u1) (let* ((u12 u6)) p0)))) (if (< (/ u11 (+ 1.0 (* 0.305 0.305))) (if (< 2.0 p0) 2.0 1.0)) (/ p0 (+ 1.0 (* 1.0 1.0))) (/ p1 (+ 1.0 (* 1.374 1.374))))) (if (<= (/ (sin u6) (+ 1.0 (* (log (+ 1.0 (* 0.5 0.5))) (log (+ 1.0 (* 0.5 0.5)))))) (sin (sqrt (+ 1.0 (* 2.0 2.0))))) 2.0 (if (<= u6 (log (+ 1.0 (* u6 u6)))) (abs 0.5) 0.5))) (/ (if (< (if (< u1 0.256) u6 0.631) (+ 0.5 0.376)) 0.5 (/ 2.0 (+ 1.0 (* 1.0 1.0)))) (+ 1.0 (* (sqrt (+ 1.0 (* (+ p1 p0) (+ p1 p0)))) (sqrt (+ 1.0 (* (+ p1 p0) (+ p1 p0))))))) (let* ((u13 2.0)) (if (<= u1 (+ 0.5 p0)) p1 (+ p0 u13))))) p0)",
+      "params": {
+        "p0": 1.2018,
+        "p1": 0.353
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.554800033569336,
+      "fwd_ndvm": 1.554800033569336,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.9999871253967285
+      },
+      "class": "pass"
+    },
+    {
+      "id": 157,
+      "src": "(+ (loop ((x (+ 1.0 p0)) (k 0)) (if (= k 3) x (recur (* 0.5 (+ x p0)) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.2315
+      },
+      "features": [
+        "binop",
+        "literal",
+        "loop_recur",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.5880002975463867,
+      "fwd_ndvm": 2.5880002975463867,
+      "grad_oracle": {
+        "p0": 2.0
+      },
+      "grad_ndvm": {
+        "p0": 2.0
+      },
+      "grad_fd": {
+        "p0": 2.000093460083008
+      },
+      "class": "pass"
+    },
+    {
+      "id": 158,
+      "src": "(+ 2.0 p0)",
+      "params": {
+        "p0": 1.4682
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 3.4681999683380127,
+      "fwd_ndvm": 3.4681999683380127,
+      "grad_oracle": {
+        "p0": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504
+      },
+      "class": "pass"
+    },
+    {
+      "id": 159,
+      "src": "(+ (loop ((x p0) (k 0)) (if (= k 9) x (recur (* 0.5 (+ x (if (< x 0.8) x x))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.3908
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "literal",
+        "loop_recur",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.7815999984741211,
+      "fwd_ndvm": 0.7815999984741211,
+      "grad_oracle": {
+        "p0": 2.0
+      },
+      "grad_ndvm": {
+        "p0": 2.0
+      },
+      "grad_fd": {
+        "p0": 1.999974250793457
+      },
+      "class": "pass"
+    },
+    {
+      "id": 160,
+      "src": "(+ (let* ((u1 (sqrt (+ 1.0 (* (cos p1) (cos p1)))))) (/ 0.5 (+ 1.0 (* (* p0 (if (> (- 2.0 0.5) (exp (* 0.1 u1))) 0.987 p0)) (* p0 (if (> (- 2.0 0.5) (exp (* 0.1 u1))) 0.987 p0)))))) p0)",
+      "params": {
+        "p0": 0.6151,
+        "p1": 0.7205
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let_star",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.9804435968399048,
+      "fwd_ndvm": 0.9804435968399048,
+      "grad_oracle": {
+        "p0": 0.6800788640975952,
+        "p1": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 0.6800788640975952,
+        "p1": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.680088996887207,
+        "p1": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 161,
+      "src": "(+ (if (<= (sqrt (+ 1.0 (* p2 p2))) p2) (- (cos (- 0.5 1.0)) p2) (exp (* 0.1 (/ (+ p1 2.0) (+ 1.0 (* (if (<= p0 p1) p3 p0) (if (<= p0 p1) p3 p0))))))) p0)",
+      "params": {
+        "p0": 0.9969,
+        "p1": 0.3668,
+        "p2": 1.1648,
+        "p3": 0.3202
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.1229405403137207,
+      "fwd_ndvm": 2.1229405403137207,
+      "grad_oracle": {
+        "p0": 0.8663313388824463,
+        "p1": 0.05647682771086693,
+        "p2": 0.0,
+        "p3": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 0.8663313388824463,
+        "p1": 0.05647682771086693,
+        "p2": 0.0,
+        "p3": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.8664131164550781,
+        "p1": 0.05638599395751953,
+        "p2": 0.0,
+        "p3": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 162,
+      "src": "(+ (let ((u1 1.055) (u2 (/ (if (<= p1 (+ p2 p0)) (- p2 0.5) (let* ((u3 p1)) 1.0)) (+ 1.0 (* (cos (* p2 -0.63)) (cos (* p2 -0.63))))))) (- (+ (if (>= p0 1.128) u1 p2) (let* ((u4 1.0) (u5 u1)) 1.318)) (/ (let* ((u6 2.0) (u7 p1)) 1.256) (+ 1.0 (* (sqrt (+ 1.0 (* u1 u1))) (sqrt (+ 1.0 (* u1 u1)))))))) p0)",
+      "params": {
+        "p0": 1.1427,
+        "p1": 0.689,
+        "p2": 0.2474
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 3.1122336387634277,
+      "fwd_ndvm": 3.1122336387634277,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 163,
+      "src": "(+ (+ (exp (* 0.1 p0)) (sin p1)) p0)",
+      "params": {
+        "p0": 1.0213,
+        "p1": 0.3317
+      },
+      "features": [
+        "binop",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.4544782638549805,
+      "fwd_ndvm": 2.4544782638549805,
+      "grad_oracle": {
+        "p0": 1.1107527017593384,
+        "p1": 0.9454901218414307
+      },
+      "grad_ndvm": {
+        "p0": 1.1107527017593384,
+        "p1": 0.9454901218414307
+      },
+      "grad_fd": {
+        "p0": 1.110672950744629,
+        "p1": 0.9454488754272461
+      },
+      "class": "pass"
+    },
+    {
+      "id": 164,
+      "src": "(+ (* (- p0 p1) p0) p0)",
+      "params": {
+        "p0": 1.2604,
+        "p1": 1.0508
+      },
+      "features": [
+        "binop",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.5245800018310547,
+      "fwd_ndvm": 1.5245800018310547,
+      "grad_oracle": {
+        "p0": 2.4700002670288086,
+        "p1": -1.2604000568389893
+      },
+      "grad_ndvm": {
+        "p0": 2.4700002670288086,
+        "p1": -1.2604000568389893
+      },
+      "grad_fd": {
+        "p0": 2.469956874847412,
+        "p1": -1.2603402137756348
+      },
+      "class": "pass"
+    },
+    {
+      "id": 165,
+      "src": "(+ p1 p0)",
+      "params": {
+        "p0": 0.7307,
+        "p1": 0.6756
+      },
+      "features": [
+        "binop",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.4063000679016113,
+      "fwd_ndvm": 1.4063000679016113,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 1.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 0.9999871253967285
+      },
+      "class": "pass"
+    },
+    {
+      "id": 166,
+      "src": "(+ (if (>= (+ (let ((u1 (- -0.756 p0))) 1.0) (cos (sin (- p0 1.0)))) 1.451) (if (<= (cos 2.0) (if (>= (log (+ 1.0 (* 0.5 0.5))) (- (+ 1.0 p1) (+ 2.0 1.107))) 0.5 (* 1.0 (let ((u2 0.432) (u3 0.603)) p0)))) (let* ((u4 (- (if (>= p2 p0) 2.0 1.303) (if (>= 2.0 p2) p2 2.0))) (u5 (* (abs u4) (cos 0.5)))) 1.0) (- (log (+ 1.0 (* (let ((u6 p0) (u7 p2)) p0) (let ((u6 p0) (u7 p2)) p0)))) p2)) (sqrt (+ 1.0 (* (sin (* (if (>= p0 -0.974) 1.27 p0) (* 1.0 p2))) (sin (* (if (>= p0 -0.974) 1.27 p0) (* 1.0 p2))))))) p0)",
+      "params": {
+        "p0": 0.7695,
+        "p1": 0.9082,
+        "p2": 0.3855
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.7695000171661377,
+      "fwd_ndvm": 1.7695000171661377,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 167,
+      "src": "(+ (if (< (+ (+ p2 (let ((u1 (let* ((u2 2.0)) u2))) (- p2 p2))) (* (- (log (+ 1.0 (* -0.565 -0.565))) (let* ((u3 1.295) (u4 0.5)) p2)) (* (let* ((u5 1.0) (u6 u5)) 0.396) (exp (* 0.1 2.0))))) (let ((u7 (* (/ (if (<= p0 0.278) p2 p1) (+ 1.0 (* (/ p2 (+ 1.0 (* 0.924 0.924))) (/ p2 (+ 1.0 (* 0.924 0.924)))))) (* (let ((u8 p1)) 1.368) (let* ((u9 p2) (u10 0.5)) u9))))) (+ (if (< (exp (* 0.1 0.5)) (* 0.55 p2)) (log (+ 1.0 (* u7 u7))) (if (>= p1 u7) u7 0.647)) p0))) (let* ((u11 (if (<= (sin (if (< p1 p2) p2 p2)) (sin (+ p0 0.739))) (if (>= (/ p0 (+ 1.0 (* p0 p0))) (abs 2.0)) (cos -1.46) (/ p2 (+ 1.0 (* p2 p2)))) (* (/ p2 (+ 1.0 (* p1 p1))) (exp (* 0.1 p1)))))) (sin (let* ((u12 (+ p0 2.0)) (u13 (let ((u14 u11) (u15 1.0)) 2.0))) (/ -0.529 (+ 1.0 (* -1.165 -1.165)))))) (- (let ((u16 (+ (log (+ 1.0 (* p2 p2))) (* p0 1.0))) (u17 2.0)) (if (<= (exp (* 0.1 0.655)) 1.0) (if (< 0.666 u17) p0 u16) (log (+ 1.0 (* 1.0 1.0))))) (* (* p1 (abs p1)) (sqrt (+ 1.0 (* (let* ((u18 p0)) 1.0) (let* ((u18 p0)) 1.0))))))) p0)",
+      "params": {
+        "p0": 0.9901,
+        "p1": 0.3427,
+        "p2": 0.3059
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.7675625681877136,
+      "fwd_ndvm": 0.7675625681877136,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "grad_fd": {
+        "p0": 1.0000169277191162,
+        "p1": 0.0,
+        "p2": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 168,
+      "src": "(+ (- p2 (let* ((u1 (+ 1.0 (abs (- 0.5 p1)))) (u2 (* (exp (* 0.1 (/ 0.5 (+ 1.0 (* p2 p2))))) (if (>= (if (>= p2 p2) 1.0 p1) (/ 1.0 (+ 1.0 (* 2.0 2.0)))) u1 (exp (* 0.1 2.0)))))) (let ((u3 (sin 0.525)) (u4 (let ((u5 (+ p0 p2))) 1.13))) 0.516))) p0)",
+      "params": {
+        "p0": 0.2107,
+        "p1": 0.9316,
+        "p2": 0.2513
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": -0.05399996042251587,
+      "fwd_ndvm": -0.05399996042251587,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.0000020265579224,
+        "p1": 0.0,
+        "p2": 1.0000020265579224
+      },
+      "class": "pass"
+    },
+    {
+      "id": 169,
+      "src": "(+ p2 p0)",
+      "params": {
+        "p0": 0.9426,
+        "p2": 1.2037
+      },
+      "features": [
+        "binop",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.1462998390197754,
+      "fwd_ndvm": 2.1462998390197754,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p2": 1.000046730041504
+      },
+      "class": "pass"
+    },
+    {
+      "id": 170,
+      "src": "(+ (- (/ (* 0.5 p1) (+ 1.0 (* (* p0 p0) (* p0 p0)))) (log (+ 1.0 (* (let ((u1 0.517) (u2 p1)) p2) (let ((u1 0.517) (u2 p1)) p2))))) p0)",
+      "params": {
+        "p0": 1.0351,
+        "p1": 0.3061,
+        "p2": 0.8208
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "let",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.5913090705871582,
+      "fwd_ndvm": 0.5913090705871582,
+      "grad_oracle": {
+        "p0": 0.8528416156768799,
+        "p1": 0.23277831077575684,
+        "p2": -0.9808135032653809
+      },
+      "grad_ndvm": {
+        "p0": 0.8528416156768799,
+        "p1": 0.23277831077575684,
+        "p2": -0.9808135032653809
+      },
+      "grad_fd": {
+        "p0": 0.8528530597686768,
+        "p1": 0.23278594017028809,
+        "p2": -0.9807944297790527
+      },
+      "class": "pass"
+    },
+    {
+      "id": 171,
+      "src": "(+ (/ (if (< (- 1.442 (sin (* p1 p1))) (if (<= (let ((u1 (/ 2.0 (+ 1.0 (* 2.0 2.0))))) (- 1.0 p0)) p1) (let* ((u2 (if (= p0 p1) 0.811 p0)) (u3 (if (< p1 0.508) p1 0.5))) 1.43) (if (= (if (> p0 1.0) p1 1.0) (cos 0.342)) (sqrt (+ 1.0 (* 2.0 2.0))) (let ((u4 1.104)) p0)))) (+ (* (* p1 p0) (if (< p1 0.5) 1.0 p0)) (exp (* 0.1 (let ((u5 p0)) p1)))) (log (+ 1.0 (* (+ (exp (* 0.1 p1)) 0.5) (+ (exp (* 0.1 p1)) 0.5))))) (+ 1.0 (* (* p0 (/ (log (+ 1.0 (* (if (> p0 p0) p1 p0) (if (> p0 p0) p1 p0)))) (+ 1.0 (* (if (= (if (> p0 p0) p1 0.614) (if (> 1.0 p0) p1 1.424)) p1 0.742) (if (= (if (> p0 p0) p1 0.614) (if (> 1.0 p0) p1 1.424)) p1 0.742))))) (* p0 (/ (log (+ 1.0 (* (if (> p0 p0) p1 p0) (if (> p0 p0) p1 p0)))) (+ 1.0 (* (if (= (if (> p0 p0) p1 0.614) (if (> 1.0 p0) p1 1.424)) p1 0.742) (if (= (if (> p0 p0) p1 0.614) (if (> 1.0 p0) p1 1.424)) p1 0.742)))))))) p0)",
+      "params": {
+        "p0": 0.6803,
+        "p1": 0.9128
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.1571969985961914,
+      "fwd_ndvm": 2.1571969985961914,
+      "grad_oracle": {
+        "p0": 1.8949575424194336,
+        "p1": 0.5568578243255615
+      },
+      "grad_ndvm": {
+        "p0": 1.8949575424194336,
+        "p1": 0.5568578243255615
+      },
+      "grad_fd": {
+        "p0": 1.8949508666992188,
+        "p1": 0.5568265914916992
+      },
+      "class": "pass"
+    },
+    {
+      "id": 172,
+      "src": "(+ (cos (- (cos p1) (if (> p0 p0) -0.524 p1))) p0)",
+      "params": {
+        "p0": 0.9159,
+        "p1": 1.1965
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.590124487876892,
+      "fwd_ndvm": 1.590124487876892,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": -1.4259212017059326
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": -1.4259212017059326
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": -1.42592191696167
+      },
+      "class": "pass"
+    },
+    {
+      "id": 173,
+      "src": "(+ (- (* (cos (- (if (<= p2 1.0) p0 2.0) p0)) 1.0) p0) p0)",
+      "params": {
+        "p0": 1.3845,
+        "p2": 0.44
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.0,
+      "fwd_ndvm": 1.0,
+      "grad_oracle": {
+        "p0": 0.0,
+        "p2": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 0.0,
+        "p2": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.0,
+        "p2": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 174,
+      "src": "(+ 0.5 p0)",
+      "params": {
+        "p0": 1.1415
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.6414999961853027,
+      "fwd_ndvm": 1.6414999961853027,
+      "grad_oracle": {
+        "p0": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504
+      },
+      "class": "pass"
+    },
+    {
+      "id": 175,
+      "src": "(+ (log (+ 1.0 (* p0 p0))) p0)",
+      "params": {
+        "p0": 0.5433
+      },
+      "features": [
+        "binop",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.801945686340332,
+      "fwd_ndvm": 0.801945686340332,
+      "grad_oracle": {
+        "p0": 1.8389601707458496
+      },
+      "grad_ndvm": {
+        "p0": 1.8389601707458496
+      },
+      "grad_fd": {
+        "p0": 1.8389523029327393
+      },
+      "class": "pass"
+    },
+    {
+      "id": 176,
+      "src": "(+ p2 p0)",
+      "params": {
+        "p0": 0.6456,
+        "p2": 1.2929
+      },
+      "features": [
+        "binop",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.938499927520752,
+      "fwd_ndvm": 1.938499927520752,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 1.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p2": 1.000046730041504
+      },
+      "class": "pass"
+    },
+    {
+      "id": 177,
+      "src": "(+ (if (> 1.0 p0) (+ p1 0.5) (+ p2 p1)) p0)",
+      "params": {
+        "p0": 1.0977,
+        "p1": 1.478,
+        "p2": 1.2957
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 3.8713998794555664,
+      "fwd_ndvm": 3.8713998794555664,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 1.0,
+        "p2": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 1.0,
+        "p2": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.9999275207519531,
+        "p2": 1.0001659393310547
+      },
+      "class": "pass"
+    },
+    {
+      "id": 178,
+      "src": "(+ (if (<= (/ (+ p3 p0) (+ 1.0 (* (* p0 0.652) (* p0 0.652)))) (+ (+ 2.0 p3) (exp (* 0.1 p3)))) (abs (cos 0.5)) (/ (- 0.735 p3) (+ 1.0 (* 2.0 2.0)))) p0)",
+      "params": {
+        "p0": 0.9895,
+        "p3": 0.8228
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.8670825958251953,
+      "fwd_ndvm": 1.8670825958251953,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p3": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p3": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p3": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 179,
+      "src": "(+ (loop ((x (+ 2.0 p0)) (k 0)) (if (= k 6) x (recur (* 0.5 (+ x (sqrt (+ 1.0 (* 1.0 1.0))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.7121
+      },
+      "features": [
+        "binop",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.1465930938720703,
+      "fwd_ndvm": 2.1465930938720703,
+      "grad_oracle": {
+        "p0": 1.015625
+      },
+      "grad_ndvm": {
+        "p0": 1.015625
+      },
+      "grad_fd": {
+        "p0": 1.0155439376831055
+      },
+      "class": "pass"
+    },
+    {
+      "id": 180,
+      "src": "(+ (- (let* ((u1 (cos (* p2 (let ((u2 2.0) (u3 p1)) 0.731)))) (u4 (sqrt (+ 1.0 (* (* u1 1.0) (* u1 1.0)))))) (if (>= (sqrt (+ 1.0 (* p1 p1))) (- (let* ((u5 u1) (u6 1.0)) -0.245) (exp (* 0.1 1.0)))) (- (- u4 2.0) (if (<= p0 1.386) u1 0.887)) (- (if (< u1 p1) u4 2.0) p2))) (let ((u7 (+ (sin (/ 0.4 (+ 1.0 (* 1.174 1.174)))) (if (< (if (<= p2 0.5) p0 p2) 2.0) (- 0.496 1.0) (abs p1))))) u7)) p0)",
+      "params": {
+        "p0": 1.3188,
+        "p1": 0.6426,
+        "p2": 0.694
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.10949480533599854,
+      "fwd_ndvm": 0.10949480533599854,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.12142311781644821
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.12142311781644821
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 0.0,
+        "p2": 0.1214742660522461
+      },
+      "class": "pass"
+    },
+    {
+      "id": 181,
+      "src": "(+ 0.5 p0)",
+      "params": {
+        "p0": 1.0725
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.5724999904632568,
+      "fwd_ndvm": 1.5724999904632568,
+      "grad_oracle": {
+        "p0": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504
+      },
+      "class": "pass"
+    },
+    {
+      "id": 182,
+      "src": "(+ (loop ((x -0.324) (k 0)) (if (= k 2) x (recur (* 0.5 (+ x (/ (* (let ((u1 (sin x))) (let ((u2 u1)) u2)) (* (abs 1.234) (let ((u3 1.0) (u4 p1)) p3))) (+ 1.0 (* (if (<= (* (if (= p0 p1) p0 p3) 1.373) (- (abs p1) (let* ((u5 x)) x))) (+ (+ p2 x) x) (if (>= x (cos x)) (if (= x x) 1.0 0.5) (if (>= 2.0 p3) x x))) (if (<= (* (if (= p0 p1) p0 p3) 1.373) (- (abs p1) (let* ((u5 x)) x))) (+ (+ p2 x) x) (if (>= x (cos x)) (if (= x x) 1.0 0.5) (if (>= 2.0 p3) x x)))))))) (+ k 1)))) p0)",
+      "params": {
+        "p0": 0.7191,
+        "p1": 0.9436,
+        "p2": 0.3079,
+        "p3": 1.2471
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "loop_recur",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.27617138624191284,
+      "fwd_ndvm": 0.27617138624191284,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.0,
+        "p3": -0.3709220886230469
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.0,
+        "p3": -0.3709220886230469
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 0.0,
+        "p2": 0.0,
+        "p3": -0.37094950675964355
+      },
+      "class": "pass"
+    },
+    {
+      "id": 183,
+      "src": "(+ (- (sqrt (+ 1.0 (* p1 p1))) (sqrt (+ 1.0 (* p1 p1)))) p0)",
+      "params": {
+        "p0": 1.0162,
+        "p1": 0.9194
+      },
+      "features": [
+        "binop",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.0161999464035034,
+      "fwd_ndvm": 1.0161999464035034,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 184,
+      "src": "(+ (/ (if (< (exp (* 0.1 (* 0.923 (log (+ 1.0 (* p0 p0)))))) (if (>= (/ (* p1 1.431) (+ 1.0 (* (/ p1 (+ 1.0 (* 0.5 0.5))) (/ p1 (+ 1.0 (* 0.5 0.5)))))) (if (>= (/ 2.0 (+ 1.0 (* 2.0 2.0))) (/ 0.5 (+ 1.0 (* p1 p1)))) (if (= p0 p0) p0 p1) (cos p0))) (if (> (/ p0 (+ 1.0 (* 1.0 1.0))) (* 0.782 0.5)) (if (> 2.0 0.821) p1 p1) p0) (if (= (/ p0 (+ 1.0 (* p0 p0))) p1) (let* ((u1 p0) (u2 p1)) 0.5) (let* ((u3 1.018) (u4 -0.37)) p1)))) (sqrt (+ 1.0 (* 1.0 1.0))) -0.517) (+ 1.0 (* (* 1.23 (sin 0.5)) (* 1.23 (sin 0.5))))) p0)",
+      "params": {
+        "p0": 0.9657,
+        "p1": 0.987
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let_star",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.5820943117141724,
+      "fwd_ndvm": 0.5820943117141724,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0
+      },
+      "grad_fd": {
+        "p0": 1.0000169277191162,
+        "p1": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 185,
+      "src": "(+ 1.0 p0)",
+      "params": {
+        "p0": 0.9603
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.9602999687194824,
+      "fwd_ndvm": 1.9602999687194824,
+      "grad_oracle": {
+        "p0": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285
+      },
+      "class": "pass"
+    },
+    {
+      "id": 186,
+      "src": "(+ (/ (if (>= (sin (log (+ 1.0 (* p2 p2)))) (/ (/ 1.0 (+ 1.0 (* p2 p2))) (+ 1.0 (* (cos p1) (cos p1))))) (/ (- -0.124 p2) (+ 1.0 (* (exp (* 0.1 0.83)) (exp (* 0.1 0.83))))) (let ((u1 (abs 1.0)) (u2 (- p0 1.0))) (let* ((u3 1.0) (u4 p0)) u2))) (+ 1.0 (* (+ (- (sqrt (+ 1.0 (* p2 p2))) (let ((u5 p1)) 0.5)) (* (+ p2 p2) (/ p1 (+ 1.0 (* p1 p1))))) (+ (- (sqrt (+ 1.0 (* p2 p2))) (let ((u5 p1)) 0.5)) (* (+ p2 p2) (/ p1 (+ 1.0 (* p1 p1)))))))) p0)",
+      "params": {
+        "p0": 1.4414,
+        "p1": 0.512,
+        "p2": 1.4802
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.3390291929244995,
+      "fwd_ndvm": 1.3390291929244995,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.09716689586639404,
+        "p2": 0.05239545553922653
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.09716689586639404,
+        "p2": 0.05239545553922653
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 0.09715557098388672,
+        "p2": 0.05239248275756836
+      },
+      "class": "pass"
+    },
+    {
+      "id": 187,
+      "src": "(+ (- (cos (/ 0.83 (+ 1.0 (* p3 p3)))) (exp (* 0.1 (exp (* 0.1 p1))))) p0)",
+      "params": {
+        "p0": 0.6103,
+        "p1": 0.5143,
+        "p3": 0.26
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.2119894027709961,
+      "fwd_ndvm": 0.2119894027709961,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": -0.011696535162627697,
+        "p3": 0.26562413573265076
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": -0.011696535162627697,
+        "p3": 0.26562413573265076
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": -0.011682510375976562,
+        "p3": 0.2656280994415283
+      },
+      "class": "pass"
+    },
+    {
+      "id": 188,
+      "src": "(+ (loop ((x (- p2 -0.523)) (k 0)) (if (= k 3) x (recur (* 0.5 (+ x 0.852)) (+ k 1)))) p0)",
+      "params": {
+        "p0": 1.361,
+        "p2": 0.6092
+      },
+      "features": [
+        "binop",
+        "literal",
+        "loop_recur",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.2480249404907227,
+      "fwd_ndvm": 2.2480249404907227,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p2": 0.125
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p2": 0.125
+      },
+      "grad_fd": {
+        "p0": 0.9999275207519531,
+        "p2": 0.12493133544921875
+      },
+      "class": "pass"
+    },
+    {
+      "id": 189,
+      "src": "(+ (- p1 (- (log (+ 1.0 (* (let* ((u1 p2) (u2 p2)) p0) (let* ((u1 p2) (u2 p2)) p0)))) (let ((u3 0.5)) (if (>= 0.693 0.5) p0 p1)))) p0)",
+      "params": {
+        "p0": 0.9696,
+        "p1": 0.256,
+        "p2": 0.2642
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.5324480533599854,
+      "fwd_ndvm": 1.5324480533599854,
+      "grad_oracle": {
+        "p0": 1.000476360321045,
+        "p1": 1.0,
+        "p2": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.000476360321045,
+        "p1": 1.0,
+        "p2": 0.0
+      },
+      "grad_fd": {
+        "p0": 1.000523567199707,
+        "p1": 0.9999871253967285,
+        "p2": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 190,
+      "src": "(+ p1 p0)",
+      "params": {
+        "p0": 0.5481,
+        "p1": 1.1886
+      },
+      "features": [
+        "binop",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.7366999387741089,
+      "fwd_ndvm": 1.7366999387741089,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.9999871253967285
+      },
+      "class": "pass"
+    },
+    {
+      "id": 191,
+      "src": "(+ (if (>= (* (/ p2 (+ 1.0 (* 2.0 2.0))) 0.5) p0) (exp (* 0.1 0.5)) (if (> (if (= p0 p3) 1.0 p1) (- 1.0 p0)) (+ 0.805 1.379) (* p1 1.0))) p0)",
+      "params": {
+        "p0": 0.945,
+        "p1": 1.4539,
+        "p2": 0.8749,
+        "p3": 0.3132
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 3.128999948501587,
+      "fwd_ndvm": 3.128999948501587,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.0,
+        "p3": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.0,
+        "p3": 0.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.0,
+        "p2": 0.0,
+        "p3": 0.0
+      },
+      "class": "pass"
+    },
+    {
+      "id": 192,
+      "src": "(+ (if (= (abs p1) 1.0) (let* ((u1 0.5)) 0.121) (+ p2 p2)) p0)",
+      "params": {
+        "p0": 0.8686,
+        "p1": 1.3381,
+        "p2": 1.2656
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 3.3997998237609863,
+      "fwd_ndvm": 3.3997998237609863,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 2.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 2.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.0,
+        "p2": 2.000093460083008
+      },
+      "class": "pass"
+    },
+    {
+      "id": 193,
+      "src": "(+ (if (> (cos (- (let* ((u1 (let ((u2 p0)) p2))) (abs p0)) (abs (+ p2 0.784)))) (abs (if (> (sin (+ p3 p2)) (/ (- 1.165 p1) (+ 1.0 (* p3 p3)))) (+ (let* ((u3 p2)) 1.342) (+ 2.0 2.0)) (- p3 (if (< p1 1.0) 2.0 p3))))) (- p0 (- (exp (* 0.1 p3)) (exp (* 0.1 (sqrt (+ 1.0 (* 2.0 2.0))))))) (- (/ (sqrt (+ 1.0 (* p3 p3))) (+ 1.0 (* (* (let* ((u4 p2) (u5 1.0)) p3) 0.5) (* (let* ((u4 p2) (u5 1.0)) p3) 0.5)))) p3)) p0)",
+      "params": {
+        "p0": 0.2998,
+        "p1": 0.2952,
+        "p2": 1.1423,
+        "p3": 1.4035
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 0.05098578333854675,
+      "fwd_ndvm": 0.05098578333854675,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.0,
+        "p3": -0.9972405433654785
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0,
+        "p2": 0.0,
+        "p3": -0.9972405433654785
+      },
+      "grad_fd": {
+        "p0": 1.0000020265579224,
+        "p1": 0.0,
+        "p2": 0.0,
+        "p3": -0.9971857070922852
+      },
+      "class": "pass"
+    },
+    {
+      "id": 194,
+      "src": "(+ (cos (- (let ((u1 (exp (* 0.1 2.0)))) (if (<= p1 0.5) p0 p0)) (/ (sin p1) (+ 1.0 (* (if (< p0 p0) p1 2.0) (if (< p0 p0) p1 2.0)))))) p0)",
+      "params": {
+        "p0": 0.3588,
+        "p1": 1.4505
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.345988154411316,
+      "fwd_ndvm": 1.345988154411316,
+      "grad_oracle": {
+        "p0": 0.8404395580291748,
+        "p1": 0.0038296545390039682
+      },
+      "grad_ndvm": {
+        "p0": 0.8404395580291748,
+        "p1": 0.0038296545390039682
+      },
+      "grad_fd": {
+        "p0": 0.8404254913330078,
+        "p1": 0.003814697265625
+      },
+      "class": "pass"
+    },
+    {
+      "id": 195,
+      "src": "(+ (+ (if (= (if (<= (* p1 2.0) (cos p2)) (- 0.706 p0) (let* ((u1 -1.122)) u1)) (if (< (* p2 p0) (if (<= -1.218 p0) p1 p2)) (cos p1) (/ 1.0 (+ 1.0 (* 2.0 2.0))))) 1.074 (let ((u2 (- p1 0.5))) (* 0.867 u2))) (if (>= p1 (- (cos -0.827) (abs 0.489))) (* (* p0 p0) (+ p0 p2)) 0.62)) p0)",
+      "params": {
+        "p0": 0.9387,
+        "p1": 1.373,
+        "p2": 0.5353
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "if_compare",
+        "let",
+        "let_star",
+        "literal",
+        "param",
+        "unary_other",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.994417428970337,
+      "fwd_ndvm": 2.994417428970337,
+      "grad_oracle": {
+        "p0": 4.648445129394531,
+        "p1": 0.8669999837875366,
+        "p2": 0.8811577558517456
+      },
+      "grad_ndvm": {
+        "p0": 4.648445129394531,
+        "p1": 0.8669999837875366,
+        "p2": 0.8811577558517456
+      },
+      "grad_fd": {
+        "p0": 4.648447036743164,
+        "p1": 0.867009162902832,
+        "p2": 0.881195068359375
+      },
+      "class": "pass"
+    },
+    {
+      "id": 196,
+      "src": "(+ (let ((u1 0.646)) (sqrt (+ 1.0 (* p1 p1)))) p0)",
+      "params": {
+        "p0": 0.9133,
+        "p1": 0.8197
+      },
+      "features": [
+        "binop",
+        "let",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.2063229084014893,
+      "fwd_ndvm": 2.2063229084014893,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.6339408159255981
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.6339408159255981
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504,
+        "p1": 0.6339550018310547
+      },
+      "class": "pass"
+    },
+    {
+      "id": 197,
+      "src": "(+ (/ (* p0 (- 0.5 p1)) (+ 1.0 (* (/ (cos 2.0) (+ 1.0 (* (- 0.5 p0) (- 0.5 p0)))) (/ (cos 2.0) (+ 1.0 (* (- 0.5 p0) (- 0.5 p0))))))) p0)",
+      "params": {
+        "p0": 1.07,
+        "p1": 0.3831
+      },
+      "features": [
+        "binop",
+        "div_guarded",
+        "literal",
+        "param",
+        "unary_transcendental"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.183850884437561,
+      "fwd_ndvm": 1.183850884437561,
+      "grad_oracle": {
+        "p0": 1.1239960193634033,
+        "p1": -0.9739165902137756
+      },
+      "grad_ndvm": {
+        "p0": 1.1239960193634033,
+        "p1": -0.9739165902137756
+      },
+      "grad_fd": {
+        "p0": 1.123964786529541,
+        "p1": -0.9739398956298828
+      },
+      "class": "pass"
+    },
+    {
+      "id": 198,
+      "src": "(+ 0.934 p0)",
+      "params": {
+        "p0": 1.2067
+      },
+      "features": [
+        "binop",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 2.140699863433838,
+      "fwd_ndvm": 2.140699863433838,
+      "grad_oracle": {
+        "p0": 1.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0
+      },
+      "grad_fd": {
+        "p0": 1.000046730041504
+      },
+      "class": "pass"
+    },
+    {
+      "id": 199,
+      "src": "(+ (let* ((u1 (- 0.472 1.0))) (if (= p1 -0.755) u1 1.0)) p0)",
+      "params": {
+        "p0": 0.8371,
+        "p1": 0.4701
+      },
+      "features": [
+        "binop",
+        "if_compare",
+        "let_star",
+        "literal",
+        "param"
+      ],
+      "g1": true,
+      "g2": true,
+      "g3": true,
+      "err": null,
+      "fwd_oracle": 1.8371000289916992,
+      "fwd_ndvm": 1.8371000289916992,
+      "grad_oracle": {
+        "p0": 1.0,
+        "p1": 0.0
+      },
+      "grad_ndvm": {
+        "p0": 1.0,
+        "p1": 0.0
+      },
+      "grad_fd": {
+        "p0": 0.9999871253967285,
+        "p1": 0.0
+      },
+      "class": "pass"
+    }
+  ]
+}

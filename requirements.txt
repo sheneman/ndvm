@@ -1,0 +1,36 @@
+# Core dependencies (required for all experiments)
+torch>=2.0
+numpy>=1.24
+scipy>=1.10
+pytest>=7.0
+
+# Optional: JAX backend (Experiments A-C support JAX evaluation)
+# jax>=0.4
+# jaxlib>=0.4
+
+# Optional: CuPy backend (GPU inference-only evaluator)
+# cupy-cuda12x>=13.0
+
+# Optional: Exp B regeneration (LLM-generated Scheme programs)
+# openai>=1.0        # OpenAI-compatible API client for Qwen endpoint
+
+# Optional: NDVM co-search candidate proposal (ndvm/profiling/cosearch_propose.py,
+# cosearch_rec_propose.py). Only needed to REGENERATE candidate programs with your own
+# OpenAI-compatible endpoint; the timed co-search replays the committed candidate caches
+# (ndvm/profiling/results/cosearch*_candidates_valid.jsonl), which need no LLM access.
+# openai>=1.0
+# python-dotenv>=1.0
+
+# Optional: NDVM external baselines (ndvm/profiling/jax_baseline.py, staged_baseline.py,
+# cosearch_cached_staging.py): jax/jaxlib as above, plus
+# sympy>=1.12
+
+# Experiment reproduction environment (HPC: Python 3.11.10, CUDA 13.0):
+#   torch==2.12.0+cu130
+#   numpy==2.4.6
+#   scipy==1.17.1
+#   jax==0.10.1
+#   jaxlib==0.10.1
+#
+# torch.compile (Experiment H Part E) requires PyTorch >= 2.0.
+# GPU experiments use NVIDIA A100 (40 GB) or RTX 4090.

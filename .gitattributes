@@ -1,0 +1,5 @@
+# No Git LFS in this repository. The committed reference results
+# (ndvm/profiling/results/, ndvm/tests/results/) are small text/JSON files,
+# kept as ordinary git blobs so they are readable in any clone without
+# `git lfs pull` and directly viewable on GitHub.
+* text=auto

@@ -1,0 +1,14 @@
+# host=n128.fortytwo.ibest.uidaho.edu date=Sat Jun 20 12:05:49 PDT 2026 (reference n128 run; wall-clock is non-deterministic, deterministic counts/gates are bit-reproducible)
+per-forward allocation counts (perf unavailable: perf_event_paranoid=2). tagged value = 14-float tensor.
+
+program               eager_boxed  eager_peakKiB  ndvm_payload     ratio  eval_steps
+scalar_mul_add                128           36.3             5     25.6x           5
+michaelis_menten              180           37.6             6     30.0x           7
+damped_oscillator             429           74.8            12     35.8x          13
+logistic_map_loop           6,037          162.0           133     45.4x         284
+kalman2d_T80              273,238         1922.5           972    281.1x       5,950
+
+The eager backend boxes each interpreter value as a 14-float tensor object and allocates/frees
+millions of them per forward; NDVM carries the same numbers in a dense payload buffer with far
+fewer, object-free slot allocations. Arithmetic FLOPs are identical; the allocation traffic is the
+cost, which is the representational-not-arithmetic claim measured by counting rather than by timing.

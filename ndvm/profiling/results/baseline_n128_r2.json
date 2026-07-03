@@ -1,0 +1,688 @@
+{
+  "meta": {
+    "host": "n128.fortytwo.ibest.uidaho.edu",
+    "python": "3.11.10",
+    "torch": "2.12.0+cu130",
+    "iters": 30,
+    "decompose": true,
+    "loop_n": 16,
+    "kalman_T": 80,
+    "note": "NDVM Phase-0 baseline; bucket rules mirror experiments/exp_a/profile_decomposition.py"
+  },
+  "rows": [
+    {
+      "name": "scalar_mul_add",
+      "regime": "scalar",
+      "batch": 1,
+      "iters": 30,
+      "steps": 1,
+      "compile_s": 0.012005195021629333,
+      "fwd_ms_per_iter": 3.0832093383651227,
+      "bwd_ms_per_iter": 0.18537873402237892,
+      "fwd_bwd_ms_per_iter": 3.2685880723875016,
+      "final_loss": 4.0,
+      "decomposition": {
+        "forward": {
+          "buckets": {
+            "tagged_value": {
+              "ms_per_iter": 1.4539820666666672,
+              "frac_of_profiled": 0.5619082515917645,
+              "calls_per_iter": 828.0
+            },
+            "heap": {
+              "ms_per_iter": 0.17985120000000002,
+              "frac_of_profiled": 0.06950558446045076,
+              "calls_per_iter": 168.0
+            },
+            "dispatch": {
+              "ms_per_iter": 0.07404266666666667,
+              "frac_of_profiled": 0.028614648229630946,
+              "calls_per_iter": 25.0
+            },
+            "tagged_ops": {
+              "ms_per_iter": 0.08454293333333335,
+              "frac_of_profiled": 0.03267259819970207,
+              "calls_per_iter": 133.0
+            },
+            "arithmetic": {
+              "ms_per_iter": 0.02743933333333333,
+              "frac_of_profiled": 0.010604248959909421,
+              "calls_per_iter": 8.0
+            },
+            "evaluator": {
+              "ms_per_iter": 0.7677209333333334,
+              "frac_of_profiled": 0.29669466855854215,
+              "calls_per_iter": 27.0
+            },
+            "torch_runtime": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            }
+          },
+          "profiled_ms_per_iter": 2.5875791333333344
+        },
+        "backward": {
+          "buckets": {
+            "tagged_value": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "heap": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "dispatch": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "tagged_ops": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "arithmetic": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "evaluator": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "torch_runtime": {
+              "ms_per_iter": 0.02747506666666667,
+              "frac_of_profiled": 1.0,
+              "calls_per_iter": 10.0
+            }
+          },
+          "profiled_ms_per_iter": 0.02747506666666667
+        }
+      }
+    },
+    {
+      "name": "scalar_mul_add",
+      "regime": "scalar",
+      "batch": 8,
+      "iters": 30,
+      "steps": 1,
+      "compile_s": 0.010355553007684648,
+      "fwd_ms_per_iter": 3.134505400278916,
+      "bwd_ms_per_iter": 0.19395517301745713,
+      "fwd_bwd_ms_per_iter": 3.3284605732963732,
+      "final_loss": 32.0
+    },
+    {
+      "name": "scalar_mul_add",
+      "regime": "scalar",
+      "batch": 64,
+      "iters": 30,
+      "steps": 1,
+      "compile_s": 0.010454781004227698,
+      "fwd_ms_per_iter": 3.144774428801611,
+      "bwd_ms_per_iter": 0.198898776822413,
+      "fwd_bwd_ms_per_iter": 3.343673205624024,
+      "final_loss": 256.0
+    },
+    {
+      "name": "scalar_mul_add",
+      "regime": "scalar",
+      "batch": 256,
+      "iters": 30,
+      "steps": 1,
+      "compile_s": 0.01057054998818785,
+      "fwd_ms_per_iter": 3.1565427275684974,
+      "bwd_ms_per_iter": 0.20853817113675177,
+      "fwd_bwd_ms_per_iter": 3.365080898705249,
+      "final_loss": 1024.0
+    },
+    {
+      "name": "scalar_mul_add",
+      "regime": "scalar",
+      "batch": 1024,
+      "iters": 30,
+      "steps": 1,
+      "compile_s": 0.01063056499697268,
+      "fwd_ms_per_iter": 3.1933667642685273,
+      "bwd_ms_per_iter": 0.23712216643616557,
+      "fwd_bwd_ms_per_iter": 3.430488930704693,
+      "final_loss": 4096.0
+    },
+    {
+      "name": "michaelis_menten",
+      "regime": "scalar",
+      "batch": 1,
+      "iters": 30,
+      "steps": 1,
+      "compile_s": 0.010895117011386901,
+      "fwd_ms_per_iter": 4.492673898736636,
+      "bwd_ms_per_iter": 0.21331836857522526,
+      "fwd_bwd_ms_per_iter": 4.705992267311861,
+      "final_loss": 1.5,
+      "decomposition": {
+        "forward": {
+          "buckets": {
+            "tagged_value": {
+              "ms_per_iter": 2.1340608000000003,
+              "frac_of_profiled": 0.5723289159417596,
+              "calls_per_iter": 1177.0
+            },
+            "heap": {
+              "ms_per_iter": 0.25071186666666667,
+              "frac_of_profiled": 0.06723784573666708,
+              "calls_per_iter": 230.0
+            },
+            "dispatch": {
+              "ms_per_iter": 0.11681933333333334,
+              "frac_of_profiled": 0.031329511515185385,
+              "calls_per_iter": 38.0
+            },
+            "tagged_ops": {
+              "ms_per_iter": 0.13521113333333332,
+              "frac_of_profiled": 0.03626196655874255,
+              "calls_per_iter": 185.0
+            },
+            "arithmetic": {
+              "ms_per_iter": 0.03634066666666667,
+              "frac_of_profiled": 0.009746120803087791,
+              "calls_per_iter": 10.0
+            },
+            "evaluator": {
+              "ms_per_iter": 1.0555876000000002,
+              "frac_of_profiled": 0.28309563944455746,
+              "calls_per_iter": 33.0
+            },
+            "torch_runtime": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            }
+          },
+          "profiled_ms_per_iter": 3.7287314000000005
+        },
+        "backward": {
+          "buckets": {
+            "tagged_value": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "heap": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "dispatch": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "tagged_ops": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "arithmetic": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "evaluator": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "torch_runtime": {
+              "ms_per_iter": 0.026249000000000005,
+              "frac_of_profiled": 1.0,
+              "calls_per_iter": 10.0
+            }
+          },
+          "profiled_ms_per_iter": 0.026249000000000005
+        }
+      }
+    },
+    {
+      "name": "michaelis_menten",
+      "regime": "scalar",
+      "batch": 8,
+      "iters": 30,
+      "steps": 1,
+      "compile_s": 0.010784146026708186,
+      "fwd_ms_per_iter": 4.566822872341921,
+      "bwd_ms_per_iter": 0.22334750198448697,
+      "fwd_bwd_ms_per_iter": 4.790170374326408,
+      "final_loss": 12.0
+    },
+    {
+      "name": "michaelis_menten",
+      "regime": "scalar",
+      "batch": 64,
+      "iters": 30,
+      "steps": 1,
+      "compile_s": 0.010349060001317412,
+      "fwd_ms_per_iter": 4.577785963192582,
+      "bwd_ms_per_iter": 0.23230256629176438,
+      "fwd_bwd_ms_per_iter": 4.8100885294843465,
+      "final_loss": 96.0
+    },
+    {
+      "name": "michaelis_menten",
+      "regime": "scalar",
+      "batch": 256,
+      "iters": 30,
+      "steps": 1,
+      "compile_s": 0.010542728006839752,
+      "fwd_ms_per_iter": 4.599444102495909,
+      "bwd_ms_per_iter": 0.2444598649162799,
+      "fwd_bwd_ms_per_iter": 4.843903967412189,
+      "final_loss": 384.0
+    },
+    {
+      "name": "michaelis_menten",
+      "regime": "scalar",
+      "batch": 1024,
+      "iters": 30,
+      "steps": 1,
+      "compile_s": 0.010605707997456193,
+      "fwd_ms_per_iter": 4.604281793581322,
+      "bwd_ms_per_iter": 0.28059979861912626,
+      "fwd_bwd_ms_per_iter": 4.884881592200448,
+      "final_loss": 1536.0
+    },
+    {
+      "name": "damped_oscillator",
+      "regime": "scalar_transcendental",
+      "batch": 1,
+      "iters": 30,
+      "steps": 1,
+      "compile_s": 0.011019173020031303,
+      "fwd_ms_per_iter": 10.156286765898889,
+      "bwd_ms_per_iter": 0.3752911987248808,
+      "fwd_bwd_ms_per_iter": 10.53157796462377,
+      "final_loss": -0.6312471032142639,
+      "decomposition": {
+        "forward": {
+          "buckets": {
+            "tagged_value": {
+              "ms_per_iter": 5.271258733333334,
+              "frac_of_profiled": 0.496465176936113,
+              "calls_per_iter": 2833.0
+            },
+            "heap": {
+              "ms_per_iter": 0.45429140000000007,
+              "frac_of_profiled": 0.04278671787733176,
+              "calls_per_iter": 388.0
+            },
+            "dispatch": {
+              "ms_per_iter": 0.35875893333333336,
+              "frac_of_profiled": 0.033789143414349916,
+              "calls_per_iter": 121.0
+            },
+            "tagged_ops": {
+              "ms_per_iter": 0.24175180000000002,
+              "frac_of_profiled": 0.022769011394310194,
+              "calls_per_iter": 375.0
+            },
+            "arithmetic": {
+              "ms_per_iter": 0.06731493333333334,
+              "frac_of_profiled": 0.006339950660445539,
+              "calls_per_iter": 20.0
+            },
+            "evaluator": {
+              "ms_per_iter": 4.2242042,
+              "frac_of_profiled": 0.3978499997174498,
+              "calls_per_iter": 46.0
+            },
+            "torch_runtime": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            }
+          },
+          "profiled_ms_per_iter": 10.617579999999998
+        },
+        "backward": {
+          "buckets": {
+            "tagged_value": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "heap": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "dispatch": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "tagged_ops": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "arithmetic": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "evaluator": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "torch_runtime": {
+              "ms_per_iter": 0.027083600000000006,
+              "frac_of_profiled": 1.0,
+              "calls_per_iter": 10.0
+            }
+          },
+          "profiled_ms_per_iter": 0.027083600000000006
+        }
+      }
+    },
+    {
+      "name": "damped_oscillator",
+      "regime": "scalar_transcendental",
+      "batch": 8,
+      "iters": 30,
+      "steps": 1,
+      "compile_s": 0.010815565998200327,
+      "fwd_ms_per_iter": 10.264587571145967,
+      "bwd_ms_per_iter": 0.3946856071706861,
+      "fwd_bwd_ms_per_iter": 10.659273178316653,
+      "final_loss": -5.049976825714111
+    },
+    {
+      "name": "damped_oscillator",
+      "regime": "scalar_transcendental",
+      "batch": 64,
+      "iters": 30,
+      "steps": 1,
+      "compile_s": 0.010547598008997738,
+      "fwd_ms_per_iter": 10.30468832856665,
+      "bwd_ms_per_iter": 0.4076301391857366,
+      "fwd_bwd_ms_per_iter": 10.712318467752388,
+      "final_loss": -40.399818420410156
+    },
+    {
+      "name": "damped_oscillator",
+      "regime": "scalar_transcendental",
+      "batch": 256,
+      "iters": 30,
+      "steps": 1,
+      "compile_s": 0.010843508993275464,
+      "fwd_ms_per_iter": 10.342665400821716,
+      "bwd_ms_per_iter": 0.43262479788002867,
+      "fwd_bwd_ms_per_iter": 10.775290198701745,
+      "final_loss": -161.59927368164062
+    },
+    {
+      "name": "damped_oscillator",
+      "regime": "scalar_transcendental",
+      "batch": 1024,
+      "iters": 30,
+      "steps": 1,
+      "compile_s": 0.010619393025990576,
+      "fwd_ms_per_iter": 10.421057598432526,
+      "bwd_ms_per_iter": 0.5051186017226428,
+      "fwd_bwd_ms_per_iter": 10.926176200155169,
+      "final_loss": -646.3970947265625
+    },
+    {
+      "name": "logistic_map_loop",
+      "regime": "recursive_scalar",
+      "batch": 1,
+      "iters": 30,
+      "steps": 16,
+      "compile_s": 0.011060811986681074,
+      "fwd_ms_per_iter": 160.81358716279888,
+      "bwd_ms_per_iter": 2.032612799666822,
+      "fwd_bwd_ms_per_iter": 162.8461999624657,
+      "final_loss": 0.5130459666252136,
+      "fwd_ms_per_rollout_step": 10.05084919767493,
+      "fwd_bwd_ms_per_rollout_step": 10.177887497654106,
+      "decomposition": {
+        "forward": {
+          "buckets": {
+            "tagged_value": {
+              "ms_per_iter": 79.91730053333332,
+              "frac_of_profiled": 0.585358293626844,
+              "calls_per_iter": 43214.0
+            },
+            "heap": {
+              "ms_per_iter": 9.2369654,
+              "frac_of_profiled": 0.06765661838864262,
+              "calls_per_iter": 7807.0
+            },
+            "dispatch": {
+              "ms_per_iter": 5.660301933333334,
+              "frac_of_profiled": 0.041459166650990094,
+              "calls_per_iter": 1768.0
+            },
+            "tagged_ops": {
+              "ms_per_iter": 3.9649116666666666,
+              "frac_of_profiled": 0.029041195236732584,
+              "calls_per_iter": 6678.0
+            },
+            "arithmetic": {
+              "ms_per_iter": 0.8618767333333334,
+              "frac_of_profiled": 0.006312859550733321,
+              "calls_per_iter": 258.0
+            },
+            "evaluator": {
+              "ms_per_iter": 36.8857954,
+              "frac_of_profiled": 0.2701718665460574,
+              "calls_per_iter": 719.0
+            },
+            "torch_runtime": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            }
+          },
+          "profiled_ms_per_iter": 136.52715166666667
+        },
+        "backward": {
+          "buckets": {
+            "tagged_value": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "heap": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "dispatch": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "tagged_ops": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "arithmetic": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "evaluator": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "torch_runtime": {
+              "ms_per_iter": 0.0278386,
+              "frac_of_profiled": 1.0,
+              "calls_per_iter": 10.0
+            }
+          },
+          "profiled_ms_per_iter": 0.0278386
+        }
+      }
+    },
+    {
+      "name": "logistic_map_loop",
+      "regime": "recursive_scalar",
+      "batch": 8,
+      "iters": 30,
+      "steps": 16,
+      "compile_s": 0.011025593965314329,
+      "fwd_ms_per_iter": 161.96982769567208,
+      "bwd_ms_per_iter": 2.147465340870743,
+      "fwd_bwd_ms_per_iter": 164.11729303654283,
+      "final_loss": 4.104367733001709,
+      "fwd_ms_per_rollout_step": 10.123114230979505,
+      "fwd_bwd_ms_per_rollout_step": 10.257330814783927
+    },
+    {
+      "name": "logistic_map_loop",
+      "regime": "recursive_scalar",
+      "batch": 64,
+      "iters": 30,
+      "steps": 16,
+      "compile_s": 0.010883665992878377,
+      "fwd_ms_per_iter": 162.3904896628422,
+      "bwd_ms_per_iter": 2.27304893390586,
+      "fwd_bwd_ms_per_iter": 164.66353859674805,
+      "final_loss": 32.834938049316406,
+      "fwd_ms_per_rollout_step": 10.149405603927638,
+      "fwd_bwd_ms_per_rollout_step": 10.291471162296753
+    },
+    {
+      "name": "logistic_map_loop",
+      "regime": "recursive_scalar",
+      "batch": 256,
+      "iters": 30,
+      "steps": 16,
+      "compile_s": 0.010677543992642313,
+      "fwd_ms_per_iter": 161.9559429391908,
+      "bwd_ms_per_iter": 2.4620732001494616,
+      "fwd_bwd_ms_per_iter": 164.41801613934027,
+      "final_loss": 131.33975219726562,
+      "fwd_ms_per_rollout_step": 10.122246433699425,
+      "fwd_bwd_ms_per_rollout_step": 10.276126008708767
+    },
+    {
+      "name": "logistic_map_loop",
+      "regime": "recursive_scalar",
+      "batch": 1024,
+      "iters": 30,
+      "steps": 16,
+      "compile_s": 0.011098062968812883,
+      "fwd_ms_per_iter": 162.3042639286723,
+      "bwd_ms_per_iter": 3.021127228081847,
+      "fwd_bwd_ms_per_iter": 165.32539115675414,
+      "final_loss": 525.3589477539062,
+      "fwd_ms_per_rollout_step": 10.144016495542019,
+      "fwd_bwd_ms_per_rollout_step": 10.332836947297134
+    },
+    {
+      "name": "kalman2d_T80",
+      "regime": "matrix_rollout",
+      "batch": 1,
+      "iters": 30,
+      "steps": 80,
+      "compile_s": 0.013251561031211168,
+      "fwd_ms_per_iter": 7012.384886201471,
+      "bwd_ms_per_iter": 26.844763497744378,
+      "fwd_bwd_ms_per_iter": 7039.229649699216,
+      "final_loss": 831.2208862304688,
+      "fwd_ms_per_rollout_step": 87.65481107751839,
+      "fwd_bwd_ms_per_rollout_step": 87.9903706212402,
+      "decomposition": {
+        "forward": {
+          "buckets": {
+            "tagged_value": {
+              "ms_per_iter": 3622.083741066666,
+              "frac_of_profiled": 0.6052038350466732,
+              "calls_per_iter": 1994674.0
+            },
+            "heap": {
+              "ms_per_iter": 372.04124340000004,
+              "frac_of_profiled": 0.06216333011530686,
+              "calls_per_iter": 365520.0
+            },
+            "dispatch": {
+              "ms_per_iter": 290.0118231333334,
+              "frac_of_profiled": 0.04845726386145979,
+              "calls_per_iter": 96672.0
+            },
+            "tagged_ops": {
+              "ms_per_iter": 154.7912519333333,
+              "frac_of_profiled": 0.025863637066033493,
+              "calls_per_iter": 291651.0
+            },
+            "arithmetic": {
+              "ms_per_iter": 9.280049,
+              "frac_of_profiled": 0.0015505774150232918,
+              "calls_per_iter": 3442.0
+            },
+            "evaluator": {
+              "ms_per_iter": 1536.6708709333334,
+              "frac_of_profiled": 0.2567580350915602,
+              "calls_per_iter": 35095.0
+            },
+            "torch_runtime": {
+              "ms_per_iter": 0.019878266666666665,
+              "frac_of_profiled": 3.321403943356728e-06,
+              "calls_per_iter": 8.0
+            }
+          },
+          "profiled_ms_per_iter": 5984.898857733332
+        },
+        "backward": {
+          "buckets": {
+            "tagged_value": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "heap": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "dispatch": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "tagged_ops": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "arithmetic": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "evaluator": {
+              "ms_per_iter": 0.0,
+              "frac_of_profiled": 0.0,
+              "calls_per_iter": 0.0
+            },
+            "torch_runtime": {
+              "ms_per_iter": 0.046230733333333336,
+              "frac_of_profiled": 1.0,
+              "calls_per_iter": 10.0
+            }
+          },
+          "profiled_ms_per_iter": 0.046230733333333336
+        }
+      }
+    }
+  ]
+}

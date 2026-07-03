@@ -1,0 +1,26 @@
+# host=n128.fortytwo.ibest.uidaho.edu date=Sat Jun 20 12:05:49 PDT 2026 (reference n128 run; wall-clock is non-deterministic, deterministic counts/gates are bit-reproducible)
+/mnt/ceph/sheneman/src/nncompile-ndvm/ndvm/profiling/cosearch_budget.py:91: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  return traj[-1], float(qp), float(rp), traj
+=== matched-quality + DMCI timing (one full MLE calibration, both backends) ===
+  DMCI : NLL 164.94514  (q,r)=(0.00010,1.07321)
+  NDVM : NLL 164.94514  (q,r)=(0.00010,1.07321)
+  |dNLL|=0.00e+00  |dq|=0.00e+00  |dr|=0.00e+00  max|d traj|=0.00e+00  MATCHED=True
+
+=== inner-loop calibration throughput (the headline) ===
+  per calibration (30-step MLE): DMCI 211277.2 ms   NDVM 25.94 ms   speedup 8144.1x
+  calibrations / minute: DMCI 0.3   NDVM 2313
+  calibrations / cpu-hour: DMCI 17   NDVM 138769
+
+=== Amdahl pre-gate: f = inner-fit / per-candidate wall-clock (forecast backend-matched) ===
+  NDVM: screen 13.06 ms + fit 25.94 ms + forecast 0.64 ms  -> per-candidate 39.65 ms,  f(fit)=0.654
+  DMCI: screen 13.06 ms + fit 211277.21 ms + forecast 6947.20 ms  -> per-candidate 218237.48 ms,  f(fit)=0.968
+  calibration-service regime (fixed candidate stream, no LLM): per-candidate DMCI 218.24 s -> NDVM 39.6 ms  (5505x end-to-end)
+  with live LLM ~0.5s/candidate: per-candidate DMCI 218.74 s -> NDVM 0.54 s  (405x);  f_fit NDVM=0.0481 (LLM-bound)
+  with live LLM ~2.0s/candidate: per-candidate DMCI 220.24 s -> NDVM 2.04 s  (108x);  f_fit NDVM=0.0127 (LLM-bound)
+
+HONEST READING: on the PyTorch backend the inner fit is 96.8% of per-candidate co-search time,
+so it is THE bottleneck; NDVM cuts it 8000x+ and removes it. The robust headline is calibration
+throughput (above). End-to-end, removing a 96.8% bottleneck still collapses per-candidate time
+from minutes to (no-LLM) milliseconds or (live-LLM) the LLM floor -- so NDVM exposes the LLM as
+the next bottleneck rather than claiming an unbounded end-to-end discovery speedup.

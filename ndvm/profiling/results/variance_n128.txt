@@ -1,0 +1,24 @@
+# host=n128.fortytwo.ibest.uidaho.edu date=Sat Jun 20 12:05:49 PDT 2026 (reference n128 run; wall-clock is non-deterministic, deterministic counts/gates are bit-reproducible)
+# variance.py  reps=16 warmup=3  (single pinned core, n128)
+program              backend       median_ms    q25_ms    q75_ms     CV%
+scalar_mul_add       tagged           3.1289    3.1204    3.1344    0.34
+scalar_mul_add       tuned-eager      0.6731    0.6702    0.6752    2.44
+scalar_mul_add       ndvm             0.0759    0.0746    0.0775    5.75
+michaelis_menten     tagged           4.5737    4.5651    4.5775    0.20
+michaelis_menten     tuned-eager      1.0280    1.0225    1.0360    4.48
+michaelis_menten     ndvm             0.0747    0.0734    0.0751    3.52
+damped_oscillator    tagged          10.5120   10.5051   10.5198    0.19
+damped_oscillator    tuned-eager      2.0756    2.0718    2.0811    0.41
+damped_oscillator    ndvm             0.0829    0.0825    0.0848    3.02
+logistic_map_loop    tagged         163.3272  162.9934  163.6807    4.64
+logistic_map_loop    tuned-eager     33.9506   33.8952   33.9684   17.56
+logistic_map_loop    ndvm             0.0749    0.0741    0.0757    3.65
+
+# ratio stability (medians) and worst-case CV per program
+program               eager/tag   ndvm/tag  eager/ndvm   maxCV%
+scalar_mul_add            4.65x      41.2x        8.9x     5.75
+michaelis_menten          4.45x      61.3x       13.8x     4.48
+damped_oscillator         5.06x     126.8x       25.0x     3.02
+logistic_map_loop         4.81x    2180.3x      453.2x    17.56
+
+# overall CV range across all backends/programs: 0.19% .. 17.56%

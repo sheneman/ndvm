@@ -1,0 +1,78 @@
+{
+  "meta": {
+    "host": "n128.fortytwo.ibest.uidaho.edu",
+    "python": "3.11.10",
+    "jax": "0.10.1",
+    "iters": 50,
+    "kalman_T": 80,
+    "loop_n": 16,
+    "note": "Hand-written JAX baseline; forward values validated vs DMCI oracle float32."
+  },
+  "rows": [
+    {
+      "name": "scalar_mul_add",
+      "regime": "scalar",
+      "fwd_ms": 0.010150019079446793,
+      "fwdgrad_ms": 0.013204989954829216,
+      "batched_fwd_ms": 0.007262977305799723,
+      "batched_fwdgrad_ms": 0.0077750300988554955,
+      "batch": 256,
+      "jax_value": 4.0,
+      "oracle_value": 4.0,
+      "oracle_match_f32": true,
+      "grad_finite": true
+    },
+    {
+      "name": "michaelis_menten",
+      "regime": "scalar",
+      "fwd_ms": 0.01066096592694521,
+      "fwdgrad_ms": 0.012684031389653683,
+      "batched_fwd_ms": 0.010970979928970337,
+      "batched_fwdgrad_ms": 0.017904036212712526,
+      "batch": 256,
+      "jax_value": 1.5,
+      "oracle_value": 1.5,
+      "oracle_match_f32": true,
+      "grad_finite": true
+    },
+    {
+      "name": "damped_oscillator",
+      "regime": "scalar_transcendental",
+      "fwd_ms": 0.010880990885198116,
+      "fwdgrad_ms": 0.014458026271313429,
+      "batched_fwd_ms": 0.013786018826067448,
+      "batched_fwdgrad_ms": 0.017412996385246515,
+      "batch": 256,
+      "jax_value": -0.6312471032142639,
+      "oracle_value": -0.6312471032142639,
+      "oracle_match_f32": true,
+      "grad_finite": true
+    },
+    {
+      "name": "logistic_map_loop",
+      "regime": "recursive_scalar",
+      "fwd_ms": 0.010469055268913507,
+      "fwdgrad_ms": 0.013636017683893442,
+      "batched_fwd_ms": 0.01722201704978943,
+      "batched_fwdgrad_ms": 0.0217510387301445,
+      "batch": 256,
+      "jax_value": 0.5130459666252136,
+      "oracle_value": 0.5130459666252136,
+      "oracle_match_f32": true,
+      "grad_finite": true
+    },
+    {
+      "name": "kalman2d_T80",
+      "regime": "matrix_rollout",
+      "fwd_ms": 0.29058201471343637,
+      "fwdgrad_ms": 0.6137349992059171,
+      "batched_fwd_ms": 7.637119968421757,
+      "batched_fwdgrad_ms": 14.715338998939842,
+      "batch": 256,
+      "jax_value": 831.2208862304688,
+      "oracle_value": 831.2208862304688,
+      "oracle_match_f32": true,
+      "grad_finite": true
+    }
+  ]
+}

@@ -1,0 +1,163 @@
+==============================================================================
+NDVM Phase 0 baseline cost model -- current PyTorch DMCI backend
+host=n128.fortytwo.ibest.uidaho.edu  python=3.11.10  torch=2.12.0+cu130  device=cpu
+iters=30  decompose=True
+==============================================================================
+
+[scalar_mul_add     B=1    ] regime=scalar                 fwd=    3.03ms  bwd=    0.19ms  fwd+bwd=    3.21ms
+  FORWARD decomposition:
+    Component                               ms/iter     frac   calls/iter
+    ------------------------------------ ---------- -------- ------------
+    Tagged-value wrap/unwrap                  1.447    56.8%        828.0
+    Heap operations (cons/car/cdr)            0.175     6.9%        168.0
+    Dispatch (tagged_if/eq?/select)           0.071     2.8%         25.0
+    Tagged arithmetic wrappers                0.081     3.2%        133.0
+    Raw arithmetic / linalg primitives        0.028     1.1%          8.0
+    Evaluator graph walking                   0.746    29.3%         27.0
+    PyTorch runtime / autograd                0.000     0.0%          0.0
+    (profiled total)                          2.549
+  BACKWARD decomposition:
+    Component                               ms/iter     frac   calls/iter
+    ------------------------------------ ---------- -------- ------------
+    Tagged-value wrap/unwrap                  0.000     0.0%          0.0
+    Heap operations (cons/car/cdr)            0.000     0.0%          0.0
+    Dispatch (tagged_if/eq?/select)           0.000     0.0%          0.0
+    Tagged arithmetic wrappers                0.000     0.0%          0.0
+    Raw arithmetic / linalg primitives        0.000     0.0%          0.0
+    Evaluator graph walking                   0.000     0.0%          0.0
+    PyTorch runtime / autograd                0.027   100.0%         10.0
+    (profiled total)                          0.027
+
+[scalar_mul_add     B=8    ] regime=scalar                 fwd=    3.08ms  bwd=    0.20ms  fwd+bwd=    3.28ms
+
+[scalar_mul_add     B=64   ] regime=scalar                 fwd=    3.10ms  bwd=    0.20ms  fwd+bwd=    3.30ms
+
+[scalar_mul_add     B=256  ] regime=scalar                 fwd=    3.11ms  bwd=    0.21ms  fwd+bwd=    3.32ms
+
+[scalar_mul_add     B=1024 ] regime=scalar                 fwd=    3.15ms  bwd=    0.24ms  fwd+bwd=    3.39ms
+
+[michaelis_menten   B=1    ] regime=scalar                 fwd=    4.41ms  bwd=    0.21ms  fwd+bwd=    4.62ms
+  FORWARD decomposition:
+    Component                               ms/iter     frac   calls/iter
+    ------------------------------------ ---------- -------- ------------
+    Tagged-value wrap/unwrap                  2.121    57.9%       1177.0
+    Heap operations (cons/car/cdr)            0.242     6.6%        230.0
+    Dispatch (tagged_if/eq?/select)           0.111     3.0%         38.0
+    Tagged arithmetic wrappers                0.131     3.6%        185.0
+    Raw arithmetic / linalg primitives        0.036     1.0%         10.0
+    Evaluator graph walking                   1.024    27.9%         33.0
+    PyTorch runtime / autograd                0.000     0.0%          0.0
+    (profiled total)                          3.666
+  BACKWARD decomposition:
+    Component                               ms/iter     frac   calls/iter
+    ------------------------------------ ---------- -------- ------------
+    Tagged-value wrap/unwrap                  0.000     0.0%          0.0
+    Heap operations (cons/car/cdr)            0.000     0.0%          0.0
+    Dispatch (tagged_if/eq?/select)           0.000     0.0%          0.0
+    Tagged arithmetic wrappers                0.000     0.0%          0.0
+    Raw arithmetic / linalg primitives        0.000     0.0%          0.0
+    Evaluator graph walking                   0.000     0.0%          0.0
+    PyTorch runtime / autograd                0.026   100.0%         10.0
+    (profiled total)                          0.026
+
+[michaelis_menten   B=8    ] regime=scalar                 fwd=    4.48ms  bwd=    0.23ms  fwd+bwd=    4.71ms
+
+[michaelis_menten   B=64   ] regime=scalar                 fwd=    4.49ms  bwd=    0.23ms  fwd+bwd=    4.73ms
+
+[michaelis_menten   B=256  ] regime=scalar                 fwd=    4.52ms  bwd=    0.25ms  fwd+bwd=    4.77ms
+
+[michaelis_menten   B=1024 ] regime=scalar                 fwd=    4.57ms  bwd=    0.28ms  fwd+bwd=    4.85ms
+
+[damped_oscillator  B=1    ] regime=scalar_transcendental  fwd=   10.01ms  bwd=    0.38ms  fwd+bwd=   10.39ms
+  FORWARD decomposition:
+    Component                               ms/iter     frac   calls/iter
+    ------------------------------------ ---------- -------- ------------
+    Tagged-value wrap/unwrap                  5.204    49.4%       2833.0
+    Heap operations (cons/car/cdr)            0.443     4.2%        388.0
+    Dispatch (tagged_if/eq?/select)           0.338     3.2%        121.0
+    Tagged arithmetic wrappers                0.244     2.3%        375.0
+    Raw arithmetic / linalg primitives        0.068     0.6%         20.0
+    Evaluator graph walking                   4.238    40.2%         46.0
+    PyTorch runtime / autograd                0.000     0.0%          0.0
+    (profiled total)                         10.535
+  BACKWARD decomposition:
+    Component                               ms/iter     frac   calls/iter
+    ------------------------------------ ---------- -------- ------------
+    Tagged-value wrap/unwrap                  0.000     0.0%          0.0
+    Heap operations (cons/car/cdr)            0.000     0.0%          0.0
+    Dispatch (tagged_if/eq?/select)           0.000     0.0%          0.0
+    Tagged arithmetic wrappers                0.000     0.0%          0.0
+    Raw arithmetic / linalg primitives        0.000     0.0%          0.0
+    Evaluator graph walking                   0.000     0.0%          0.0
+    PyTorch runtime / autograd                0.027   100.0%         10.0
+    (profiled total)                          0.027
+
+[damped_oscillator  B=8    ] regime=scalar_transcendental  fwd=   10.17ms  bwd=    0.40ms  fwd+bwd=   10.57ms
+
+[damped_oscillator  B=64   ] regime=scalar_transcendental  fwd=   10.17ms  bwd=    0.41ms  fwd+bwd=   10.58ms
+
+[damped_oscillator  B=256  ] regime=scalar_transcendental  fwd=   10.20ms  bwd=    0.44ms  fwd+bwd=   10.64ms
+
+[damped_oscillator  B=1024 ] regime=scalar_transcendental  fwd=   10.30ms  bwd=    0.51ms  fwd+bwd=   10.81ms
+
+[logistic_map_loop  B=1    ] regime=recursive_scalar       fwd=  158.44ms  bwd=    2.07ms  fwd+bwd=  160.51ms
+  rollout steps=16  -> fwd 9.902 ms/step  fwd+bwd 10.032 ms/step
+  FORWARD decomposition:
+    Component                               ms/iter     frac   calls/iter
+    ------------------------------------ ---------- -------- ------------
+    Tagged-value wrap/unwrap                 78.452    59.1%      43214.0
+    Heap operations (cons/car/cdr)            8.963     6.7%       7807.0
+    Dispatch (tagged_if/eq?/select)           5.370     4.0%       1768.0
+    Tagged arithmetic wrappers                3.826     2.9%       6678.0
+    Raw arithmetic / linalg primitives        0.869     0.7%        258.0
+    Evaluator graph walking                  35.324    26.6%        719.0
+    PyTorch runtime / autograd                0.000     0.0%          0.0
+    (profiled total)                        132.805
+  BACKWARD decomposition:
+    Component                               ms/iter     frac   calls/iter
+    ------------------------------------ ---------- -------- ------------
+    Tagged-value wrap/unwrap                  0.000     0.0%          0.0
+    Heap operations (cons/car/cdr)            0.000     0.0%          0.0
+    Dispatch (tagged_if/eq?/select)           0.000     0.0%          0.0
+    Tagged arithmetic wrappers                0.000     0.0%          0.0
+    Raw arithmetic / linalg primitives        0.000     0.0%          0.0
+    Evaluator graph walking                   0.000     0.0%          0.0
+    PyTorch runtime / autograd                0.028   100.0%         10.0
+    (profiled total)                          0.028
+
+[logistic_map_loop  B=8    ] regime=recursive_scalar       fwd=  159.48ms  bwd=    2.21ms  fwd+bwd=  161.69ms
+  rollout steps=16  -> fwd 9.968 ms/step  fwd+bwd 10.106 ms/step
+
+[logistic_map_loop  B=64   ] regime=recursive_scalar       fwd=  159.66ms  bwd=    2.32ms  fwd+bwd=  161.98ms
+  rollout steps=16  -> fwd 9.979 ms/step  fwd+bwd 10.124 ms/step
+
+[logistic_map_loop  B=256  ] regime=recursive_scalar       fwd=  159.56ms  bwd=    2.51ms  fwd+bwd=  162.07ms
+  rollout steps=16  -> fwd 9.972 ms/step  fwd+bwd 10.129 ms/step
+
+[logistic_map_loop  B=1024 ] regime=recursive_scalar       fwd=  159.53ms  bwd=    3.10ms  fwd+bwd=  162.63ms
+  rollout steps=16  -> fwd 9.971 ms/step  fwd+bwd 10.164 ms/step
+
+[kalman2d_T80       B=1    ] regime=matrix_rollout         fwd= 6928.31ms  bwd=   27.31ms  fwd+bwd= 6955.62ms
+  rollout steps=80  -> fwd 86.604 ms/step  fwd+bwd 86.945 ms/step
+  FORWARD decomposition:
+    Component                               ms/iter     frac   calls/iter
+    ------------------------------------ ---------- -------- ------------
+    Tagged-value wrap/unwrap               3589.767    61.1%    1994674.0
+    Heap operations (cons/car/cdr)          363.068     6.2%     365520.0
+    Dispatch (tagged_if/eq?/select)         274.765     4.7%      96672.0
+    Tagged arithmetic wrappers              153.810     2.6%     291651.0
+    Raw arithmetic / linalg primitives        9.332     0.2%       3442.0
+    Evaluator graph walking                1480.285    25.2%      35095.0
+    PyTorch runtime / autograd                0.019     0.0%          8.0
+    (profiled total)                       5871.047
+  BACKWARD decomposition:
+    Component                               ms/iter     frac   calls/iter
+    ------------------------------------ ---------- -------- ------------
+    Tagged-value wrap/unwrap                  0.000     0.0%          0.0
+    Heap operations (cons/car/cdr)            0.000     0.0%          0.0
+    Dispatch (tagged_if/eq?/select)           0.000     0.0%          0.0
+    Tagged arithmetic wrappers                0.000     0.0%          0.0
+    Raw arithmetic / linalg primitives        0.000     0.0%          0.0
+    Evaluator graph walking                   0.000     0.0%          0.0
+    PyTorch runtime / autograd                0.047   100.0%         10.0
+    (profiled total)                          0.047

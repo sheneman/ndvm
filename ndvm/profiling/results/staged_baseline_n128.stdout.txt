@@ -1,0 +1,7 @@
+An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+[staged_baseline] scalar_mul_add     dmci/step=   3.288ms ndvm/step=  0.1587ms | JAX stage=   34.70ms step=  0.0074ms X_vs_ndvm=229.3643401249577
+[staged_baseline] michaelis_menten   dmci/step=   4.716ms ndvm/step=  0.1566ms | JAX stage=   30.30ms step=  0.0140ms X_vs_ndvm=212.5147954505184
+[staged_baseline] damped_oscillator  dmci/step=  10.606ms ndvm/step=  0.1709ms | JAX stage=   38.44ms step=  0.0164ms X_vs_ndvm=248.7207167308757
+[staged_baseline] logistic_map_loop  dmci/step= 163.074ms ndvm/step=  0.1495ms | JAX stage=   54.54ms step=  0.0141ms X_vs_ndvm=402.7225770267192
+[staged_baseline] kalman2d_T80       dmci/step=7133.548ms ndvm/step=  0.7295ms | JAX stage= 3412.11ms step=  0.6486ms X_vs_ndvm=42185.1643052783
+[staged_baseline] wrote /mnt/ceph/sheneman/src/nncompile-ndvm/ndvm/profiling/results/staged_baseline_n128.fortytwo.ibest.uidaho.edu.json

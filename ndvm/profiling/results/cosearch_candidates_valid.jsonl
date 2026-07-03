@@ -1,0 +1,247 @@
+{"src": "(* a (* (exp (* b x)) (sin (* c x))))", "params": ["a", "b", "c"], "skeleton": "(* P (* (exp (* P x)) (sin (* P x))))"}
+{"src": "(* a (sin (+ (* b x) c)))", "params": ["a", "b", "c"], "skeleton": "(* P (sin (+ (* P x) P)))"}
+{"src": "(+ c (* a (exp (- 0.0 (* b x)))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (exp (- C (* P x)))))"}
+{"src": "(/ (* a x) (+ b x))", "params": ["a", "b"], "skeleton": "(/ (* P x) (+ P x))"}
+{"src": "(* a (exp (* -1.0 (* c (* (- x b) (- x b))))))", "params": ["a", "b", "c"], "skeleton": "(* P (exp (* C (* P (* (- x P) (- x P))))))"}
+{"src": "(* a (exp (* (+ b c) (log x))))", "params": ["a", "b", "c"], "skeleton": "(* P (exp (* (+ P P) (log x))))"}
+{"src": "(+ (* a (log (+ 1.0 (* b x)))) c)", "params": ["a", "b", "c"], "skeleton": "(+ (* P (log (+ C (* P x)))) P)"}
+{"src": "(/ (+ (* a x) b) (+ (* c x) 1.0))", "params": ["a", "b", "c"], "skeleton": "(/ (+ (* P x) P) (+ (* P x) C))"}
+{"src": "(+ (* a (* x x)) (+ (* b x) c))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (* x x)) (+ (* P x) P))"}
+{"src": "(+ a (* b (exp (* -1.0 (* c x)))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (exp (* C (* P x)))))"}
+{"src": "(* (+ (* a x) b) (sin (* c x)))", "params": ["a", "b", "c"], "skeleton": "(* (+ (* P x) P) (sin (* P x)))"}
+{"src": "(+ (* a (* (exp (* (- 0.0 b) x)) (sin (* c x)))) d)", "params": ["a", "b", "c", "d"], "skeleton": "(+ (* P (* (exp (* (- C P) x)) (sin (* P x)))) P)"}
+{"src": "(* a (sqrt (abs (+ (* b x) c))))", "params": ["a", "b", "c"], "skeleton": "(* P (sqrt (abs (+ (* P x) P))))"}
+{"src": "(+ (* a x) b)", "params": ["a", "b"], "skeleton": "(+ (* P x) P)"}
+{"src": "(+ c (* a (abs (- x b))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (abs (- x P))))"}
+{"src": "(* a (sin (+ (* b x) (* c (* x x)))))", "params": ["a", "b", "c"], "skeleton": "(* P (sin (+ (* P x) (* P (* x x)))))"}
+{"src": "(/ a (+ 1.0 (exp (* c (- b x)))))", "params": ["a", "b", "c"], "skeleton": "(/ P (+ C (exp (* P (- P x)))))"}
+{"src": "(* (+ (* a (* x x)) (* b x)) (exp (* c x)))", "params": ["a", "b", "c"], "skeleton": "(* (+ (* P (* x x)) (* P x)) (exp (* P x)))"}
+{"src": "(* (sin (* a x)) (sin (+ (* b x) c)))", "params": ["a", "b", "c"], "skeleton": "(* (sin (* P x)) (sin (+ (* P x) P)))"}
+{"src": "(/ (exp (* a x)) (+ (* b (* x x)) c))", "params": ["a", "b", "c"], "skeleton": "(/ (exp (* P x)) (+ (* P (* x x)) P))"}
+{"src": "(* a (* (exp (- 0.0 (* b x))) (sin (* c (* x x)))))", "params": ["a", "b", "c"], "skeleton": "(* P (* (exp (- C (* P x))) (sin (* P (* x x)))))"}
+{"src": "(+ (* a (sin (* b x))) (* c (cos (* 2.0 (* b x)))))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (sin (* P x))) (* P (cos (* C (* P x)))))"}
+{"src": "(/ (+ (* a x) b) (exp (* c x)))", "params": ["a", "b", "c"], "skeleton": "(/ (+ (* P x) P) (exp (* P x)))"}
+{"src": "(+ (+ (* a x) b) (sin (* c x)))", "params": ["a", "b", "c"], "skeleton": "(+ (+ (* P x) P) (sin (* P x)))"}
+{"src": "(+ c (* a (- 1.0 (exp (* b (* -1.0 x))))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (- C (exp (* P (* C x))))))"}
+{"src": "(sin (+ (* a (* x x)) (+ (* b x) c)))", "params": ["a", "b", "c"], "skeleton": "(sin (+ (* P (* x x)) (+ (* P x) P)))"}
+{"src": "(+ (* a (exp (* b x))) c)", "params": ["a", "b", "c"], "skeleton": "(+ (* P (exp (* P x))) P)"}
+{"src": "(log (abs (+ (* a (* x x)) (+ (* b x) c))))", "params": ["a", "b", "c"], "skeleton": "(log (abs (+ (* P (* x x)) (+ (* P x) P))))"}
+{"src": "(exp (+ (* a (sin (* b x))) c))", "params": ["a", "b", "c"], "skeleton": "(exp (+ (* P (sin (* P x))) P))"}
+{"src": "(* (exp (* a x)) (sin (+ (* b x) c)))", "params": ["a", "b", "c"], "skeleton": "(* (exp (* P x)) (sin (+ (* P x) P)))"}
+{"src": "(+ c (* x (+ b (* a x))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* x (+ P (* P x))))"}
+{"src": "(* a (* (exp (* (* -1.0 b) x)) (cos (* c x))))", "params": ["a", "b", "c"], "skeleton": "(* P (* (exp (* (* C P) x)) (cos (* P x))))"}
+{"src": "(* a (sqrt (+ (* b x) c)))", "params": ["a", "b", "c"], "skeleton": "(* P (sqrt (+ (* P x) P)))"}
+{"src": "(+ (* a (exp (* b (log x)))) c)", "params": ["a", "b", "c"], "skeleton": "(+ (* P (exp (* P (log x)))) P)"}
+{"src": "(+ (+ (* a x) (/ b x)) c)", "params": ["a", "b", "c"], "skeleton": "(+ (+ (* P x) (/ P x)) P)"}
+{"src": "(/ a (+ 1.0 (exp (* -1.0 (* b (- x c))))))", "params": ["a", "b", "c"], "skeleton": "(/ P (+ C (exp (* C (* P (- x P))))))"}
+{"src": "(* (+ a (* b x)) (exp (* c x)))", "params": ["a", "b", "c"], "skeleton": "(* (+ P (* P x)) (exp (* P x)))"}
+{"src": "(* a (* (exp (- 0.0 (* b x))) (sin (* c x))))", "params": ["a", "b", "c"], "skeleton": "(* P (* (exp (- C (* P x))) (sin (* P x))))"}
+{"src": "( + c ( * a ( abs ( - x b ) ) ) )", "params": ["a", "b", "c"], "skeleton": "( + P ( * P ( abs ( - x P ) ) ) )"}
+{"src": "(+ (+ (* a x) b) (* c (sin x)))", "params": ["a", "b", "c"], "skeleton": "(+ (+ (* P x) P) (* P (sin x)))"}
+{"src": "(* (sin (+ (* a x) b)) (sin (* c x)))", "params": ["a", "b", "c"], "skeleton": "(* (sin (+ (* P x) P)) (sin (* P x)))"}
+{"src": "(/ (exp (+ (* a x) b)) (+ 1.0 (* c (* x x))))", "params": ["a", "b", "c"], "skeleton": "(/ (exp (+ (* P x) P)) (+ C (* P (* x x))))"}
+{"src": "(/ (+ (* a (* x x)) b) (exp (* c x)))", "params": ["a", "b", "c"], "skeleton": "(/ (+ (* P (* x x)) P) (exp (* P x)))"}
+{"src": "(+ (* x (+ (* a x) b)) c)", "params": ["a", "b", "c"], "skeleton": "(+ (* x (+ (* P x) P)) P)"}
+{"src": "(+ a (* b (log (+ (* c x) 1.0))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (log (+ (* P x) C))))"}
+{"src": "(exp (* a (sin (+ (* b x) c))))", "params": ["a", "b", "c"], "skeleton": "(exp (* P (sin (+ (* P x) P))))"}
+{"src": "(/ (+ (* a x) b) (+ x c))", "params": ["a", "b", "c"], "skeleton": "(/ (+ (* P x) P) (+ x P))"}
+{"src": "(+ (* a (sin (* b x))) (* c (cos (* b x))))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (sin (* P x))) (* P (cos (* P x))))"}
+{"src": "(+ (* a (exp (* (- 0.0 b) x))) c)", "params": ["a", "b", "c"], "skeleton": "(+ (* P (exp (* (- C P) x))) P)"}
+{"src": "(+ (/ a x) (+ (* b x) c))", "params": ["a", "b", "c"], "skeleton": "(+ (/ P x) (+ (* P x) P))"}
+{"src": "(+ c (* a (exp (* b x))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (exp (* P x))))"}
+{"src": "(+ (* a (exp (* b x))) (* c (exp (* 2.0 x))))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (exp (* P x))) (* P (exp (* C x))))"}
+{"src": "(log (abs (+ c (* x (+ b (* a x))))))", "params": ["a", "b", "c"], "skeleton": "(log (abs (+ P (* x (+ P (* P x))))))"}
+{"src": "(+ (* a (log (+ (abs x) (exp b)))) c)", "params": ["a", "b", "c"], "skeleton": "(+ (* P (log (+ (abs x) (exp P)))) P)"}
+{"src": "(* a (* x (sin (+ (* b x) c))))", "params": ["a", "b", "c"], "skeleton": "(* P (* x (sin (+ (* P x) P))))"}
+{"src": "(* (+ a (* b (* x x))) (exp (* c x)))", "params": ["a", "b", "c"], "skeleton": "(* (+ P (* P (* x x))) (exp (* P x)))"}
+{"src": "(* a (- 1.0 (exp (* b x))))", "params": ["a", "b"], "skeleton": "(* P (- C (exp (* P x))))"}
+{"src": "(+ a (* b (/ 1.0 (exp (* c x)))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (/ C (exp (* P x)))))"}
+{"src": "(+ (* a (abs (- x b))) c)", "params": ["a", "b", "c"], "skeleton": "(+ (* P (abs (- x P))) P)"}
+{"src": "(/ a (+ 1.0 (exp (* b (- x c)))))", "params": ["a", "b", "c"], "skeleton": "(/ P (+ C (exp (* P (- x P)))))"}
+{"src": "(* a (exp (* (- 0.0 (* b b)) (* (- x c) (- x c)))))", "params": ["a", "b", "c"], "skeleton": "(* P (exp (* (- C (* P P)) (* (- x P) (- x P)))))"}
+{"src": "(/ (exp (* a x)) (+ 1.0 (+ (* b x) (* c (* x x)))))", "params": ["a", "b", "c"], "skeleton": "(/ (exp (* P x)) (+ C (+ (* P x) (* P (* x x)))))"}
+{"src": "(/ (+ a (* b x)) (exp (* c x)))", "params": ["a", "b", "c"], "skeleton": "(/ (+ P (* P x)) (exp (* P x)))"}
+{"src": "(* (* a (sin (* b x))) (exp (* (* -1.0 c) x)))", "params": ["a", "b", "c"], "skeleton": "(* (* P (sin (* P x))) (exp (* (* C P) x)))"}
+{"src": "(+ c (* a (- 1.0 (exp (* -1.0 (* b x))))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (- C (exp (* C (* P x))))))"}
+{"src": "(+ (* a x) (* b c))", "params": ["a", "b", "c"], "skeleton": "(+ (* P x) (* P P))"}
+{"src": "(sin (* a (exp (* b x))))", "params": ["a", "b"], "skeleton": "(sin (* P (exp (* P x))))"}
+{"src": "(* (exp (* (* -1.0 a) x)) (sin (+ (* b (* x x)) (* c x))))", "params": ["a", "b", "c"], "skeleton": "(* (exp (* (* C P) x)) (sin (+ (* P (* x x)) (* P x))))"}
+{"src": "(sin (+ (+ a (* b x)) (* c (* x x))))", "params": ["a", "b", "c"], "skeleton": "(sin (+ (+ P (* P x)) (* P (* x x))))"}
+{"src": "(+ (+ (* a (* x x)) (* b x)) c)", "params": ["a", "b", "c"], "skeleton": "(+ (+ (* P (* x x)) (* P x)) P)"}
+{"src": "(* a (exp (- 0.0 (* b (* (- x c) (- x c))))))", "params": ["a", "b", "c"], "skeleton": "(* P (exp (- C (* P (* (- x P) (- x P))))))"}
+{"src": "(* a (log (+ (* b (* x x)) (+ (* c x) 1.0))))", "params": ["a", "b", "c"], "skeleton": "(* P (log (+ (* P (* x x)) (+ (* P x) C))))"}
+{"src": "(* a (log (+ (* b x) c)))", "params": ["a", "b", "c"], "skeleton": "(* P (log (+ (* P x) P)))"}
+{"src": "(+ (* a (exp (* b x))) (* c (exp (* (/ b 2.0) x))))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (exp (* P x))) (* P (exp (* (/ P C) x))))"}
+{"src": "(/ (exp (* a (+ b x))) (+ 1.0 (* c (* x x))))", "params": ["a", "b", "c"], "skeleton": "(/ (exp (* P (+ P x))) (+ C (* P (* x x))))"}
+{"src": "(* a (* (exp (* -1.0 (* b x))) (sin (* c x))))", "params": ["a", "b", "c"], "skeleton": "(* P (* (exp (* C (* P x))) (sin (* P x))))"}
+{"src": "(+ a (* (exp (* -1.0 (* b x))) (sin (* c x))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* (exp (* C (* P x))) (sin (* P x))))"}
+{"src": "(/ (* a (cos (* c x))) (exp (* b x)))", "params": ["a", "b", "c"], "skeleton": "(/ (* P (cos (* P x))) (exp (* P x)))"}
+{"src": "(sin (+ (+ (* a (* x x)) (* b x)) c))", "params": ["a", "b", "c"], "skeleton": "(sin (+ (+ (* P (* x x)) (* P x)) P))"}
+{"src": "(+ (sqrt (+ (* a x) b)) c)", "params": ["a", "b", "c"], "skeleton": "(+ (sqrt (+ (* P x) P)) P)"}
+{"src": "(* (sin (* a x)) (sin (+ b (* c x))))", "params": ["a", "b", "c"], "skeleton": "(* (sin (* P x)) (sin (+ P (* P x))))"}
+{"src": "(+ (* a (sin (* b x))) (* c (sin (* d x))))", "params": ["a", "b", "c", "d"], "skeleton": "(+ (* P (sin (* P x))) (* P (sin (* P x))))"}
+{"src": "(+ (* a (exp (* b (log (abs x))))) c)", "params": ["a", "b", "c"], "skeleton": "(+ (* P (exp (* P (log (abs x))))) P)"}
+{"src": "(* a (* (exp (* -1.0 (* b x))) (sin (* c (* x x)))))", "params": ["a", "b", "c"], "skeleton": "(* P (* (exp (* C (* P x))) (sin (* P (* x x)))))"}
+{"src": "( / (+ (* a x) b) (exp (* c x)) )", "params": ["a", "b", "c"], "skeleton": "( / (+ (* P x) P) (exp (* P x)) )"}
+{"src": "(* (* a (exp (* b x))) (sin (* c x)))", "params": ["a", "b", "c"], "skeleton": "(* (* P (exp (* P x))) (sin (* P x)))"}
+{"src": "(+ (* a (exp (* b x))) (exp (* c x)))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (exp (* P x))) (exp (* P x)))"}
+{"src": "(* a (exp (* b (log x))))", "params": ["a", "b"], "skeleton": "(* P (exp (* P (log x))))"}
+{"src": "(* (+ a (* b x)) (sin (* c x)))", "params": ["a", "b", "c"], "skeleton": "(* (+ P (* P x)) (sin (* P x)))"}
+{"src": "(+ (+ (* a (* x (* x x))) (* b (* x x))) (* c x))", "params": ["a", "b", "c"], "skeleton": "(+ (+ (* P (* x (* x x))) (* P (* x x))) (* P x))"}
+{"src": "(+ a (* b (log (+ c x))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (log (+ P x))))"}
+{"src": "( + c ( * a ( exp ( * b ( - 0.0 x ) ) ) ) )", "params": ["a", "b", "c"], "skeleton": "( + P ( * P ( exp ( * P ( - C x ) ) ) ) )"}
+{"src": "(sin (+ c (+ (* a x) (* b (* x x)))))", "params": ["a", "b", "c"], "skeleton": "(sin (+ P (+ (* P x) (* P (* x x)))))"}
+{"src": "(sin (* (+ (* a x) b) (+ x c)))", "params": ["a", "b", "c"], "skeleton": "(sin (* (+ (* P x) P) (+ x P)))"}
+{"src": "(+ (* a x) (+ b (sin (* c x))))", "params": ["a", "b", "c"], "skeleton": "(+ (* P x) (+ P (sin (* P x))))"}
+{"src": "(+ (* a (sin x)) (* b (cos (* c x))))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (sin x)) (* P (cos (* P x))))"}
+{"src": "(+ c (* a (exp (* b (- 0.0 x)))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (exp (* P (- C x)))))"}
+{"src": "(/ (+ a (+ (* b x) (* c (* x x)))) (exp x))", "params": ["a", "b", "c"], "skeleton": "(/ (+ P (+ (* P x) (* P (* x x)))) (exp x))"}
+{"src": "(+ (* a (log (+ x b))) c)", "params": ["a", "b", "c"], "skeleton": "(+ (* P (log (+ x P))) P)"}
+{"src": "(* a (* (exp (* (- 0.0 b) x)) (sin (* c x))))", "params": ["a", "b", "c"], "skeleton": "(* P (* (exp (* (- C P) x)) (sin (* P x))))"}
+{"src": "(+ (* a (exp (* b x))) (* c (exp (* (- 0.0 b) x))))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (exp (* P x))) (* P (exp (* (- C P) x))))"}
+{"src": "(+ c (* (exp (- 0.0 (* a x))) (sin (* b x))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* (exp (- C (* P x))) (sin (* P x))))"}
+{"src": "(+ (+ (/ a x) (* b x)) c)", "params": ["a", "b", "c"], "skeleton": "(+ (+ (/ P x) (* P x)) P)"}
+{"src": "(log (+ (* a (* x x)) (+ (* b x) c)))", "params": ["a", "b", "c"], "skeleton": "(log (+ (* P (* x x)) (+ (* P x) P)))"}
+{"src": "(* (/ 1.0 (exp (* a x))) (sin (+ (* b x) (* c (* x x)))))", "params": ["a", "b", "c"], "skeleton": "(* (/ C (exp (* P x))) (sin (+ (* P x) (* P (* x x)))))"}
+{"src": "(+ (* a (sin (* b x))) (* c (sin (* (+ b 1.0) x))))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (sin (* P x))) (* P (sin (* (+ P C) x))))"}
+{"src": "(* (+ a (+ (* b x) (* c (* x x)))) (exp x))", "params": ["a", "b", "c"], "skeleton": "(* (+ P (+ (* P x) (* P (* x x)))) (exp x))"}
+{"src": "(/ a (+ 1.0 (/ 1.0 (exp (+ (* b x) c)))))", "params": ["a", "b", "c"], "skeleton": "(/ P (+ C (/ C (exp (+ (* P x) P)))))"}
+{"src": "(* a (* (exp (* x (- 0.0 b))) (sin (* c x))))", "params": ["a", "b", "c"], "skeleton": "(* P (* (exp (* x (- C P))) (sin (* P x))))"}
+{"src": "(+ a (/ b (exp (* c x))))", "params": ["a", "b", "c"], "skeleton": "(+ P (/ P (exp (* P x))))"}
+{"src": "(/ (+ (* a (* x x)) (* b x)) (exp (* c x)))", "params": ["a", "b", "c"], "skeleton": "(/ (+ (* P (* x x)) (* P x)) (exp (* P x)))"}
+{"src": "(+ c (* a (- 1.0 (exp (* (- 0.0 b) x)))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (- C (exp (* (- C P) x)))))"}
+{"src": "(* a (exp (* (- 0.0 b) (* (- x c) (- x c)))))", "params": ["a", "b", "c"], "skeleton": "(* P (exp (* (- C P) (* (- x P) (- x P)))))"}
+{"src": "(+ (* a (sin (* b x))) (* c (sin (* 2.0 x))))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (sin (* P x))) (* P (sin (* C x))))"}
+{"src": "(/ (* a (exp (* b x))) (+ 1.0 (* c (* x x))))", "params": ["a", "b", "c"], "skeleton": "(/ (* P (exp (* P x))) (+ C (* P (* x x))))"}
+{"src": "(+ a (* b (exp (* (- 0.0 c) x))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (exp (* (- C P) x))))"}
+{"src": "(+ a (* b (sqrt (+ x c))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (sqrt (+ x P))))"}
+{"src": "(/ (+ (* a (* x x)) (+ (* b x) c)) (exp x))", "params": ["a", "b", "c"], "skeleton": "(/ (+ (* P (* x x)) (+ (* P x) P)) (exp x))"}
+{"src": "(* a (exp (* b (sin (* c x)))))", "params": ["a", "b", "c"], "skeleton": "(* P (exp (* P (sin (* P x)))))"}
+{"src": "(+ (* a (exp (* -1.0 (* b x)))) c)", "params": ["a", "b", "c"], "skeleton": "(+ (* P (exp (* C (* P x)))) P)"}
+{"src": "(+ c (* a (* (exp (* -1.0 (* b x))) (cos x))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (* (exp (* C (* P x))) (cos x))))"}
+{"src": "(+ (* (+ (* a x) b) x) c)", "params": ["a", "b", "c"], "skeleton": "(+ (* (+ (* P x) P) x) P)"}
+{"src": "( + a (* b (log (+ c (abs x)))))", "params": ["a", "b", "c"], "skeleton": "( + P (* P (log (+ P (abs x)))))"}
+{"src": "(* (+ (* a x) b) (exp (* c x)))", "params": ["a", "b", "c"], "skeleton": "(* (+ (* P x) P) (exp (* P x)))"}
+{"src": "(+ a (* (exp (* x (- 0.0 c))) (sin (* b x))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* (exp (* x (- C P))) (sin (* P x))))"}
+{"src": "(/ (exp (+ (* a x) b)) (+ (* c (* x x)) 1.0))", "params": ["a", "b", "c"], "skeleton": "(/ (exp (+ (* P x) P)) (+ (* P (* x x)) C))"}
+{"src": "(+ (* a (sqrt (+ x b))) c)", "params": ["a", "b", "c"], "skeleton": "(+ (* P (sqrt (+ x P))) P)"}
+{"src": "(* a (* (exp (* (* -1.0 b) x)) (sin (* c x))))", "params": ["a", "b", "c"], "skeleton": "(* P (* (exp (* (* C P) x)) (sin (* P x))))"}
+{"src": "(sin (+ c (* x (+ b (* a x)))))", "params": ["a", "b", "c"], "skeleton": "(sin (+ P (* x (+ P (* P x)))))"}
+{"src": "(* x (+ c (* x (+ b (* x a)))))", "params": ["a", "b", "c"], "skeleton": "(* x (+ P (* x (+ P (* x P)))))"}
+{"src": "(+ (* a (sin (* b x))) (* c (sin (* (* 2.0 b) x))))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (sin (* P x))) (* P (sin (* (* C P) x))))"}
+{"src": "(+ c (* a (- 1.0 (exp (- 0.0 (* b x))))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (- C (exp (- C (* P x))))))"}
+{"src": "(+ (* a (exp (* b x))) (* c (exp (* 2.0 b x))))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (exp (* P x))) (* P (exp (* C P x))))"}
+{"src": "(+ (/ (* a x) (+ b x)) c)", "params": ["a", "b", "c"], "skeleton": "(+ (/ (* P x) (+ P x)) P)"}
+{"src": "(* a (/ 1.0 (+ 1.0 (exp (* c (- b x))))))", "params": ["a", "b", "c"], "skeleton": "(* P (/ C (+ C (exp (* P (- P x))))))"}
+{"src": "(- a (* b (exp (* c x))))", "params": ["a", "b", "c"], "skeleton": "(- P (* P (exp (* P x))))"}
+{"src": "(+ (sin (+ (* a x) b)) (* c x))", "params": ["a", "b", "c"], "skeleton": "(+ (sin (+ (* P x) P)) (* P x))"}
+{"src": "(/ a (+ 1.0 (exp (- c (* b x)))))", "params": ["a", "b", "c"], "skeleton": "(/ P (+ C (exp (- P (* P x)))))"}
+{"src": "(+ (* a (sin (* b x))) (* c (cos x)))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (sin (* P x))) (* P (cos x)))"}
+{"src": "(* a (exp (sin (+ (* b x) c))))", "params": ["a", "b", "c"], "skeleton": "(* P (exp (sin (+ (* P x) P))))"}
+{"src": "(/ (+ a (* b (* x x))) (exp (* c x)))", "params": ["a", "b", "c"], "skeleton": "(/ (+ P (* P (* x x))) (exp (* P x)))"}
+{"src": "(+ (* a (* x (* x x))) (+ (* b (* x x)) (+ (* c x) d)))", "params": ["a", "b", "c", "d"], "skeleton": "(+ (* P (* x (* x x))) (+ (* P (* x x)) (+ (* P x) P)))"}
+{"src": "(+ c (* a (* (exp (* (* (- 0.0 1.0) b) x)) (cos x))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (* (exp (* (* (- C C) P) x)) (cos x))))"}
+{"src": "( + ( * a x ) ( + ( / b x ) c ) )", "params": ["a", "b", "c"], "skeleton": "( + ( * P x ) ( + ( / P x ) P ) )"}
+{"src": "(+ c (* (exp (* b x)) (sin (* a x))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* (exp (* P x)) (sin (* P x))))"}
+{"src": "(log (abs (+ c (* x (+ (* a x) b)))))", "params": ["a", "b", "c"], "skeleton": "(log (abs (+ P (* x (+ (* P x) P)))))"}
+{"src": "(* a (* (sin (* c x)) (/ 1.0 (exp (* b x)))))", "params": ["a", "b", "c"], "skeleton": "(* P (* (sin (* P x)) (/ C (exp (* P x)))))"}
+{"src": "(/ a (+ 1.0 (exp (- (* b c) (* b x)))))", "params": ["a", "b", "c"], "skeleton": "(/ P (+ C (exp (- (* P P) (* P x)))))"}
+{"src": "(+ (* a (sqrt (+ x (abs b)))) c)", "params": ["a", "b", "c"], "skeleton": "(+ (* P (sqrt (+ x (abs P)))) P)"}
+{"src": "(+ a (+ (* b x) (/ c x)))", "params": ["a", "b", "c"], "skeleton": "(+ P (+ (* P x) (/ P x)))"}
+{"src": "(* a (* (exp (* (- 0.0 b) x)) (cos (* c (* x x)))))", "params": ["a", "b", "c"], "skeleton": "(* P (* (exp (* (- C P) x)) (cos (* P (* x x)))))"}
+{"src": "(+ (* a (sin (* b x))) (* c (sin (* (+ b c) x))))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (sin (* P x))) (* P (sin (* (+ P P) x))))"}
+{"src": "(* a (log (+ (+ (* b (* x x)) (* c x)) 1.0)))", "params": ["a", "b", "c"], "skeleton": "(* P (log (+ (+ (* P (* x x)) (* P x)) C)))"}
+{"src": "(/ (+ (* a x) b) (+ (* c x) d))", "params": ["a", "b", "c", "d"], "skeleton": "(/ (+ (* P x) P) (+ (* P x) P))"}
+{"src": "(* (+ (* a (* x x)) b) (exp (* c x)))", "params": ["a", "b", "c"], "skeleton": "(* (+ (* P (* x x)) P) (exp (* P x)))"}
+{"src": "(+ a (* b (- 1.0 (exp (* (* -1.0 c) x)))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (- C (exp (* (* C P) x)))))"}
+{"src": "(+ (* a (exp (* b x))) (/ c (exp (* b x))))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (exp (* P x))) (/ P (exp (* P x))))"}
+{"src": "(* (sin (* c x)) (* a (exp (* (- 0.0 b) x))))", "params": ["a", "b", "c"], "skeleton": "(* (sin (* P x)) (* P (exp (* (- C P) x))))"}
+{"src": "(+ (* a (sin (* b x))) (* c (sin x)))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (sin (* P x))) (* P (sin x)))"}
+{"src": "(+ c (/ (* a x) (+ b x)))", "params": ["a", "b", "c"], "skeleton": "(+ P (/ (* P x) (+ P x)))"}
+{"src": "(+ c (* a (* (exp (* (- 0.0 b) x)) (sin x))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (* (exp (* (- C P) x)) (sin x))))"}
+{"src": "(* a (* (exp (* (- 0.0 b) x)) (sin (* c (* x x)))))", "params": ["a", "b", "c"], "skeleton": "(* P (* (exp (* (- C P) x)) (sin (* P (* x x)))))"}
+{"src": "(+ (* a (+ x b)) c)", "params": ["a", "b", "c"], "skeleton": "(+ (* P (+ x P)) P)"}
+{"src": "(exp (+ c (* a (sin (* b x)))))", "params": ["a", "b", "c"], "skeleton": "(exp (+ P (* P (sin (* P x)))))"}
+{"src": "(* a (exp (/ (* -1.0 (* (- x b) (- x b))) (* 2.0 (* c c)))))", "params": ["a", "b", "c"], "skeleton": "(* P (exp (/ (* C (* (- x P) (- x P))) (* C (* P P)))))"}
+{"src": "(+ a (* b (log (+ x c))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (log (+ x P))))"}
+{"src": "(/ (* a x) (+ b (* c x)))", "params": ["a", "b", "c"], "skeleton": "(/ (* P x) (+ P (* P x)))"}
+{"src": "(+ c (* a (exp (* b (log x)))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (exp (* P (log x)))))"}
+{"src": "(* a (* (sin (* c x)) (exp (- 0.0 (* b x)))))", "params": ["a", "b", "c"], "skeleton": "(* P (* (sin (* P x)) (exp (- C (* P x)))))"}
+{"src": "(/ (+ (+ (* a (* x x)) (* b x)) c) (exp (* c x)))", "params": ["a", "b", "c"], "skeleton": "(/ (+ (+ (* P (* x x)) (* P x)) P) (exp (* P x)))"}
+{"src": "(+ c (* a (- 1.0 (exp (* b x)))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (- C (exp (* P x)))))"}
+{"src": "(/ (exp (* a x)) (+ b (* c (* x x))))", "params": ["a", "b", "c"], "skeleton": "(/ (exp (* P x)) (+ P (* P (* x x))))"}
+{"src": "(* x (+ (* a (* x x)) (+ (* b x) c)))", "params": ["a", "b", "c"], "skeleton": "(* x (+ (* P (* x x)) (+ (* P x) P)))"}
+{"src": "(+ a (* b (exp (* c (log (abs x))))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (exp (* P (log (abs x))))))"}
+{"src": "(* a (exp (* -1.0 (* (- (* b x) c) (- (* b x) c)))))", "params": ["a", "b", "c"], "skeleton": "(* P (exp (* C (* (- (* P x) P) (- (* P x) P)))))"}
+{"src": "(log (+ (+ (* a (* x x)) (* b x)) c))", "params": ["a", "b", "c"], "skeleton": "(log (+ (+ (* P (* x x)) (* P x)) P))"}
+{"src": "(+ c (/ (- (exp (* a x)) (exp (* b x))) (+ (exp (* a x)) (exp (* b x)))))", "params": ["a", "b", "c"], "skeleton": "(+ P (/ (- (exp (* P x)) (exp (* P x))) (+ (exp (* P x)) (exp (* P x)))))"}
+{"src": "(+ c (* a (exp (* x (- 0.0 b)))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (exp (* x (- C P)))))"}
+{"src": "(* (exp (* (- 0.0 a) x)) (sin (+ (* b x) (* c (* x x)))))", "params": ["a", "b", "c"], "skeleton": "(* (exp (* (- C P) x)) (sin (+ (* P x) (* P (* x x)))))"}
+{"src": "(+ c (* x (+ (* a x) b)))", "params": ["a", "b", "c"], "skeleton": "(+ P (* x (+ (* P x) P)))"}
+{"src": "(* (+ (+ (* a (* x x)) (* b x)) c) (exp x))", "params": ["a", "b", "c"], "skeleton": "(* (+ (+ (* P (* x x)) (* P x)) P) (exp x))"}
+{"src": "(+ a (* b (* (exp (- 0.0 (* c x))) (sin x))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (* (exp (- C (* P x))) (sin x))))"}
+{"src": "(* a (* (/ 1.0 (exp (* b x))) (sin (* c x))))", "params": ["a", "b", "c"], "skeleton": "(* P (* (/ C (exp (* P x))) (sin (* P x))))"}
+{"src": "(/ (exp (* a x)) (+ (* c (* x x)) (+ (* b x) 1.0)))", "params": ["a", "b", "c"], "skeleton": "(/ (exp (* P x)) (+ (* P (* x x)) (+ (* P x) C)))"}
+{"src": "(+ b (* a (sqrt (abs (+ x c)))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (sqrt (abs (+ x P)))))"}
+{"src": "(/ (- (* a (exp (* b x))) c) (+ (* a (exp (* b x))) c))", "params": ["a", "b", "c"], "skeleton": "(/ (- (* P (exp (* P x))) P) (+ (* P (exp (* P x))) P))"}
+{"src": "(* a (sin (* x (+ b (* c x)))))", "params": ["a", "b", "c"], "skeleton": "(* P (sin (* x (+ P (* P x)))))"}
+{"src": "(+ (/ a (+ x b)) (* c x))", "params": ["a", "b", "c"], "skeleton": "(+ (/ P (+ x P)) (* P x))"}
+{"src": "(* (exp (* (* -1.0 a) x)) (sin (+ (* b (* x x)) c)))", "params": ["a", "b", "c"], "skeleton": "(* (exp (* (* C P) x)) (sin (+ (* P (* x x)) P)))"}
+{"src": "(+ d (* a (* (exp (- 0.0 (* b x))) (sin (* c x)))))", "params": ["a", "b", "c", "d"], "skeleton": "(+ P (* P (* (exp (- C (* P x))) (sin (* P x)))))"}
+{"src": "(* a (* (exp (* (- 0.0 b) (abs x))) (cos (* c (* x x)))))", "params": ["a", "b", "c"], "skeleton": "(* P (* (exp (* (- C P) (abs x))) (cos (* P (* x x)))))"}
+{"src": "(log (+ c (* x (+ b (* a x)))))", "params": ["a", "b", "c"], "skeleton": "(log (+ P (* x (+ P (* P x)))))"}
+{"src": "(+ c (* a (- 1.0 (exp (* b (- 0.0 x))))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (- C (exp (* P (- C x))))))"}
+{"src": "(+ (* a (exp (* b x))) (* c (exp (* d x))))", "params": ["a", "b", "c", "d"], "skeleton": "(+ (* P (exp (* P x))) (* P (exp (* P x))))"}
+{"src": "(* a (sqrt (+ b (* c x))))", "params": ["a", "b", "c"], "skeleton": "(* P (sqrt (+ P (* P x))))"}
+{"src": "(+ (* a (* x (* x x))) (+ (* b (* x x)) (* c x)))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (* x (* x x))) (+ (* P (* x x)) (* P x)))"}
+{"src": "(+ c (* a (- 1.0 (/ b (+ b x)))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (- C (/ P (+ P x)))))"}
+{"src": "(+ a (* b (* (exp (- 0.0 (* c x))) (cos x))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (* (exp (- C (* P x))) (cos x))))"}
+{"src": "(/ (+ (+ c (* b x)) (* a (* x x))) (exp x))", "params": ["a", "b", "c"], "skeleton": "(/ (+ (+ P (* P x)) (* P (* x x))) (exp x))"}
+{"src": "(* a (exp (/ (- 0.0 (* (- x b) (- x b))) (* c c))))", "params": ["a", "b", "c"], "skeleton": "(* P (exp (/ (- C (* (- x P) (- x P))) (* P P))))"}
+{"src": "(* a (* (exp (- 0.0 (* b x))) (sin (+ (* c x) d))))", "params": ["a", "b", "c", "d"], "skeleton": "(* P (* (exp (- C (* P x))) (sin (+ (* P x) P))))"}
+{"src": "( + a ( * b ( exp ( - 0.0 ( * c x ) ) ) ) )", "params": ["a", "b", "c"], "skeleton": "( + P ( * P ( exp ( - C ( * P x ) ) ) ) )"}
+{"src": "(log (+ (* x (+ (* a x) b)) c))", "params": ["a", "b", "c"], "skeleton": "(log (+ (* x (+ (* P x) P)) P))"}
+{"src": "(* (+ (+ (* a (* x x)) (* b x)) c) (exp (* -1.0 (* x x))))", "params": ["a", "b", "c"], "skeleton": "(* (+ (+ (* P (* x x)) (* P x)) P) (exp (* C (* x x))))"}
+{"src": "( / (+ (* a x) b) (+ (* c x) 1.0) )", "params": ["a", "b", "c"], "skeleton": "( / (+ (* P x) P) (+ (* P x) C) )"}
+{"src": "(+ (* a (log (+ (* b x) 1.0))) c)", "params": ["a", "b", "c"], "skeleton": "(+ (* P (log (+ (* P x) C))) P)"}
+{"src": "(* a (exp (* b (log (+ x c)))))", "params": ["a", "b", "c"], "skeleton": "(* P (exp (* P (log (+ x P)))))"}
+{"src": "(/ (exp (* a x)) (+ b (* c x)))", "params": ["a", "b", "c"], "skeleton": "(/ (exp (* P x)) (+ P (* P x)))"}
+{"src": "(+ c (/ 1.0 (+ 1.0 (exp (* a (- x b))))))", "params": ["a", "b", "c"], "skeleton": "(+ P (/ C (+ C (exp (* P (- x P))))))"}
+{"src": "(+ (* a (- 1.0 (/ 1.0 (exp (* b x))))) c)", "params": ["a", "b", "c"], "skeleton": "(+ (* P (- C (/ C (exp (* P x))))) P)"}
+{"src": "(+ c (* a (exp (/ (- 0.0 x) b))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (exp (/ (- C x) P))))"}
+{"src": "(* (* a (sin (* b x))) (exp (* (- 0.0 1.0) (* c x))))", "params": ["a", "b", "c"], "skeleton": "(* (* P (sin (* P x))) (exp (* (- C C) (* P x))))"}
+{"src": "(/ (* a (sin (* c x))) (exp (* b (abs x))))", "params": ["a", "b", "c"], "skeleton": "(/ (* P (sin (* P x))) (exp (* P (abs x))))"}
+{"src": "(+ a (* b (log (+ 1.0 (* c x)))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (log (+ C (* P x)))))"}
+{"src": "(+ d (* a (* (exp (* (- 0.0 b) x)) (sin (* c x)))))", "params": ["a", "b", "c", "d"], "skeleton": "(+ P (* P (* (exp (* (- C P) x)) (sin (* P x)))))"}
+{"src": "(+ (* a (sin (+ (* b x) c))) (* d (cos (* 2.0 (* b x)))))", "params": ["a", "b", "c", "d"], "skeleton": "(+ (* P (sin (+ (* P x) P))) (* P (cos (* C (* P x)))))"}
+{"src": "(* (* a (exp (* x (- 0.0 b)))) (sin (* c (* x x))))", "params": ["a", "b", "c"], "skeleton": "(* (* P (exp (* x (- C P)))) (sin (* P (* x x))))"}
+{"src": "(* a (exp (- 0.0 (/ (* (- x b) (- x b)) c))))", "params": ["a", "b", "c"], "skeleton": "(* P (exp (- C (/ (* (- x P) (- x P)) P))))"}
+{"src": "(+ (* a (exp (* b x))) (* c (exp x)))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (exp (* P x))) (* P (exp x)))"}
+{"src": "(/ a (+ 1.0 (exp (- 0.0 (* b (- x c))))))", "params": ["a", "b", "c"], "skeleton": "(/ P (+ C (exp (- C (* P (- x P))))))"}
+{"src": "(/ (+ c (+ (* b x) (* a (* x x)))) (exp (* a x)))", "params": ["a", "b", "c"], "skeleton": "(/ (+ P (+ (* P x) (* P (* x x)))) (exp (* P x)))"}
+{"src": "(* a (/ (- (exp (* b x)) c) (+ (exp (* b x)) c)))", "params": ["a", "b", "c"], "skeleton": "(* P (/ (- (exp (* P x)) P) (+ (exp (* P x)) P)))"}
+{"src": "(* (exp (* a x)) (sin (+ (* b x) (* c (* x x)))))", "params": ["a", "b", "c"], "skeleton": "(* (exp (* P x)) (sin (+ (* P x) (* P (* x x)))))"}
+{"src": "(+ (* a (sin (* b x))) (sin (* c x)))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (sin (* P x))) (sin (* P x)))"}
+{"src": "(* (+ (+ (* a (* x x)) (* b x)) 1.0) (exp (* c x)))", "params": ["a", "b", "c"], "skeleton": "(* (+ (+ (* P (* x x)) (* P x)) C) (exp (* P x)))"}
+{"src": "(* a (* (exp (- 0.0 (* b x))) (cos (* c x))))", "params": ["a", "b", "c"], "skeleton": "(* P (* (exp (- C (* P x))) (cos (* P x))))"}
+{"src": "(+ (* a x) (* b (sin (* c x))))", "params": ["a", "b", "c"], "skeleton": "(+ (* P x) (* P (sin (* P x))))"}
+{"src": "(+ (/ 1.0 (+ x a)) (+ (* b x) c))", "params": ["a", "b", "c"], "skeleton": "(+ (/ C (+ x P)) (+ (* P x) P))"}
+{"src": "(* (+ (* a (* x x)) (+ (* b x) c)) (exp (* d x)))", "params": ["a", "b", "c", "d"], "skeleton": "(* (+ (* P (* x x)) (+ (* P x) P)) (exp (* P x)))"}
+{"src": "( / ( * a ( exp (* b x) ) ) ( + 1.0 (* c (* x x)) ) )", "params": ["a", "b", "c"], "skeleton": "( / ( * P ( exp (* P x) ) ) ( + C (* P (* x x)) ) )"}
+{"src": "(+ (/ a x) (* b (+ x c)))", "params": ["a", "b", "c"], "skeleton": "(+ (/ P x) (* P (+ x P)))"}
+{"src": "( / a ( + 1.0 ( exp ( - 0.0 ( * b ( - x c ) ) ) ) ) )", "params": ["a", "b", "c"], "skeleton": "( / P ( + C ( exp ( - C ( * P ( - x P ) ) ) ) ) )"}
+{"src": "(* x (+ (* x (+ (* a x) b)) c))", "params": ["a", "b", "c"], "skeleton": "(* x (+ (* x (+ (* P x) P)) P))"}
+{"src": "(/ 1.0 (+ 1.0 (exp (- 0.0 (+ (* a x) b)))))", "params": ["a", "b"], "skeleton": "(/ C (+ C (exp (- C (+ (* P x) P)))))"}
+{"src": "(* (* a (exp (- 0.0 (* b x)))) (sin (* c x)))", "params": ["a", "b", "c"], "skeleton": "(* (* P (exp (- C (* P x)))) (sin (* P x)))"}
+{"src": "(+ c (* a (abs (+ x b))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (abs (+ x P))))"}
+{"src": "(+ (* a x) (+ b (* c (sin (* d x)))))", "params": ["a", "b", "c", "d"], "skeleton": "(+ (* P x) (+ P (* P (sin (* P x)))))"}
+{"src": "(exp (* a (sin (+ b (* c x)))))", "params": ["a", "b", "c"], "skeleton": "(exp (* P (sin (+ P (* P x)))))"}
+{"src": "(+ c (* a (* (exp (* (-1.0) (* b x))) (cos x))))", "params": ["a", "b", "c"], "skeleton": "(+ P (* P (* (exp (* (C) (* P x))) (cos x))))"}
+{"src": "(+ (* a (cos (* b x))) (* c (sin (* b x))))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (cos (* P x))) (* P (sin (* P x))))"}
+{"src": "(* (* a (exp (* (- 0.0 b) x))) (sin (* c x)))", "params": ["a", "b", "c"], "skeleton": "(* (* P (exp (* (- C P) x))) (sin (* P x)))"}
+{"src": "(+ (* a (sin (* b x))) (* c (cos (* (+ a b) x))))", "params": ["a", "b", "c"], "skeleton": "(+ (* P (sin (* P x))) (* P (cos (* (+ P P) x))))"}
+{"src": "(* a (log (+ (abs (* b x)) c)))", "params": ["a", "b", "c"], "skeleton": "(* P (log (+ (abs (* P x)) P)))"}
+{"src": "(* a (* (sin (* c x)) (exp (* (- 0.0 b) x))))", "params": ["a", "b", "c"], "skeleton": "(* P (* (sin (* P x)) (exp (* (- C P) x))))"}
+{"src": "(* (+ (* (+ (* a x) b) x) c) x)", "params": ["a", "b", "c"], "skeleton": "(* (+ (* (+ (* P x) P) x) P) x)"}
+{"src": "(exp (* (+ a b) (log x)))", "params": ["a", "b"], "skeleton": "(exp (* (+ P P) (log x)))"}
+{"src": "(/ (exp (* a x)) (+ (+ 1.0 (* b x)) (* c (* x x))))", "params": ["a", "b", "c"], "skeleton": "(/ (exp (* P x)) (+ (+ C (* P x)) (* P (* x x))))"}

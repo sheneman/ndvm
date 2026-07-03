@@ -1,0 +1,56 @@
+# host=n128.fortytwo.ibest.uidaho.edu date=Sat Jun 20 12:05:49 PDT 2026 (reference n128 run; wall-clock is non-deterministic, deterministic counts/gates are bit-reproducible)
+# instruction set (15): PUSH, LOAD, ADD, SUB, MUL, DIV, NEG, EXP, LOG, SIN, COS, DUP, LOOP, BRANCH, DOT
+# host torch=2.12.0+cu130
+
+====================================================================================================
+W1-W4 RESULTS: forward + gradient validation, eager-VM vs payload-VM timing (B=1), per-lane @B=256
+====================================================================================================
+workload            eager_ms  payload_ms  perlane_us@256  speedup fwd_match  grad=AD  grad=FD
+---------------------------------------------------------------------------------------------
+W1_scalar_expr         0.297       0.124           0.512    2.39x      True     True     True
+W2_counted_loop        1.387       0.430           1.775    3.23x      True     True     True
+W3_branch              0.136       0.076           0.308    1.77x      True     True     True
+W4_matvec              0.668       0.200           0.824    3.34x      True     True     True
+
+====================================================================================================
+BATCH-INDEPENDENCE: per-lane cost (us) across B (one structural walk over B payload lanes)
+====================================================================================================
+W1_scalar_expr     payload per-lane: B=1:124.306us  B=8: 15.929us  B=64:  1.999us  B=256:  0.512us   (B256/B1 = 0.004x)
+W2_counted_loop    payload per-lane: B=1:429.856us  B=8: 55.059us  B=64:  6.926us  B=256:  1.775us   (B256/B1 = 0.004x)
+W3_branch          payload per-lane: B=1: 76.465us  B=8:  9.799us  B=64:  1.226us  B=256:  0.308us   (B256/B1 = 0.004x)
+W4_matvec          payload per-lane: B=1:199.649us  B=8: 25.661us  B=64:  3.226us  B=256:  0.824us   (B256/B1 = 0.004x)
+
+====================================================================================================
+GRADIENT detail (workload : leaf : payload-VM / eager-VM / autograd-oracle / finite-diff)
+====================================================================================================
+W1_scalar_expr     a        +0.94687 / +0.94687 / +0.94687 / +0.94652
+W1_scalar_expr     x        +0.00941 / +0.00941 / +0.00941 / +0.00954
+W1_scalar_expr     w        -0.13497 / -0.13497 / -0.13497 / -0.13471
+W1_scalar_expr     b        +1.00000 / +1.00000 / +1.00000 / +1.00017
+W2_counted_loop    x0       -0.00374 / -0.00374 / -0.00374 / -0.00417
+W2_counted_loop    r        -0.38472 / -0.38472 / -0.38472 / -0.38385
+W3_branch          g        +0.00000 / +0.00000 / +0.00000 / +0.00000
+W3_branch          a        +1.50000 / +1.50000 / +1.50000 / +1.49846
+W3_branch          x        +2.00000 / +2.00000 / +2.00000 / +2.00033
+W3_branch          b        +0.00000 / +0.00000 / +0.00000 / +0.00000
+W4_matvec          m0[0]    +1.00000 / +1.00000 / +1.00000 / +1.00136
+W4_matvec          m0[1]    +0.50000 / +0.50000 / +0.50000 / +0.50068
+W4_matvec          m0[2]    -2.00000 / -2.00000 / -2.00000 / -2.00152
+W4_matvec          m1[0]    +1.00000 / +1.00000 / +1.00000 / +1.00017
+W4_matvec          m1[1]    +0.50000 / +0.50000 / +0.50000 / +0.50068
+W4_matvec          m1[2]    -2.00000 / -2.00000 / -2.00000 / -1.99914
+W4_matvec          m2[0]    +1.00000 / +1.00000 / +1.00000 / +1.00017
+W4_matvec          m2[1]    +0.50000 / +0.50000 / +0.50000 / +0.50068
+W4_matvec          m2[2]    -2.00000 / -2.00000 / -2.00000 / -2.00033
+W4_matvec          v[0]     +0.50000 / +0.50000 / +0.50000 / +0.50187
+W4_matvec          v[1]     +2.50000 / +2.50000 / +2.50000 / +2.50101
+W4_matvec          v[2]     +1.50000 / +1.50000 / +1.50000 / +1.49786
+
+====================================================================================================
+LOC INVENTORY (honest: VM-specific vs reused value/AD interface)
+====================================================================================================
+  VM-specific (bytecode_vm.py) SLOC ........ 219
+  reused value/AD interface (payload_value.py) SLOC ... 120
+  note: bytecode_vm.py is the only new client code; the value box (PV, numeric constructors, tag codes) + torch-autograd AD come from payload_value.py, shared verbatim with the DMCI tree-walking evaluator.
+
+ALL WORKLOADS VALIDATED (fwd + grad=AD + grad=FD): True

@@ -1,0 +1,199 @@
+{
+  "task": "recurrence-heavy (deep iterated maps); target sin(1.2x)+0.3x",
+  "budget_s": 900.0,
+  "iters": 50,
+  "tau": 0.037741374969482426,
+  "var_y": 0.3774137496948242,
+  "n_candidates": 80,
+  "backends": {
+    "dmci": {
+      "elapsed_s": 900.4,
+      "calibrated": 117,
+      "successful_distinct": 0,
+      "best_held_mse": 0.190791,
+      "best_held_r2": 0.4945,
+      "t_first_success_s": null,
+      "trajectory": [
+        {
+          "t": 1,
+          "calibrated": 1,
+          "distinct_success": 0,
+          "best_r2": -0.0
+        },
+        {
+          "t": 2,
+          "calibrated": 1,
+          "distinct_success": 0,
+          "best_r2": -0.0
+        },
+        {
+          "t": 5,
+          "calibrated": 1,
+          "distinct_success": 0,
+          "best_r2": -0.0
+        },
+        {
+          "t": 10,
+          "calibrated": 2,
+          "distinct_success": 0,
+          "best_r2": 0.0768
+        },
+        {
+          "t": 20,
+          "calibrated": 4,
+          "distinct_success": 0,
+          "best_r2": 0.2781
+        },
+        {
+          "t": 30,
+          "calibrated": 6,
+          "distinct_success": 0,
+          "best_r2": 0.2781
+        },
+        {
+          "t": 60,
+          "calibrated": 9,
+          "distinct_success": 0,
+          "best_r2": 0.2781
+        },
+        {
+          "t": 120,
+          "calibrated": 18,
+          "distinct_success": 0,
+          "best_r2": 0.2781
+        },
+        {
+          "t": 180,
+          "calibrated": 26,
+          "distinct_success": 0,
+          "best_r2": 0.2781
+        },
+        {
+          "t": 240,
+          "calibrated": 33,
+          "distinct_success": 0,
+          "best_r2": 0.2781
+        },
+        {
+          "t": 300,
+          "calibrated": 41,
+          "distinct_success": 0,
+          "best_r2": 0.4945
+        },
+        {
+          "t": 420,
+          "calibrated": 55,
+          "distinct_success": 0,
+          "best_r2": 0.4945
+        },
+        {
+          "t": 600,
+          "calibrated": 78,
+          "distinct_success": 0,
+          "best_r2": 0.4945
+        },
+        {
+          "t": 900,
+          "calibrated": 117,
+          "distinct_success": 0,
+          "best_r2": 0.4945
+        }
+      ]
+    },
+    "ndvm": {
+      "elapsed_s": 900.0,
+      "calibrated": 39759,
+      "successful_distinct": 2,
+      "best_held_mse": 0.004086,
+      "best_held_r2": 0.9892,
+      "t_first_success_s": 18.15,
+      "trajectory": [
+        {
+          "t": 1,
+          "calibrated": 45,
+          "distinct_success": 0,
+          "best_r2": 0.4945
+        },
+        {
+          "t": 2,
+          "calibrated": 88,
+          "distinct_success": 0,
+          "best_r2": 0.4945
+        },
+        {
+          "t": 5,
+          "calibrated": 220,
+          "distinct_success": 0,
+          "best_r2": 0.6472
+        },
+        {
+          "t": 10,
+          "calibrated": 439,
+          "distinct_success": 0,
+          "best_r2": 0.6834
+        },
+        {
+          "t": 20,
+          "calibrated": 884,
+          "distinct_success": 1,
+          "best_r2": 0.9128
+        },
+        {
+          "t": 30,
+          "calibrated": 1327,
+          "distinct_success": 1,
+          "best_r2": 0.9128
+        },
+        {
+          "t": 60,
+          "calibrated": 2653,
+          "distinct_success": 1,
+          "best_r2": 0.9281
+        },
+        {
+          "t": 120,
+          "calibrated": 5311,
+          "distinct_success": 1,
+          "best_r2": 0.9281
+        },
+        {
+          "t": 180,
+          "calibrated": 7970,
+          "distinct_success": 1,
+          "best_r2": 0.9317
+        },
+        {
+          "t": 240,
+          "calibrated": 10619,
+          "distinct_success": 1,
+          "best_r2": 0.9368
+        },
+        {
+          "t": 300,
+          "calibrated": 13265,
+          "distinct_success": 1,
+          "best_r2": 0.9368
+        },
+        {
+          "t": 420,
+          "calibrated": 18567,
+          "distinct_success": 2,
+          "best_r2": 0.9892
+        },
+        {
+          "t": 600,
+          "calibrated": 26535,
+          "distinct_success": 2,
+          "best_r2": 0.9892
+        },
+        {
+          "t": 900,
+          "calibrated": 39759,
+          "distinct_success": 2,
+          "best_r2": 0.9892
+        }
+      ]
+    }
+  },
+  "frontier_shift_candidates": 339.8
+}

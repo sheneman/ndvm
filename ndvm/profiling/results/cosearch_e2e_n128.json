@@ -1,0 +1,197 @@
+{
+  "budget_s": 900.0,
+  "tau": 0.013278344273567201,
+  "var_y": 0.132783442735672,
+  "n_candidates": 247,
+  "backends": {
+    "dmci": {
+      "elapsed_s": 900.2,
+      "calibrated": 1778,
+      "successful_distinct": 4,
+      "best_held_mse": 0.0041,
+      "best_held_r2": 0.9691,
+      "t_first_success_s": 288.15,
+      "trajectory": [
+        {
+          "t": 1,
+          "calibrated": 3,
+          "distinct_success": 0,
+          "best_r2": 0.1166
+        },
+        {
+          "t": 2,
+          "calibrated": 5,
+          "distinct_success": 0,
+          "best_r2": 0.2263
+        },
+        {
+          "t": 5,
+          "calibrated": 12,
+          "distinct_success": 0,
+          "best_r2": 0.2263
+        },
+        {
+          "t": 10,
+          "calibrated": 22,
+          "distinct_success": 0,
+          "best_r2": 0.3952
+        },
+        {
+          "t": 20,
+          "calibrated": 43,
+          "distinct_success": 0,
+          "best_r2": 0.3952
+        },
+        {
+          "t": 30,
+          "calibrated": 64,
+          "distinct_success": 0,
+          "best_r2": 0.3952
+        },
+        {
+          "t": 60,
+          "calibrated": 123,
+          "distinct_success": 0,
+          "best_r2": 0.8057
+        },
+        {
+          "t": 120,
+          "calibrated": 238,
+          "distinct_success": 0,
+          "best_r2": 0.8342
+        },
+        {
+          "t": 180,
+          "calibrated": 359,
+          "distinct_success": 0,
+          "best_r2": 0.8995
+        },
+        {
+          "t": 240,
+          "calibrated": 474,
+          "distinct_success": 0,
+          "best_r2": 0.8995
+        },
+        {
+          "t": 300,
+          "calibrated": 596,
+          "distinct_success": 1,
+          "best_r2": 0.9087
+        },
+        {
+          "t": 420,
+          "calibrated": 831,
+          "distinct_success": 2,
+          "best_r2": 0.9348
+        },
+        {
+          "t": 600,
+          "calibrated": 1184,
+          "distinct_success": 3,
+          "best_r2": 0.9348
+        },
+        {
+          "t": 900,
+          "calibrated": 1778,
+          "distinct_success": 4,
+          "best_r2": 0.9691
+        }
+      ]
+    },
+    "ndvm": {
+      "elapsed_s": 900.0,
+      "calibrated": 42289,
+      "successful_distinct": 5,
+      "best_held_mse": 0.0005,
+      "best_held_r2": 0.9962,
+      "t_first_success_s": 12.23,
+      "trajectory": [
+        {
+          "t": 1,
+          "calibrated": 47,
+          "distinct_success": 0,
+          "best_r2": 0.3952
+        },
+        {
+          "t": 2,
+          "calibrated": 94,
+          "distinct_success": 0,
+          "best_r2": 0.8057
+        },
+        {
+          "t": 5,
+          "calibrated": 234,
+          "distinct_success": 0,
+          "best_r2": 0.8342
+        },
+        {
+          "t": 10,
+          "calibrated": 468,
+          "distinct_success": 0,
+          "best_r2": 0.8995
+        },
+        {
+          "t": 20,
+          "calibrated": 934,
+          "distinct_success": 2,
+          "best_r2": 0.9348
+        },
+        {
+          "t": 30,
+          "calibrated": 1402,
+          "distinct_success": 4,
+          "best_r2": 0.9691
+        },
+        {
+          "t": 60,
+          "calibrated": 2805,
+          "distinct_success": 5,
+          "best_r2": 0.9929
+        },
+        {
+          "t": 120,
+          "calibrated": 5609,
+          "distinct_success": 5,
+          "best_r2": 0.9951
+        },
+        {
+          "t": 180,
+          "calibrated": 8410,
+          "distinct_success": 5,
+          "best_r2": 0.9951
+        },
+        {
+          "t": 240,
+          "calibrated": 11209,
+          "distinct_success": 5,
+          "best_r2": 0.9951
+        },
+        {
+          "t": 300,
+          "calibrated": 14017,
+          "distinct_success": 5,
+          "best_r2": 0.9951
+        },
+        {
+          "t": 420,
+          "calibrated": 19656,
+          "distinct_success": 5,
+          "best_r2": 0.9951
+        },
+        {
+          "t": 600,
+          "calibrated": 28144,
+          "distinct_success": 5,
+          "best_r2": 0.9962
+        },
+        {
+          "t": 900,
+          "calibrated": 42289,
+          "distinct_success": 5,
+          "best_r2": 0.9962
+        }
+      ]
+    }
+  },
+  "frontier_shift_candidates": 23.8
+}

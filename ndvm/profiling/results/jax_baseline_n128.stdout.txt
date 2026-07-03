@@ -1,0 +1,8 @@
+An NVIDIA GPU may be present on this machine, but a CUDA-enabled jaxlib is not installed. Falling back to cpu.
+[jax_baseline] scalar_mul_add     fwd=  0.0102ms fwd+grad=  0.0132ms (B=256: fwd=  0.0073 fwd+grad=  0.0078)  match=True (jax=4.00000 oracle=4.00000)
+[jax_baseline] michaelis_menten   fwd=  0.0107ms fwd+grad=  0.0127ms (B=256: fwd=  0.0110 fwd+grad=  0.0179)  match=True (jax=1.50000 oracle=1.50000)
+[jax_baseline] damped_oscillator  fwd=  0.0109ms fwd+grad=  0.0145ms (B=256: fwd=  0.0138 fwd+grad=  0.0174)  match=True (jax=-0.63125 oracle=-0.63125)
+[jax_baseline] logistic_map_loop  fwd=  0.0105ms fwd+grad=  0.0136ms (B=256: fwd=  0.0172 fwd+grad=  0.0218)  match=True (jax=0.51305 oracle=0.51305)
+[jax_baseline] kalman2d_T80       fwd=  0.2906ms fwd+grad=  0.6137ms (B=256: fwd=  7.6371 fwd+grad= 14.7153)  match=True (jax=831.22089 oracle=831.22089)
+[jax_baseline] all_match=True
+[jax_baseline] wrote /mnt/ceph/sheneman/src/nncompile-ndvm/ndvm/profiling/results/jax_baseline_n128.fortytwo.ibest.uidaho.edu.json

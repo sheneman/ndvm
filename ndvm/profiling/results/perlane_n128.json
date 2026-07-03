@@ -1,0 +1,42 @@
+{
+  "meta": {
+    "host": "n128.fortytwo.ibest.uidaho.edu",
+    "torch": "2.12.0+cu130",
+    "kalman_T": 80,
+    "params": {
+      "q": 0.05,
+      "r": 0.1
+    },
+    "reps": 20,
+    "warmup": 5,
+    "num_threads": 1,
+    "note": "NDVM per-lane forward+grad cost vs B for the 80-step 2x2 Kalman NLL through the ndvm_forward autograd boundary; regenerates the PHASE3.md ~60x figure. Program + bindings reuse profile_dmci_baseline.kalman2d_T80."
+  },
+  "rows": [
+    {
+      "B": 1,
+      "total_ms": 0.6254125328268856,
+      "per_lane_ms": 0.6254125328268856
+    },
+    {
+      "B": 8,
+      "total_ms": 0.9586600062903017,
+      "per_lane_ms": 0.11983250078628771
+    },
+    {
+      "B": 64,
+      "total_ms": 2.493734995368868,
+      "per_lane_ms": 0.038964609302638564
+    },
+    {
+      "B": 256,
+      "total_ms": 7.480558007955551,
+      "per_lane_ms": 0.02922092971857637
+    },
+    {
+      "B": 1024,
+      "total_ms": 29.37304397346452,
+      "per_lane_ms": 0.028684613255336444
+    }
+  ]
+}

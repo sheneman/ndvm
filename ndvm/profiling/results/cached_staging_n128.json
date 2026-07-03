@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "host": "n128.fortytwo.ibest.uidaho.edu",
+    "python": "3.11.10",
+    "jax": "0.10.1",
+    "torch": "2.12.0+cu130",
+    "iters": 50,
+    "D": 44,
+    "K_skeletons": 6,
+    "lr": 0.05,
+    "families": [
+      "linear",
+      "quadratic",
+      "exp_decay",
+      "damped_osc",
+      "mm_rational",
+      "sin_lin"
+    ],
+    "repeats": 3,
+    "note": "A=per-candidate staging (compile every candidate), B=structure-cached staging (compile once per skeleton, reuse across constants), C=NDVM program-as-data, D=NDVM batched lanes. Staging totals modeled from measured per-skeleton primitives (stage compile + staged run); NDVM batched directly timed per reuse rate. r* = candidates-per-skeleton where B overtakes D. Co-search streams are structurally distinct (r approx 1). Small per-candidate compute (low-dim, few steps) is the co-search regime; larger compute/more steps shift r* toward staging."
+  },
+  "primitives": {
+    "linear": {
+      "stage_ms": 70.062,
+      "staged_run_ms": 0.0406,
+      "ndvm_data_ms": 18.8819
+    },
+    "quadratic": {
+      "stage_ms": 76.859,
+      "staged_run_ms": 0.0748,
+      "ndvm_data_ms": 19.9586
+    },
+    "exp_decay": {
+      "stage_ms": 92.636,
+      "staged_run_ms": 0.0269,
+      "ndvm_data_ms": 18.212
+    },
+    "damped_osc": {
+      "stage_ms": 95.715,
+      "staged_run_ms": 0.1456,
+      "ndvm_data_ms": 19.9276
+    },
+    "mm_rational": {
+      "stage_ms": 74.838,
+      "staged_run_ms": 0.0592,
+      "ndvm_data_ms": 18.7789
+    },
+    "sin_lin": {
+      "stage_ms": 80.304,
+      "staged_run_ms": 0.1133,
+      "ndvm_data_ms": 20.4529
+    }
+  },
+  "crossover_reuse_rstar_B_over_D": 128,
+  "sweep": [
+    {
+      "reuse_r": 1,
+      "n_candidates": 6,
+      "per_candidate_staging_ms": 490.87,
+      "cached_staging_ms": 490.87,
+      "ndvm_program_as_data_ms": 116.21,
+      "ndvm_batched_ms": 121.01,
+      "cached_over_ndvm_batched": 4.056
+    },
+    {
+      "reuse_r": 2,
+      "n_candidates": 12,
+      "per_candidate_staging_ms": 981.75,
+      "cached_staging_ms": 491.33,
+      "ndvm_program_as_data_ms": 232.42,
+      "ndvm_batched_ms": 127.79,
+      "cached_over_ndvm_batched": 3.845
+    },
+    {
+      "reuse_r": 4,
+      "n_candidates": 24,
+      "per_candidate_staging_ms": 1963.5,
+      "cached_staging_ms": 492.26,
+      "ndvm_program_as_data_ms": 464.85,
+      "ndvm_batched_ms": 138.32,
+      "cached_over_ndvm_batched": 3.559
+    },
+    {
+      "reuse_r": 8,
+      "n_candidates": 48,
+      "per_candidate_staging_ms": 3927.0,
+      "cached_staging_ms": 494.1,
+      "ndvm_program_as_data_ms": 929.7,
+      "ndvm_batched_ms": 160.01,
+      "cached_over_ndvm_batched": 3.088
+    },
+    {
+      "reuse_r": 16,
+      "n_candidates": 96,
+      "per_candidate_staging_ms": 7853.99,
+      "cached_staging_ms": 497.78,
+      "ndvm_program_as_data_ms": 1859.39,
+      "ndvm_batched_ms": 202.15,
+      "cached_over_ndvm_batched": 2.462
+    },
+    {
+      "reuse_r": 32,
+      "n_candidates": 192,
+      "per_candidate_staging_ms": 15707.98,
+      "cached_staging_ms": 505.15,
+      "ndvm_program_as_data_ms": 3718.78,
+      "ndvm_batched_ms": 284.72,
+      "cached_over_ndvm_batched": 1.774
+    },
+    {
+      "reuse_r": 64,
+      "n_candidates": 384,
+      "per_candidate_staging_ms": 31415.96,
+      "cached_staging_ms": 519.88,
+      "ndvm_program_as_data_ms": 7437.56,
+      "ndvm_batched_ms": 447.87,
+      "cached_over_ndvm_batched": 1.161
+    },
+    {
+      "reuse_r": 128,
+      "n_candidates": 768,
+      "per_candidate_staging_ms": 62831.92,
+      "cached_staging_ms": 549.35,
+      "ndvm_program_as_data_ms": 14875.12,
+      "ndvm_batched_ms": 771.85,
+      "cached_over_ndvm_batched": 0.712
+    },
+    {
+      "reuse_r": 256,
+      "n_candidates": 1536,
+      "per_candidate_staging_ms": 125663.85,
+      "cached_staging_ms": 608.28,
+      "ndvm_program_as_data_ms": 29750.25,
+      "ndvm_batched_ms": 1586.31,
+      "cached_over_ndvm_batched": 0.383
+    }
+  ]
+}

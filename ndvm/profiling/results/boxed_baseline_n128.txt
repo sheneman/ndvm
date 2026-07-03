@@ -1,0 +1,7 @@
+# boxed-C++ (no split) vs NDVM-C++ (split) forward, host=n128.fortytwo.ibest.uidaho.edu, Sat Jun 20 10:26:43 PDT 2026
+# columns: program | boxed_result | ndvm_result | boxed_ms(median5) | ndvm_ms(median5) | N
+scalar_mul_add  4  4  0.001681  0.006854  20000
+michaelis_menten  1.5  1.5  0.002212  0.007305  20000
+damped_oscillator  -0.631247103  -0.631247103  0.004826  0.010241  20000
+logistic_map_loop  0.513045967  0.513045967  0.033278  0.021605  5000
+kalman2d_T80  831.220886  831.220886  0.986291  0.554108  300

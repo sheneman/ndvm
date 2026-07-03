@@ -1,0 +1,10 @@
+# compiled-differentiable C++ Kalman (program-as-code; hand-coded fwd + forward-mode dual grad), host=n128.fortytwo.ibest.uidaho.edu, Sat Jun 20 12:22:15 PDT 2026
+# forward+grad output:
+NLL 831.220886  dNLL/dq -3458.66943  dNLL/dr -7529.31055  (T=80 q=0.05 r=0.1)
+# NDVM reverse-mode gradient reference:
+grad q -3458.66821
+grad r -7529.30957
+result 831.220886
+# timing median-of-5 (ms/eval):
+compiled_fwd_ms  0.00092148
+compiled_fwdgrad_ms  0.00350818
